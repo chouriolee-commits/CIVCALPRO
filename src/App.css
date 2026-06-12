@@ -1,0 +1,11 @@
+.app {
+  padding: 20px;
+}
+
+.app h1 {
+  margin-bottom: 10px;
+}
+
+.app p {
+  color: #666;
+}
