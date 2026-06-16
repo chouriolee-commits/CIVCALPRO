@@ -158,7 +158,7 @@ body {
   background: var(--white);
   border-bottom: 1px solid var(--border);
   padding: 0 28px;
-  height: 56px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -187,11 +187,16 @@ body {
 }
 
 /* ─── PAGE CONTENT ──────────────────────────────────────────── */
+
 .page { padding: 28px; }
 
 .page-greeting h1 { font-size: 26px; font-weight: 700; color: var(--text-main); }
 .page-greeting h1 span { color: var(--green); }
 .page-greeting p { color: var(--text-muted); margin-top: 4px; font-size: 14px; }
+
+.dark-theme .page-greeting h1 {
+  color: #0F172A;
+}
 
 /* ─── MODULE CARDS GRID ─────────────────────────────────────── */
 .module-grid {
@@ -718,3 +723,26 @@ body {
 .flex  { display: flex; }
 .items-center { align-items: center; }
 .gap-8 { gap: 8px; }
+
+.theme-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.dark-theme {
+  --bg: #0f172a;
+  --white: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+  --text-light: #94a3b8;
+  --border: #334155;
+  --green-light: #123524;
+  --orange-light: #3a2410;
+  --purple-light: #2d1b45;
+  --blue-light: #142c52;
+}
