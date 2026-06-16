@@ -475,6 +475,19 @@ function Topbar({ title, darkMode, setDarkMode }) {
     </header>
   );
 }
+
+function ThemeToggleButton({ darkMode, setDarkMode, className = "" }) {
+  return (
+    <button
+      className={`theme-btn ${className}`.trim()}
+      onClick={() => setDarkMode(!darkMode)}
+      aria-label={darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+      type="button"
+    >
+      {darkMode ? "☀️" : "🌙"}
+    </button>
+  );
+}
 // ─── DESKTOP HOME PAGE ────────────────────────────────────────
 function DesktopHome({ onNavigate }) {
   const [elemento, setElemento] = useState("columna");
@@ -644,7 +657,7 @@ function DesktopHome({ onNavigate }) {
 }
 
 // ─── MOBILE HOME ──────────────────────────────────────────────
-function MobileHome({ onNavigate }) {
+function MobileHome({ onNavigate, darkMode, setDarkMode }) {
   return (
     <>
       <header className="mobile-topbar">
@@ -657,24 +670,19 @@ function MobileHome({ onNavigate }) {
             CIVCA<span>LPRO</span>
           </strong>
         </div>
-        <button
-          className="notif-btn"
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            position: "relative",
-          }}
-        >
-          <Icon name="bell" size={22} />
-          <span className="notif-badge">3</span>
-        </button>
+        <div className="mobile-topbar-actions">
+          <ThemeToggleButton darkMode={darkMode} setDarkMode={setDarkMode} />
+          <button className="notif-btn mobile-notif-btn">
+            <Icon name="bell" size={22} />
+            <span className="notif-badge">3</span>
+          </button>
+        </div>
       </header>
 
       <div className="mobile-page">
         <div className="mobile-greeting">
           <h2>Bienvenido, Carlos 👋</h2>
-          p¿Qué deseas calcular hoy?</p>
+          <p>¿Qué deseas calcular hoy?</p>
         </div>
 
         <div className="mobile-section-label">Módulos Principales</div>
@@ -757,7 +765,7 @@ function MobileHome({ onNavigate }) {
 }
 
 // ─── MOBILE MODULE (Cómputos Métricos) ───────────────────────
-function MobileModulo({ onBack }) {
+function MobileModulo({ onBack, darkMode, setDarkMode }) {
   const [elemento, setElemento] = useState("columna");
   const [largo, setLargo] = useState("0.30");
   const [ancho, setAncho] = useState("0.30");
@@ -779,9 +787,16 @@ function MobileModulo({ onBack }) {
           <Icon name="back" size={22} />
         </button>
         <h2>Cómputos Métricos</h2>
-        <button className="mobile-save-btn">
-          <Icon name="save" size={22} />
-        </button>
+        <div className="mobile-topbar-actions">
+          <ThemeToggleButton
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+            className="mobile-theme-btn"
+          />
+          <button className="mobile-save-btn">
+            <Icon name="save" size={22} />
+          </button>
+        </div>
       </header>
 
       {/* Stepper */}
@@ -958,9 +973,17 @@ export default function App() {
         style={{ minHeight: "100vh", background: "var(--bg)" }}
       >
         {mobileView === "home" ? (
-          <MobileHome onNavigate={handleNavigate} />
+          <MobileHome
+            onNavigate={handleNavigate}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
         ) : (
-          <MobileModulo onBack={() => setMobileView("home")} />
+          <MobileModulo
+            onBack={() => setMobileView("home")}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
         )}
       </div>
     </div>
