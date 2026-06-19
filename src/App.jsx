@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import "./App.css";
 
-// ─── ICONS (SVG inline simples) ──────────────────────────────
+// ─── ICONS ───────────────────────────────────────────────────
 const Icon = ({ name, size = 18 }) => {
   const icons = {
     home: (
@@ -96,14 +96,12 @@ const Icon = ({ name, size = 18 }) => {
       </>
     ),
     bell: (
-      <>
-        <path
-          d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        />
-      </>
+      <path
+        d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
     ),
     menu: (
       <>
@@ -287,6 +285,85 @@ const Icon = ({ name, size = 18 }) => {
         strokeLinejoin="round"
       />
     ),
+    wifi: (
+      <>
+        <path
+          d="M5 12.55a11 11 0 0114.08 0"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M1.42 9a16 16 0 0121.16 0"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M8.53 16.11a6 6 0 016.95 0"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <circle cx="12" cy="20" r="1" fill="currentColor" />
+      </>
+    ),
+    export: (
+      <>
+        <path
+          d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <polyline
+          points="17 8 12 3 7 8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <line
+          x1="12"
+          y1="3"
+          x2="12"
+          y2="15"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    refresh: (
+      <>
+        <polyline
+          points="23 4 23 10 17 10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M20.49 15a9 9 0 11-2.12-9.36L23 10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    bulb: (
+      <>
+        <path
+          d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </>
+    ),
   };
   return (
     <svg
@@ -307,37 +384,41 @@ const MODULES = [
     id: 1,
     key: "computos",
     label: "Cómputos Métricos",
-    desc: "Calcula cantidades de obra a partir de las dimensiones de tu proyecto.",
+    desc: "Bloques, columnas, vigas, losas y más.",
     icon: "📐",
     color: "card-green",
     btnColor: "btn-green",
+    bg: "#E8F8EF",
   },
   {
     id: 2,
     key: "concreto",
     label: "Dosificación de Concreto",
-    desc: "Calcula la proporción de materiales para el concreto que necesitas.",
+    desc: "f'c 150 / 180 / 210 kg/cm².",
     icon: "🚧",
     color: "card-orange",
     btnColor: "btn-orange",
+    bg: "#FEF3E8",
   },
   {
     id: 3,
     key: "biblioteca",
     label: "Biblioteca de Materiales",
-    desc: "Consulta información técnica de materiales de construcción y sus propiedades.",
+    desc: "Acero, bloques, áridos y acabados.",
     icon: "📚",
     color: "card-purple",
     btnColor: "btn-purple",
+    bg: "#F3EFFE",
   },
   {
     id: 4,
     key: "estimacion",
     label: "Estimación de Materiales",
-    desc: "Obtén la cantidad y costo de materiales necesarios para tu proyecto.",
+    desc: "Pintura, cerámica, repello y enchape.",
     icon: "🧮",
     color: "card-blue",
     btnColor: "btn-blue",
+    bg: "#EFF4FF",
   },
 ];
 
@@ -367,8 +448,166 @@ const PASOS = [
   { num: 4, label: "Guardar", sub: "Guarda el cómputo en tu proyecto" },
 ];
 
-// ─── DESKTOP SIDEBAR ──────────────────────────────────────────
-function Sidebar({ activeModule, onNavigate }) {
+const STATS = [
+  {
+    label: "Proyectos",
+    value: "6",
+    sub: "4 en progreso",
+    icon: "folder",
+    color: "var(--green)",
+  },
+  {
+    label: "Cálculos",
+    value: "38",
+    sub: "esta semana: 12",
+    icon: "calc",
+    color: "var(--text-main)",
+  },
+  {
+    label: "Exportados",
+    value: "14",
+    sub: "PDF y Excel",
+    icon: "export",
+    color: "var(--text-main)",
+  },
+  {
+    label: "Normas",
+    value: "OK",
+    sub: "COVENIN actualizadas",
+    icon: "wifi",
+    color: "var(--green)",
+  },
+];
+
+const PROYECTOS = [
+  {
+    nombre: "Edif. Residencial - Santa Marta",
+    emoji: "🏢",
+    pct: 65,
+    color: "var(--green)",
+    bg: "#EFF4FF",
+    tiempo: "hace 2 días",
+  },
+  {
+    nombre: "C. Comercial - Barranquilla",
+    emoji: "🏗️",
+    pct: 40,
+    color: "var(--orange)",
+    bg: "#FEF3E8",
+    tiempo: "hace 5 días",
+  },
+  {
+    nombre: "Colegio Municipal - Medellín",
+    emoji: "🏛️",
+    pct: 25,
+    color: "var(--purple)",
+    bg: "#F3EFFE",
+    tiempo: "hace 3 días",
+  },
+];
+
+const HISTORIAL = [
+  {
+    desc: "Columna 0.30×0.30 m — ×12",
+    modulo: "Cómputos",
+    proyecto: "Edif. Residencial",
+    resultado: "3.24 m³",
+    color: "var(--green)",
+    badgeBg: "#E8F8EF",
+    badgeColor: "#166534",
+    tiempo: "Hoy",
+  },
+  {
+    desc: "Concreto f'c 210 — 3 m³",
+    modulo: "Concreto",
+    proyecto: "Edif. Residencial",
+    resultado: "21 sacos",
+    color: "var(--orange)",
+    badgeBg: "#FEF3E8",
+    badgeColor: "#9A3412",
+    tiempo: "Ayer",
+  },
+  {
+    desc: "Pintura interior — 120 m²",
+    modulo: "Estimación",
+    proyecto: "Edif. Residencial",
+    resultado: "8 galones",
+    color: "var(--blue)",
+    badgeBg: "#EFF4FF",
+    badgeColor: "#1D4ED8",
+    tiempo: "Ayer",
+  },
+];
+
+const ACCESOS = [
+  {
+    label: "Nuevo proyecto",
+    sub: "Organiza tus cálculos en un proyecto",
+    icon: "plus",
+    bg: "#E8F8EF",
+    iconColor: "#166534",
+  },
+  {
+    label: "Exportar último cálculo",
+    sub: "Descarga el PDF de la columna de hoy",
+    icon: "export",
+    bg: "#EFF4FF",
+    iconColor: "#1D4ED8",
+  },
+  {
+    label: "Normas COVENIN",
+    sub: "Última actualización: hace 2 días",
+    icon: "refresh",
+    bg: "#FEF3E8",
+    iconColor: "#9A3412",
+  },
+];
+
+const EMPTY_DASHBOARD = {
+  projectsCount: null,
+  activeProjects: null,
+  calculationsCount: null,
+  calculationsWeek: null,
+  exportsCount: null,
+  exportDetail: null,
+  normsStatus: null,
+  normsDetail: null,
+  recentProjects: [],
+  recentCalculations: [],
+};
+
+const getDisplayValue = (value, fallback = "-") =>
+  value === null || value === undefined || value === "" ? fallback : value;
+
+const getInitials = (name) => {
+  if (!name) return "UI";
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0].toUpperCase())
+    .join("");
+};
+
+// ─── THEME TOGGLE ─────────────────────────────────────────────
+function ThemeToggleButton({ darkMode, setDarkMode, className = "" }) {
+  return (
+    <button
+      className={`theme-btn ${className}`.trim()}
+      onClick={() => setDarkMode(!darkMode)}
+      aria-label={darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+      type="button"
+    >
+      {darkMode ? "☀️" : "🌙"}
+    </button>
+  );
+}
+
+// ─── SIDEBAR ──────────────────────────────────────────────────
+function Sidebar({ activeModule, onNavigate, user }) {
+  const displayName = user?.name || "Invitado";
+  const displayRole = user?.isLoggedIn ? user.role || "Usuario" : "Invitado";
+
   return (
     <aside className="sidebar desktop-only">
       <div className="sidebar-logo">
@@ -380,7 +619,6 @@ function Sidebar({ activeModule, onNavigate }) {
           <small>Software de Cálculo para la Construcción</small>
         </div>
       </div>
-
       <nav className="sidebar-nav">
         <div className="sidebar-section-label">Principal</div>
         <button
@@ -392,7 +630,6 @@ function Sidebar({ activeModule, onNavigate }) {
           </span>
           Inicio
         </button>
-
         <div className="sidebar-section-label">Módulos Principales</div>
         {MODULES.map((m) => (
           <button
@@ -404,27 +641,34 @@ function Sidebar({ activeModule, onNavigate }) {
             {m.id}. {m.label}
           </button>
         ))}
-
         <div className="sidebar-section-label">Gestión</div>
-        <button className="sidebar-item">
+        <button
+          className={`sidebar-item ${activeModule === "proyectos" ? "active" : ""}`}
+          onClick={() => onNavigate("proyectos")}
+        >
           <span className="item-icon">
             <Icon name="folder" size={15} />
           </span>
           Proyectos
         </button>
-        <button className="sidebar-item">
+        <button
+          className={`sidebar-item ${activeModule === "historial" ? "active" : ""}`}
+          onClick={() => onNavigate("historial")}
+        >
           <span className="item-icon">
             <Icon name="clock" size={15} />
           </span>
           Historial de Cálculos
         </button>
-        <button className="sidebar-item">
+        <button
+          className={`sidebar-item ${activeModule === "reportes" ? "active" : ""}`}
+          onClick={() => onNavigate("reportes")}
+        >
           <span className="item-icon">
             <Icon name="chart" size={15} />
           </span>
           Reportes
         </button>
-
         <div className="sidebar-section-label">Ajustes</div>
         <button className="sidebar-item">
           <span className="item-icon">
@@ -439,34 +683,31 @@ function Sidebar({ activeModule, onNavigate }) {
           Ayuda
         </button>
       </nav>
-
       <div className="sidebar-user">
-        <div className="user-avatar">CR</div>
+        <div className="user-avatar">{getInitials(displayName)}</div>
         <div className="user-info">
-          <strong>Carlos Rodríguez</strong>
-          <small>Administrador</small>
+          <strong>{displayName}</strong>
+          <small>{displayRole}</small>
         </div>
       </div>
     </aside>
   );
 }
 
-// ─── DESKTOP TOPBAR ───────────────────────────────────────────
-function Topbar({ title, darkMode, setDarkMode }) {
+// ─── TOPBAR ───────────────────────────────────────────────────
+function Topbar({ title, darkMode, setDarkMode, showOnline = false }) {
   return (
     <header className="topbar desktop-only">
       <div className="topbar-left">
         <span className="topbar-title">{title}</span>
       </div>
-
       <div className="topbar-right">
-        <button
-          className="theme-btn"
-          onClick={() => setDarkMode(!darkMode)}
-        >
-          {darkMode ? "☀️" : "🌙"}
-        </button>
-
+        {showOnline && (
+          <div className="online-badge">
+            <Icon name="wifi" size={13} /> Online — normas actualizadas
+          </div>
+        )}
+        <ThemeToggleButton darkMode={darkMode} setDarkMode={setDarkMode} />
         <button className="notif-btn">
           <Icon name="bell" size={22} />
           <span className="notif-badge">3</span>
@@ -476,20 +717,210 @@ function Topbar({ title, darkMode, setDarkMode }) {
   );
 }
 
-function ThemeToggleButton({ darkMode, setDarkMode, className = "" }) {
+// ─── DESKTOP HOME (NUEVO DASHBOARD) ───────────────────────────
+function DesktopHome({ onNavigate, user, dashboardData }) {
+  const today = new Date().toLocaleDateString("es-CO", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const todayFormatted = today.charAt(0).toUpperCase() + today.slice(1);
+
+  const stats = [
+    {
+      label: "Proyectos",
+      value: getDisplayValue(dashboardData.projectsCount),
+      sub: dashboardData.activeProjects
+        ? `${dashboardData.activeProjects} en progreso`
+        : "Aún no hay datos",
+      icon: "folder",
+      color: "var(--green)",
+    },
+    {
+      label: "Cálculos",
+      value: getDisplayValue(dashboardData.calculationsCount),
+      sub: dashboardData.calculationsWeek
+        ? `esta semana: ${dashboardData.calculationsWeek}`
+        : "Aún no hay datos",
+      icon: "calc",
+      color: "var(--text-main)",
+    },
+    {
+      label: "Exportados",
+      value: getDisplayValue(dashboardData.exportsCount),
+      sub: dashboardData.exportDetail || "Aún no hay datos",
+      icon: "export",
+      color: "var(--text-main)",
+    },
+    {
+      label: "Normas",
+      value: getDisplayValue(dashboardData.normsStatus, "Sin info"),
+      sub: dashboardData.normsDetail || "Aún no hay datos",
+      icon: "wifi",
+      color:
+        dashboardData.normsStatus === "OK"
+          ? "var(--green)"
+          : "var(--text-main)",
+    },
+  ];
+
   return (
-    <button
-      className={`theme-btn ${className}`.trim()}
-      onClick={() => setDarkMode(!darkMode)}
-      aria-label={darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-      type="button"
-    >
-      {darkMode ? "☀️" : "🌙"}
-    </button>
+    <div className="page">
+      {/* Saludo */}
+      <div className="home-greeting">
+        <div>
+          <h1>
+            Bienvenido, <span>{user.name || "Invitado"}</span> 👋
+          </h1>
+          <p>{todayFormatted} — aquí está el resumen de tu actividad</p>
+        </div>
+      </div>
+
+      {/* Métricas */}
+      <div className="home-stats">
+        {stats.map((s, i) => (
+          <div key={i} className="home-stat-card">
+            <div className="home-stat-label">
+              <Icon name={s.icon} size={14} /> {s.label}
+            </div>
+            <div className="home-stat-value" style={{ color: s.color }}>
+              {s.value}
+            </div>
+            <div className="home-stat-sub">{s.sub}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Fila 2: módulos + proyectos */}
+      <div className="home-row2">
+        <div className="home-card">
+          <div className="home-card-header">
+            <span className="home-card-title">Módulos de cálculo</span>
+          </div>
+          <div className="home-module-list">
+            {MODULES.map((m) => (
+              <div
+                key={m.id}
+                className="home-module-item"
+                onClick={() => onNavigate(m.key)}
+              >
+                <div className="home-module-icon" style={{ background: m.bg }}>
+                  {m.icon}
+                </div>
+                <div className="home-module-info">
+                  <strong>{m.label}</strong>
+                  <small>{m.desc}</small>
+                </div>
+                <span className="home-module-arrow">
+                  <Icon name="chevron" size={16} />
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="home-card">
+          <div className="home-card-header">
+            <span className="home-card-title">Proyectos recientes</span>
+            <span className="home-card-link">Ver todos</span>
+          </div>
+          <div className="home-proj-list">
+            {dashboardData.recentProjects.length > 0 ? (
+              dashboardData.recentProjects.map((p, i) => (
+                <div key={i} className="home-proj-item">
+                  <div className="home-proj-thumb" style={{ background: p.bg }}>
+                    {p.emoji}
+                  </div>
+                  <div className="home-proj-info">
+                    <strong>{p.nombre}</strong>
+                    <small>Actualizado {p.tiempo}</small>
+                    <div className="home-pbar-wrap">
+                      <div
+                        className="home-pbar"
+                        style={{ width: `${p.pct}%`, background: p.color }}
+                      />
+                    </div>
+                  </div>
+                  <span className="home-proj-pct">{p.pct}%</span>
+                </div>
+              ))
+            ) : (
+              <div className="home-empty-state">
+                No hay proyectos recientes disponibles.
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Fila 3: historial + acceso rápido */}
+      <div className="home-row3">
+        <div className="home-card">
+          <div className="home-card-header">
+            <span className="home-card-title">Últimos cálculos</span>
+            <span className="home-card-link">Ver historial</span>
+          </div>
+          <div className="home-hist-list">
+            {dashboardData.recentCalculations.length > 0 ? (
+              dashboardData.recentCalculations.map((h, i) => (
+                <div key={i} className="home-hist-item">
+                  <div
+                    className="home-hist-dot"
+                    style={{ background: h.color }}
+                  />
+                  <div className="home-hist-info">
+                    <strong>
+                      {h.desc}
+                      <span
+                        className="home-hist-badge"
+                        style={{ background: h.badgeBg, color: h.badgeColor }}
+                      >
+                        {h.modulo}
+                      </span>
+                    </strong>
+                    <small>
+                      {h.proyecto} — {h.resultado}
+                    </small>
+                  </div>
+                  <span className="home-hist-time">{h.tiempo}</span>
+                </div>
+              ))
+            ) : (
+              <div className="home-empty-state">
+                No hay cálculos recientes disponibles.
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="home-card">
+          <div className="home-card-header">
+            <span className="home-card-title">Acceso rápido</span>
+          </div>
+          <div className="home-acceso-list">
+            {ACCESOS.map((a, i) => (
+              <div key={i} className="home-acceso-item">
+                <div className="home-acceso-icon" style={{ background: a.bg }}>
+                  <span style={{ color: a.iconColor }}>
+                    <Icon name={a.icon} size={16} />
+                  </span>
+                </div>
+                <div className="home-acceso-info">
+                  <strong>{a.label}</strong>
+                  <small>{a.sub}</small>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
-// ─── DESKTOP HOME PAGE ────────────────────────────────────────
-function DesktopHome({ onNavigate }) {
+
+// ─── DESKTOP MÓDULO 1 — CÓMPUTOS MÉTRICOS ────────────────────
+function ModuloComputos() {
   const [elemento, setElemento] = useState("columna");
   const [largo, setLargo] = useState("0.30");
   const [ancho, setAncho] = useState("0.30");
@@ -506,34 +937,13 @@ function DesktopHome({ onNavigate }) {
     <div className="page">
       <div className="page-greeting">
         <h1>
-          ¡Bienvenido a <span>CIVCALPRO</span>!
+          Cómputos <span>Métricos</span>
         </h1>
-        <p>Selecciona un módulo para comenzar a trabajar en tu proyecto.</p>
+        <p>
+          Calcula cantidades de obra a partir de las dimensiones de tu proyecto.
+        </p>
       </div>
-
-      {/* Module cards */}
-      <div className="module-grid">
-        {MODULES.map((m) => (
-          <div
-            key={m.id}
-            className={`module-card ${m.color}`}
-            onClick={() => onNavigate(m.key)}
-          >
-            <div className="module-card-icon">{m.icon}</div>
-            <h3>
-              {m.id}. {m.label}
-            </h3>
-            <p>{m.desc}</p>
-            <button className={`module-card-btn ${m.btnColor}`}>
-              Ingresar al módulo →
-            </button>
-          </div>
-        ))}
-      </div>
-
-      {/* Module preview: Cómputos Métricos */}
       <div className="module-preview">
-        {/* Stepper sidebar */}
         <div className="stepper-sidebar">
           <div className="stepper-sidebar-title">1. Cómputos Métricos</div>
           {PASOS.map((p) => (
@@ -549,15 +959,12 @@ function DesktopHome({ onNavigate }) {
             </div>
           ))}
         </div>
-
-        {/* Content */}
         <div className="preview-content">
           <h2>Seleccionar elemento a calcular</h2>
           <p>
             Elige el tipo de elemento que deseas calcular para tu cómputo
             métrico.
           </p>
-
           <div className="element-selector">
             {ELEMENTOS.map((el) => (
               <button
@@ -570,9 +977,7 @@ function DesktopHome({ onNavigate }) {
               </button>
             ))}
           </div>
-
           <div className="form-section-title">Datos del elemento</div>
-
           <div className="form-grid">
             <div className="form-field">
               <label>Proyecto</label>
@@ -592,7 +997,6 @@ function DesktopHome({ onNavigate }) {
               </select>
             </div>
           </div>
-
           <div className="form-grid form-grid-4">
             <div className="form-field">
               <label>Largo (m)</label>
@@ -631,7 +1035,6 @@ function DesktopHome({ onNavigate }) {
               />
             </div>
           </div>
-
           <div className="result-bar">
             <span className="result-bar-left">
               Volumen unitario:&nbsp;&nbsp;
@@ -641,7 +1044,6 @@ function DesktopHome({ onNavigate }) {
               Volumen total: {volTotal.toFixed(2)} m³
             </span>
           </div>
-
           <div className="action-row">
             <button className="btn btn-ghost">
               <Icon name="trash" size={15} /> Limpiar
@@ -656,8 +1058,62 @@ function DesktopHome({ onNavigate }) {
   );
 }
 
+// ─── PLACEHOLDER para módulos pendientes ──────────────────────
+function ModuloPendiente({ modulo }) {
+  return (
+    <div className="page">
+      <div className="page-greeting">
+        <h1>
+          {modulo.icon} {modulo.label}
+        </h1>
+        <p>Este módulo está en desarrollo. Próximamente disponible.</p>
+      </div>
+      <div className="modulo-pendiente-box">
+        <span style={{ fontSize: 48 }}>{modulo.icon}</span>
+        <h3>{modulo.label}</h3>
+        <p>
+          La vista de este módulo será implementada en la siguiente fase del
+          proyecto.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // ─── MOBILE HOME ──────────────────────────────────────────────
-function MobileHome({ onNavigate, darkMode, setDarkMode }) {
+function MobileHome({
+  onNavigate,
+  darkMode,
+  setDarkMode,
+  user,
+  dashboardData,
+}) {
+  const stats = [
+    {
+      label: "Proyectos",
+      value: getDisplayValue(dashboardData.projectsCount),
+      color: "var(--green)",
+    },
+    {
+      label: "Cálculos",
+      value: getDisplayValue(dashboardData.calculationsCount),
+      color: "var(--text-main)",
+    },
+    {
+      label: "Exportados",
+      value: getDisplayValue(dashboardData.exportsCount),
+      color: "var(--text-main)",
+    },
+    {
+      label: "Normas",
+      value: getDisplayValue(dashboardData.normsStatus, "Sin info"),
+      color:
+        dashboardData.normsStatus === "OK"
+          ? "var(--green)"
+          : "var(--text-main)",
+    },
+  ];
+
   return (
     <>
       <header className="mobile-topbar">
@@ -681,43 +1137,50 @@ function MobileHome({ onNavigate, darkMode, setDarkMode }) {
 
       <div className="mobile-page">
         <div className="mobile-greeting">
-          <h2>Bienvenido, Carlos 👋</h2>
+          <h2>
+            Bienvenido, <span>{user.name || "Invitado"}</span> 👋
+          </h2>
           <p>¿Qué deseas calcular hoy?</p>
+        </div>
+
+        {/* Stats rápidas mobile */}
+        <div className="mobile-stats-row">
+          {stats.map((stat, idx) => (
+            <Fragment key={`stat-row-${idx}`}>
+              {idx !== 0 && <div className="mobile-stat-div" />}
+              <div className="mobile-stat">
+                <span className="mobile-stat-val" style={{ color: stat.color }}>
+                  {stat.value}
+                </span>
+                <span className="mobile-stat-lbl">{stat.label}</span>
+              </div>
+            </Fragment>
+          ))}
         </div>
 
         <div className="mobile-section-label">Módulos Principales</div>
         <div className="mobile-module-list">
-          {MODULES.map((m) => {
-            const colors = ["#1DB954", "#F97316", "#7C3AED", "#2563EB"];
-            const bgs = ["#E8F8EF", "#FEF3E8", "#F3EFFE", "#EFF4FF"];
-            return (
+          {MODULES.map((m) => (
+            <div
+              key={m.id}
+              className="mobile-module-card"
+              onClick={() => onNavigate(m.key)}
+            >
               <div
-                key={m.id}
-                className="mobile-module-card"
-                onClick={() => onNavigate(m.key)}
+                className="mobile-module-card-icon"
+                style={{ background: m.bg }}
               >
-                <div
-                  className="mobile-module-card-icon"
-                  style={{ background: bgs[m.id - 1] }}
-                >
-                  {m.icon}
-                </div>
-                <div className="mobile-module-card-info">
-                  <h4>{m.label}</h4>
-                  <p>{m.desc}</p>
-                </div>
-                <span
-                  className="mobile-num-badge"
-                  style={{ background: colors[m.id - 1] }}
-                >
-                  {m.id}
-                </span>
-                <span className="mobile-chevron">
-                  <Icon name="chevron" size={16} />
-                </span>
+                {m.icon}
               </div>
-            );
-          })}
+              <div className="mobile-module-card-info">
+                <h4>{m.label}</h4>
+                <p>{m.desc}</p>
+              </div>
+              <span className="mobile-chevron">
+                <Icon name="chevron" size={16} />
+              </span>
+            </div>
+          ))}
         </div>
 
         <div className="recent-section">
@@ -727,19 +1190,39 @@ function MobileHome({ onNavigate, darkMode, setDarkMode }) {
             </div>
             <span>Ver todos</span>
           </div>
-          <div className="recent-card">
-            <div className="recent-thumb">🏢</div>
-            <div className="recent-info">
-              <strong>Edificio Residencial - Santa Marta</strong>
-              <small>Actualizado hace 2 días</small>
-              <div className="recent-progress">
-                <div className="recent-progress-bar" style={{ width: "65%" }} />
+          {dashboardData.recentProjects.length > 0 ? (
+            dashboardData.recentProjects.map((p, i) => (
+              <div
+                key={i}
+                className="recent-card"
+                style={{ marginTop: i === 0 ? 10 : 8 }}
+              >
+                <div
+                  className="recent-thumb"
+                  style={{ background: p.bg, fontSize: 22 }}
+                >
+                  {p.emoji}
+                </div>
+                <div className="recent-info">
+                  <strong>{p.nombre}</strong>
+                  <small>Actualizado {p.tiempo}</small>
+                  <div className="recent-progress">
+                    <div
+                      className="recent-progress-bar"
+                      style={{ width: `${p.pct}%`, background: p.color }}
+                    />
+                  </div>
+                </div>
+                <span className="mobile-chevron">
+                  <Icon name="chevron" size={16} />
+                </span>
               </div>
+            ))
+          ) : (
+            <div className="home-empty-state">
+              No hay proyectos recientes disponibles.
             </div>
-            <span className="mobile-chevron">
-              <Icon name="chevron" size={16} />
-            </span>
-          </div>
+          )}
         </div>
       </div>
 
@@ -764,8 +1247,8 @@ function MobileHome({ onNavigate, darkMode, setDarkMode }) {
   );
 }
 
-// ─── MOBILE MODULE (Cómputos Métricos) ───────────────────────
-function MobileModulo({ onBack, darkMode, setDarkMode }) {
+// ─── MOBILE MÓDULO ────────────────────────────────────────────
+function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
   const [elemento, setElemento] = useState("columna");
   const [largo, setLargo] = useState("0.30");
   const [ancho, setAncho] = useState("0.30");
@@ -778,6 +1261,7 @@ function MobileModulo({ onBack, darkMode, setDarkMode }) {
     (parseFloat(altura) || 0);
   const volTotal = volUnitario * (parseFloat(cantidad) || 0);
 
+  const modulo = MODULES.find((m) => m.key === moduloKey) || MODULES[0];
   const pasosMobile = ["Elemento", "Dimensiones", "Resultados", "Guardar"];
 
   return (
@@ -786,7 +1270,7 @@ function MobileModulo({ onBack, darkMode, setDarkMode }) {
         <button className="mobile-back-btn" onClick={onBack}>
           <Icon name="back" size={22} />
         </button>
-        <h2>Cómputos Métricos</h2>
+        <h2>{modulo.label}</h2>
         <div className="mobile-topbar-actions">
           <ThemeToggleButton
             darkMode={darkMode}
@@ -798,26 +1282,19 @@ function MobileModulo({ onBack, darkMode, setDarkMode }) {
           </button>
         </div>
       </header>
-
-      {/* Stepper */}
       <div className="mobile-stepper">
         {pasosMobile.map((label, i) => (
-          <div
-            key={i}
-            className={`mobile-step ${i === 0 ? "active" : ""} ${i < 0 ? "done" : ""}`}
-          >
+          <div key={i} className={`mobile-step ${i === 0 ? "active" : ""}`}>
             <div className="mobile-step-num">{i + 1}</div>
             <div className="mobile-step-label">{label}</div>
           </div>
         ))}
       </div>
-
       <div className="mobile-form-content">
         <div className="mobile-section-h">1. Seleccionar elemento</div>
         <div className="mobile-section-sub">
           Elige el tipo de elemento que deseas calcular
         </div>
-
         <div className="mobile-element-grid">
           {ELEMENTOS.map((el) => (
             <button
@@ -830,12 +1307,10 @@ function MobileModulo({ onBack, darkMode, setDarkMode }) {
             </button>
           ))}
         </div>
-
         <div className="mobile-section-h">2. Ingresar dimensiones</div>
         <div className="mobile-section-sub" style={{ marginBottom: 14 }}>
           Ingresa las medidas requeridas
         </div>
-
         <div className="mobile-form-grid">
           <div className="mobile-field">
             <label>Largo (m)</label>
@@ -874,7 +1349,6 @@ function MobileModulo({ onBack, darkMode, setDarkMode }) {
             />
           </div>
         </div>
-
         <div className="mobile-form-grid full">
           <div className="mobile-field">
             <label>Proyecto</label>
@@ -893,7 +1367,6 @@ function MobileModulo({ onBack, darkMode, setDarkMode }) {
             </select>
           </div>
         </div>
-
         <div className="mobile-result-box">
           <div className="mobile-result-cell">
             <label>Volumen unitario</label>
@@ -905,7 +1378,6 @@ function MobileModulo({ onBack, darkMode, setDarkMode }) {
           </div>
         </div>
       </div>
-
       <div className="mobile-action-row">
         <button className="btn btn-ghost">
           <Icon name="trash" size={15} /> Limpiar
@@ -921,15 +1393,33 @@ function MobileModulo({ onBack, darkMode, setDarkMode }) {
 // ─── ROOT APP ─────────────────────────────────────────────────
 export default function App() {
   const [activeModule, setActiveModule] = useState("inicio");
-  const [mobileView, setMobileView] = useState("home"); // "home" | "modulo"
-
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
+  const [mobileView, setMobileView] = useState("home");
+  const [darkMode, setDarkMode] = useState(
+    () => localStorage.getItem("theme") === "dark",
+  );
+  const [user, setUser] = useState(() => {
+    try {
+      const storedUser = localStorage.getItem("user");
+      return storedUser
+        ? JSON.parse(storedUser)
+        : { isLoggedIn: false, name: null, role: "Invitado" };
+    } catch {
+      return { isLoggedIn: false, name: null, role: "Invitado" };
+    }
   });
+  const [dashboardData, setDashboardData] = useState(EMPTY_DASHBOARD);
 
   useEffect(() => {
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch {
+      // No-op
+    }
+  }, [user]);
 
   const isMobile = window.innerWidth <= 768;
 
@@ -942,32 +1432,53 @@ export default function App() {
   const pageTitle = () => {
     if (activeModule === "inicio") return "Inicio";
     const m = MODULES.find((m) => m.key === activeModule);
-    return m ? m.label : "Inicio";
+    return m
+      ? m.label
+      : activeModule.charAt(0).toUpperCase() + activeModule.slice(1);
+  };
+
+  const renderDesktopPage = () => {
+    if (activeModule === "inicio")
+      return (
+        <DesktopHome
+          onNavigate={handleNavigate}
+          user={user}
+          dashboardData={dashboardData}
+        />
+      );
+    if (activeModule === "computos") return <ModuloComputos />;
+    const m = MODULES.find((mod) => mod.key === activeModule);
+    if (m) return <ModuloPendiente modulo={m} />;
+    return (
+      <DesktopHome
+        onNavigate={handleNavigate}
+        user={user}
+        dashboardData={dashboardData}
+      />
+    );
   };
 
   return (
     <div className={darkMode ? "dark-theme" : ""}>
-      {/* ── DESKTOP LAYOUT ── */}
+      {/* DESKTOP */}
       <div className="app-layout desktop-only">
-        <Sidebar activeModule={activeModule} onNavigate={handleNavigate} />
+        <Sidebar
+          activeModule={activeModule}
+          onNavigate={handleNavigate}
+          user={user}
+        />
         <div className="main-content">
           <Topbar
             title={pageTitle()}
             darkMode={darkMode}
             setDarkMode={setDarkMode}
+            showOnline={activeModule === "inicio"}
           />
-          {activeModule === "inicio" && (
-            <DesktopHome onNavigate={handleNavigate} />
-          )}
-          {activeModule === "computos" && (
-            <div className="page">
-              <DesktopHome onNavigate={handleNavigate} />
-            </div>
-          )}
+          {renderDesktopPage()}
         </div>
       </div>
 
-      {/* ── MOBILE LAYOUT ── */}
+      {/* MOBILE */}
       <div
         className="mobile-only"
         style={{ minHeight: "100vh", background: "var(--bg)" }}
@@ -977,12 +1488,15 @@ export default function App() {
             onNavigate={handleNavigate}
             darkMode={darkMode}
             setDarkMode={setDarkMode}
+            user={user}
+            dashboardData={dashboardData}
           />
         ) : (
           <MobileModulo
             onBack={() => setMobileView("home")}
             darkMode={darkMode}
             setDarkMode={setDarkMode}
+            moduloKey={activeModule}
           />
         )}
       </div>
