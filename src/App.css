@@ -293,7 +293,7 @@ body {
 /* ─── MODULE PREVIEW SECTION ────────────────────────────────── */
 .module-preview {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: minmax(180px, 220px) 1fr;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -350,7 +350,7 @@ body {
 .stepper-step:not(.active) .step-info strong { color: var(--text-muted); }
 
 /* preview content */
-.preview-content { padding: 22px 24px; }
+.preview-content { padding: 22px 24px; min-width: 0; }
 
 .preview-content h2 { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
 .preview-content > p { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
@@ -403,6 +403,7 @@ body {
 .form-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
 .form-field { display: flex; flex-direction: column; gap: 4px; }
+.form-field { min-width: 0; }
 .form-field label { font-size: 11.5px; font-weight: 600; color: var(--text-muted); }
 .form-field input,
 .form-field select {
@@ -494,6 +495,13 @@ body {
 
 .dark-theme .mobile-topbar .logo-row strong {
   color: #ffffff;
+}
+
+/* Mantener color negro para labels de módulos en el dashboard y vista móvil en modo oscuro
+   (no afectar la barra lateral) */
+.dark-theme .home-module-item .module-label,
+.dark-theme .mobile-module-card .module-label {
+  color: #000000 !important;
 }
 
 .mobile-section-label {
@@ -764,6 +772,17 @@ body {
   .mobile-only { display: block; }
   .desktop-only { display: none; }
   .form-grid-4 { grid-template-columns: 1fr 1fr; }
+}
+
+/* Intermediate / tablet breakpoint: improve form flexibility before mobile layout */
+@media (max-width: 1024px) {
+  .module-preview { grid-template-columns: minmax(140px, 200px) 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .result-bar { flex-direction: column; align-items: stretch; gap: 8px; }
+  .result-bar-right { text-align: right; }
+  .action-row { justify-content: flex-end; flex-wrap: wrap; gap: 8px; }
+  .preview-content { padding: 18px 16px; }
 }
 
 @media (max-width: 480px) {

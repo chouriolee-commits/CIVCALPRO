@@ -634,11 +634,12 @@ function Sidebar({ activeModule, onNavigate, user }) {
         {MODULES.map((m) => (
           <button
             key={m.id}
+            data-module={m.key}
             className={`sidebar-item ${activeModule === m.key ? "active" : ""}`}
             onClick={() => onNavigate(m.key)}
           >
             <span className="item-icon">{m.icon}</span>
-            {m.id}. {m.label}
+            <span className="module-label">{m.id}. {m.label}</span>
           </button>
         ))}
         <div className="sidebar-section-label">Gestión</div>
@@ -802,14 +803,16 @@ function DesktopHome({ onNavigate, user, dashboardData }) {
             {MODULES.map((m) => (
               <div
                 key={m.id}
+                data-module={m.key}
                 className="home-module-item"
+                style={{ background: m.bg }}
                 onClick={() => onNavigate(m.key)}
               >
                 <div className="home-module-icon" style={{ background: m.bg }}>
                   {m.icon}
                 </div>
                 <div className="home-module-info">
-                  <strong>{m.label}</strong>
+                  <strong><span className="module-label">{m.label}</span></strong>
                   <small>{m.desc}</small>
                 </div>
                 <span className="home-module-arrow">
@@ -1163,7 +1166,9 @@ function MobileHome({
           {MODULES.map((m) => (
             <div
               key={m.id}
+              data-module={m.key}
               className="mobile-module-card"
+              style={{ background: m.bg }}
               onClick={() => onNavigate(m.key)}
             >
               <div
@@ -1173,7 +1178,7 @@ function MobileHome({
                 {m.icon}
               </div>
               <div className="mobile-module-card-info">
-                <h4>{m.label}</h4>
+                <h4><span className="module-label">{m.label}</span></h4>
                 <p>{m.desc}</p>
               </div>
               <span className="mobile-chevron">
