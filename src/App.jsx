@@ -1,4 +1,5 @@
 import { useState, useEffect, Fragment } from "react";
+import logoImg from "./assets/img/civcalprologo.png";
 import "./App.css";
 
 // ─── ICONS ───────────────────────────────────────────────────
@@ -611,7 +612,9 @@ function Sidebar({ activeModule, onNavigate, user }) {
   return (
     <aside className="sidebar desktop-only">
       <div className="sidebar-logo">
-        <div className="logo-icon">🏗️</div>
+        <div className="logo-icon">
+          <img src={logoImg} alt="CIVCALPRO logo" />
+        </div>
         <div className="logo-text">
           <strong>
             CIVCA<span>LPRO</span>
@@ -1124,7 +1127,7 @@ function MobileHome({
           <Icon name="menu" size={22} />
         </button>
         <div className="logo-row">
-          <span style={{ fontSize: 24 }}>🏗️</span>
+          <img src={logoImg} alt="CIVCALPRO logo" />
           <strong>
             CIVCA<span>LPRO</span>
           </strong>
