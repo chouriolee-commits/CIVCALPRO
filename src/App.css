@@ -40,6 +40,7 @@
   --navy:        #111827;
   --navy-2:      #111827;
   --navy-3:      #1E293B;
+  color: var(--text-main);
 }
 
 .dark-theme .sidebar {
@@ -72,9 +73,39 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text-main);
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 19px;
+  line-height: 1.9;
   min-height: 100vh;
+}
+
+.theme-btn,
+.mobile-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--text-main);
+  cursor: pointer;
+  font-size: 18px;
+  transition: background .15s, transform .15s, color .15s, border-color .15s;
+}
+
+.theme-btn:hover,
+.mobile-theme-btn:hover {
+  transform: scale(1.05);
+  background: var(--border);
+}
+
+.dark-theme .theme-btn,
+.dark-theme .mobile-theme-btn {
+  background: #1F2937;
+  border-color: #475569;
+  color: var(--text-main);
 }
 
 /* ─── LAYOUT ────────────────────────────────────────────────── */
@@ -204,8 +235,8 @@ body {
 .topbar {
   background: var(--white);
   border-bottom: 1px solid var(--border);
-  padding: 0 32px;
-  height: 60px;
+  padding: 0 34px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -234,7 +265,7 @@ body {
 }
 
 /* ─── PAGE CONTENT ──────────────────────────────────────────── */
-.page { padding: 32px; }
+.page { padding: 36px; }
 
 .page-greeting h1 { font-size: 26px; font-weight: 700; color: var(--text-main); }
 .page-greeting h1 span { color: var(--green); }
@@ -987,6 +1018,14 @@ body {
 .home-acceso-info strong { font-size: 12.5px; font-weight: 600; display: block; }
 .home-acceso-info small  { font-size: 11px; color: var(--text-muted); }
 
+.dark-theme .home-acceso-item {
+  color: var(--text-main);
+}
+
+.dark-theme .home-acceso-info small {
+  color: var(--text-muted);
+}
+
 /* badge online en topbar */
 .online-badge {
   display: flex;
@@ -1049,4 +1088,31 @@ body {
 @media (max-width: 768px) {
   .home-stats  { grid-template-columns: repeat(2, 1fr); }
   .home-row2, .home-row3 { grid-template-columns: 1fr; }
+}
+/* ─── NORMAS BADGE (reemplaza online-badge) ─────────────────── */
+.normas-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--blue-light);
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+/* ─── DEVICE ICON EN SIDEBAR ────────────────────────────────── */
+.device-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94A3B8;
+  flex-shrink: 0;
 }

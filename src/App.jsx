@@ -365,6 +365,18 @@ const Icon = ({ name, size = 18 }) => {
         />
       </>
     ),
+    book: (
+      <>
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" fill="none" stroke="currentColor" strokeWidth="2"/>
+      </>
+    ),
+    device: (
+      <>
+        <rect x="5" y="2" width="14" height="20" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <circle cx="12" cy="17" r="1" fill="currentColor"/>
+      </>
+    ),
   };
   return (
     <svg
@@ -688,10 +700,12 @@ function Sidebar({ activeModule, onNavigate, user }) {
         </button>
       </nav>
       <div className="sidebar-user">
-        <div className="user-avatar">{getInitials(displayName)}</div>
+        <div className="device-icon">
+          <Icon name="device" size={16} />
+        </div>
         <div className="user-info">
-          <strong>{displayName}</strong>
-          <small>{displayRole}</small>
+          <strong>CivCalPro</strong>
+          <small>Modo offline</small>
         </div>
       </div>
     </aside>
@@ -707,8 +721,8 @@ function Topbar({ title, darkMode, setDarkMode, showOnline = false }) {
       </div>
       <div className="topbar-right">
         {showOnline && (
-          <div className="online-badge">
-            <Icon name="wifi" size={13} /> Online — normas actualizadas
+          <div className="normas-badge">
+            <Icon name="book" size={13} /> Normas COVENIN incluidas
           </div>
         )}
         <ThemeToggleButton darkMode={darkMode} setDarkMode={setDarkMode} />
@@ -759,13 +773,10 @@ function DesktopHome({ onNavigate, user, dashboardData }) {
     },
     {
       label: "Normas",
-      value: getDisplayValue(dashboardData.normsStatus, "Sin info"),
-      sub: dashboardData.normsDetail || "Aún no hay datos",
-      icon: "wifi",
-      color:
-        dashboardData.normsStatus === "OK"
-          ? "var(--green)"
-          : "var(--text-main)",
+      value: "Listas",
+      sub: "COVENIN incluidas",
+      icon: "book",
+      color: "var(--green)",
     },
   ];
 
@@ -775,9 +786,9 @@ function DesktopHome({ onNavigate, user, dashboardData }) {
       <div className="home-greeting">
         <div>
           <h1>
-            Bienvenido, <span>{user.name || "Invitado"}</span> 👋
+            Bienvenido a <span>CivCalPro</span>
           </h1>
-          <p>{todayFormatted} — aquí está el resumen de tu actividad</p>
+          <p>{todayFormatted} —  aquí está el resumen de tu actividad</p>
         </div>
       </div>
 
@@ -1112,7 +1123,7 @@ function MobileHome({
     },
     {
       label: "Normas",
-      value: getDisplayValue(dashboardData.normsStatus, "Sin info"),
+      value: "Listas",
       color:
         dashboardData.normsStatus === "OK"
           ? "var(--green)"
@@ -1144,7 +1155,7 @@ function MobileHome({
       <div className="mobile-page">
         <div className="mobile-greeting">
           <h2>
-            Bienvenido, <span>{user.name || "Invitado"}</span> 👋
+            Bienvenido a <span style={{color:"var(--green)"}}>CivCalPro</span>
           </h2>
           <p>¿Qué deseas calcular hoy?</p>
         </div>
