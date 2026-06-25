@@ -1,6 +1,19 @@
 import { useState, useEffect, Fragment } from "react";
 import logoImg from "./assets/img/civcalprologo.png";
+import reglaImg from "./assets/img/regla.png";
+import mezcladoraImg from "./assets/img/mezcladora.png";
+import libroImg from "./assets/img/libro.png";
+import calculadoraImg from "./assets/img/calculadora.png";
+import columnaImg from "./assets/img/columna.png";
+import excavacionImg from "./assets/img/excavacion.png";
+import losaImg from "./assets/img/losa.png";
+import muroImg from "./assets/img/muro.png";
+import otroImg from "./assets/img/otro.png";
+import pisoImg from "./assets/img/piso.png";
+import vigaImg from "./assets/img/viga.png";
+import zapataImg from "./assets/img/zapata.png";
 import "./App.css";
+
 
 // ─── ICONS ───────────────────────────────────────────────────
 const Icon = ({ name, size = 18 }) => {
@@ -398,7 +411,7 @@ const MODULES = [
     key: "computos",
     label: "Cómputos Métricos",
     desc: "Bloques, columnas, vigas, losas y más.",
-    icon: "📐",
+    icon: <img src={reglaImg} alt="Cómputos Métricos" />,
     color: "card-green",
     btnColor: "btn-green",
     bg: "#E8F8EF",
@@ -408,7 +421,7 @@ const MODULES = [
     key: "concreto",
     label: "Dosificación de Concreto",
     desc: "f'c 150 / 180 / 210 kg/cm².",
-    icon: "🚧",
+    icon: <img src={mezcladoraImg} alt="Dosificación de Concreto" />,
     color: "card-orange",
     btnColor: "btn-orange",
     bg: "#FEF3E8",
@@ -418,7 +431,7 @@ const MODULES = [
     key: "biblioteca",
     label: "Biblioteca de Materiales",
     desc: "Acero, bloques, áridos y acabados.",
-    icon: "📚",
+    icon: <img src={libroImg} alt="Biblioteca de Materiales" />,
     color: "card-purple",
     btnColor: "btn-purple",
     bg: "#F3EFFE",
@@ -428,7 +441,7 @@ const MODULES = [
     key: "estimacion",
     label: "Estimación de Materiales",
     desc: "Pintura, cerámica, repello y enchape.",
-    icon: "🧮",
+    icon: <img src={calculadoraImg} alt="Estimación de Materiales" />,
     color: "card-blue",
     btnColor: "btn-blue",
     bg: "#EFF4FF",
@@ -436,14 +449,14 @@ const MODULES = [
 ];
 
 const ELEMENTOS = [
-  { id: "columna", label: "Columna", emoji: "🏛️" },
-  { id: "viga", label: "Viga", emoji: "➖" },
-  { id: "losa", label: "Losa", emoji: "🔲" },
-  { id: "muro", label: "Muro", emoji: "🧱" },
-  { id: "zapata", label: "Zapata", emoji: "⬛" },
-  { id: "piso", label: "Piso", emoji: "🪟" },
-  { id: "excavacion", label: "Excavación", emoji: "⛏️" },
-  { id: "otro", label: "Otro", emoji: "📦" },
+  { id: "columna", label: "Columna", icon: <img src={columnaImg} alt="Columna" /> },
+  { id: "viga", label: "Viga", icon: <img src={vigaImg} alt="Viga" /> },
+  { id: "losa", label: "Losa", icon: <img src={losaImg} alt="Losa" /> },
+  { id: "muro", label: "Muro", icon: <img src={muroImg} alt="Muro" /> },
+  { id: "zapata", label: "Zapata", icon: <img src={zapataImg} alt="Zapata" /> },
+  { id: "piso", label: "Piso", icon: <img src={pisoImg} alt="Piso" /> },
+  { id: "excavacion", label: "Excavación", icon: <img src={excavacionImg} alt="Excavación" /> },
+  { id: "otro", label: "Otro", icon: <img src={otroImg} alt="Otro" /> },
 ];
 
 const PASOS = [
@@ -989,7 +1002,7 @@ function ModuloComputos() {
                 className={`element-btn ${elemento === el.id ? "active" : ""}`}
                 onClick={() => setElemento(el.id)}
               >
-                <span className="element-btn-icon">{el.emoji}</span>
+                <span className="element-btn-icon">{el.icon}</span>
                 {el.label}
               </button>
             ))}
@@ -1321,7 +1334,7 @@ function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
               className={`mobile-element-btn ${elemento === el.id ? "active" : ""}`}
               onClick={() => setElemento(el.id)}
             >
-              <span className="mobile-element-btn-icon">{el.emoji}</span>
+              <span className="mobile-element-btn-icon">{el.icon}</span>
               {el.label}
             </button>
           ))}

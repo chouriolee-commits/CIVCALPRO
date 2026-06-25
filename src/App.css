@@ -73,7 +73,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text-main);
-  font-size: 19px;
+  font-size: 22px;
   line-height: 1.9;
   min-height: 100vh;
 }
@@ -116,7 +116,7 @@ body {
 
 /* ─── SIDEBAR ───────────────────────────────────────────────── */
 .sidebar {
-  width: 260px;
+  width: 265px;
   background: var(--navy);
   display: flex;
   flex-direction: column;
@@ -196,6 +196,13 @@ body {
   display: flex; align-items: center; justify-content: center;
   font-size: 14px;
   flex-shrink: 0;
+}
+
+.sidebar-item .item-icon img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
 }
 
 .sidebar-item.active .item-icon { background: rgba(255,255,255,.2); }
@@ -427,6 +434,21 @@ body {
 }
 
 .element-btn-icon { font-size: 22px; }
+.element-btn-icon img,
+.mobile-element-btn-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.home-module-icon img,
+.mobile-module-card-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
 
 /* form grid */
 .form-section-title { font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 10px; }
@@ -749,6 +771,10 @@ body {
   color: var(--green); font-weight: 600;
 }
 .mobile-element-btn-icon { font-size: 26px; }
+.mobile-element-btn-icon img {
+  width: 26px;
+  height: 26px;
+}
 
 .mobile-form-grid {
   display: grid;
@@ -1115,4 +1141,8 @@ body {
   justify-content: center;
   color: #94A3B8;
   flex-shrink: 0;
+}
+
+.app-layout {
+  zoom: 1.2;
 }
