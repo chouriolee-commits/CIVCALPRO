@@ -1088,6 +1088,523 @@ function ModuloComputos() {
   );
 }
 
+
+// ─── DATOS: DOSIFICACIONES DE CONCRETO ───────────────────────
+const DOSIFICACIONES = [
+  {
+    id: "f150",
+    fc: "f'c = 150 kg/cm²",
+    ratio: "1 : 3 : 6",
+    desc: "Replantillos, andenes, pisos",
+    cemento: 5.5,   // sacos por m³
+    arena:   0.56,  // m³ por m³ de concreto
+    piedra:  0.84,  // m³ por m³ de concreto
+    agua:    216,   // litros por m³
+    pesoSaco: 42.5,
+  },
+  {
+    id: "f180",
+    fc: "f'c = 180 kg/cm²",
+    ratio: "1 : 2.5 : 4",
+    desc: "Losas, escaleras, muros",
+    cemento: 6.5,
+    arena:   0.52,
+    piedra:  0.74,
+    agua:    204,
+    pesoSaco: 42.5,
+  },
+  {
+    id: "f210",
+    fc: "f'c = 210 kg/cm²",
+    ratio: "1 : 1.5 : 3",
+    desc: "Columnas, vigas, cimentaciones",
+    cemento: 7.0,
+    arena:   0.50,
+    piedra:  0.70,
+    agua:    195,
+    pesoSaco: 42.5,
+  },
+];
+
+// ─── DATOS: BIBLIOTECA DE MATERIALES ─────────────────────────
+const CATEGORIAS_MATERIALES = [
+  {
+    id: "estructurales",
+    label: "Estructurales",
+    color: "#7C3AED",
+    materiales: [
+      {
+        id: "acero",
+        nombre: "Acero de Refuerzo",
+        categoria: "Material estructural · Metálico",
+        norma: "COVENIN 1618",
+        icono: "tools",
+        propiedades: [
+          { label: "Densidad / Peso específico", valor: "7,850", unidad: "kg/m³" },
+          { label: "Módulo de elasticidad",      valor: "200,000", unidad: "MPa" },
+          { label: "Límite de fluencia fy",      valor: "4,200", unidad: "kg/cm²" },
+          { label: "Resistencia a tensión",      valor: "6,300", unidad: "kg/cm²" },
+        ],
+        presentaciones: ["Ø 3/8\" (9.5 mm)", "Ø 1/2\" (12.7 mm)", "Ø 5/8\" (15.9 mm)", "Ø 3/4\" (19.1 mm)", "Ø 1\" (25.4 mm)"],
+        usos: ["Vigas y columnas", "Losas de entrepiso", "Cimentaciones", "Muros estructurales"],
+        normas: [
+          { codigo: "COVENIN 1638", desc: "Barras de acero de refuerzo" },
+          { codigo: "ASTM A615",    desc: "Grado 60" },
+        ],
+      },
+      {
+        id: "concreto_mat",
+        nombre: "Concreto Estructural",
+        categoria: "Material estructural · Pétreo",
+        norma: "COVENIN 1753",
+        icono: "building",
+        propiedades: [
+          { label: "Densidad",           valor: "2,400", unidad: "kg/m³" },
+          { label: "Resistencia f'c",    valor: "210",   unidad: "kg/cm²" },
+          { label: "Módulo de Young",    valor: "21,538", unidad: "MPa" },
+          { label: "Coef. de Poisson",   valor: "0.20",  unidad: "" },
+        ],
+        presentaciones: ["f'c 150 kg/cm²", "f'c 180 kg/cm²", "f'c 210 kg/cm²", "f'c 250 kg/cm²"],
+        usos: ["Columnas", "Vigas", "Losas", "Fundaciones"],
+        normas: [
+          { codigo: "COVENIN 1753", desc: "Estructuras de concreto armado" },
+          { codigo: "COVENIN 633",  desc: "Cemento Portland" },
+        ],
+      },
+      {
+        id: "bloque_arcilla",
+        nombre: "Bloque de Arcilla",
+        categoria: "Material de mampostería · Cerámico",
+        norma: "COVENIN 42",
+        icono: "layout-board",
+        propiedades: [
+          { label: "Densidad",           valor: "1,800", unidad: "kg/m³" },
+          { label: "Resistencia compresión", valor: "40", unidad: "kg/cm²" },
+          { label: "Absorción de agua",  valor: "< 15",  unidad: "%" },
+          { label: "Dimensiones",        valor: "40×20×15", unidad: "cm" },
+        ],
+        presentaciones: ["Bloque 10 cm", "Bloque 15 cm", "Bloque 20 cm"],
+        usos: ["Paredes interiores", "Paredes exteriores", "Tabiques divisorios"],
+        normas: [
+          { codigo: "COVENIN 42", desc: "Bloques y ladrillos de arcilla" },
+        ],
+      },
+      {
+        id: "bloque_concreto",
+        nombre: "Bloque de Concreto",
+        categoria: "Material de mampostería · Pétreo",
+        norma: "COVENIN 28",
+        icono: "layout-board",
+        propiedades: [
+          { label: "Densidad",               valor: "2,000", unidad: "kg/m³" },
+          { label: "Resistencia compresión", valor: "50",    unidad: "kg/cm²" },
+          { label: "Absorción de agua",      valor: "< 10",  unidad: "%" },
+          { label: "Dimensiones",            valor: "40×20×15", unidad: "cm" },
+        ],
+        presentaciones: ["Bloque 10 cm", "Bloque 15 cm", "Bloque 20 cm"],
+        usos: ["Paredes de carga", "Cercos", "Muros de contención"],
+        normas: [
+          { codigo: "COVENIN 28", desc: "Bloques de concreto para paredes" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "aridos",
+    label: "Áridos",
+    color: "#F59E0B",
+    materiales: [
+      {
+        id: "arena",
+        nombre: "Arena Fina",
+        categoria: "Árido fino · Natural",
+        norma: "COVENIN 277",
+        icono: "triangle",
+        propiedades: [
+          { label: "Densidad aparente", valor: "1,600", unidad: "kg/m³" },
+          { label: "Tamaño máximo",     valor: "4.75",  unidad: "mm" },
+          { label: "Módulo de finura",  valor: "2.3 – 3.1", unidad: "" },
+          { label: "Contenido de finos", valor: "< 5",  unidad: "%" },
+        ],
+        presentaciones: ["Arena lavada", "Arena de río", "Arena de cantera"],
+        usos: ["Mezclas de concreto", "Morteros", "Rellenos", "Pega de bloques"],
+        normas: [
+          { codigo: "COVENIN 277", desc: "Áridos para concreto de cemento Portland" },
+        ],
+      },
+      {
+        id: "grava",
+        nombre: "Grava / Piedra Picada",
+        categoria: "Árido grueso · Natural",
+        norma: "COVENIN 277",
+        icono: "circle",
+        propiedades: [
+          { label: "Densidad aparente", valor: "1,550", unidad: "kg/m³" },
+          { label: "Tamaño máximo",     valor: "25",    unidad: "mm" },
+          { label: "Desgaste Los Ángeles", valor: "< 40", unidad: "%" },
+          { label: "Absorción",         valor: "< 2",   unidad: "%" },
+        ],
+        presentaciones: ["Grava 3/4\"", "Grava 1/2\"", "Grava 3/8\""],
+        usos: ["Mezclas de concreto", "Drenajes", "Rellenos granulares"],
+        normas: [
+          { codigo: "COVENIN 277", desc: "Áridos para concreto de cemento Portland" },
+        ],
+      },
+      {
+        id: "cemento",
+        nombre: "Cemento Portland",
+        categoria: "Aglomerante hidráulico",
+        norma: "COVENIN 633",
+        icono: "package",
+        propiedades: [
+          { label: "Peso por saco",     valor: "42.5",  unidad: "kg" },
+          { label: "Densidad",          valor: "1,500", unidad: "kg/m³" },
+          { label: "Resistencia 28 días", valor: "350", unidad: "kg/cm²" },
+          { label: "Fraguado inicial",  valor: "≥ 45",  unidad: "min" },
+        ],
+        presentaciones: ["Tipo I (uso general)", "Tipo II (moderado)", "Tipo V (sulfatorresistente)"],
+        usos: ["Concreto estructural", "Morteros", "Pega de bloques", "Repello"],
+        normas: [
+          { codigo: "COVENIN 633", desc: "Cemento Portland — especificaciones" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "acabados",
+    label: "Acabados",
+    color: "#10B981",
+    materiales: [
+      {
+        id: "pintura",
+        nombre: "Pintura de Caucho",
+        categoria: "Acabado superficial · Látex",
+        norma: "COVENIN 1292",
+        icono: "paint",
+        propiedades: [
+          { label: "Rendimiento",       valor: "30",    unidad: "m² / galón" },
+          { label: "Tiempo de secado",  valor: "2 – 4", unidad: "horas" },
+          { label: "Dilución máxima",   valor: "10",    unidad: "%" },
+          { label: "N° de manos",       valor: "2",     unidad: "manos" },
+        ],
+        presentaciones: ["Galón (3.78 L)", "Cuñete (18.9 L)", "Cubeta (3.78 L)"],
+        usos: ["Paredes interiores", "Paredes exteriores", "Cielos rasos"],
+        normas: [
+          { codigo: "COVENIN 1292", desc: "Pinturas y barnices — terminología" },
+        ],
+      },
+      {
+        id: "ceramica",
+        nombre: "Cerámica para Piso",
+        categoria: "Acabado de piso · Cerámico",
+        norma: "COVENIN 1335",
+        icono: "layout-grid",
+        propiedades: [
+          { label: "Rendimiento",         valor: "1.10", unidad: "m² / m²" },
+          { label: "Absorción de agua",   valor: "< 3",  unidad: "%" },
+          { label: "Resistencia al desgaste", valor: "PEI 4", unidad: "" },
+          { label: "Espesor",             valor: "8 – 10", unidad: "mm" },
+        ],
+        presentaciones: ["30×30 cm", "40×40 cm", "45×45 cm", "60×60 cm"],
+        usos: ["Pisos interiores", "Pisos exteriores", "Baños", "Cocinas"],
+        normas: [
+          { codigo: "COVENIN 1335", desc: "Baldosas cerámicas — clasificación" },
+        ],
+      },
+      {
+        id: "porcelanato",
+        nombre: "Porcelanato",
+        categoria: "Acabado de piso · Gres porcelánico",
+        norma: "COVENIN 1335",
+        icono: "layout-grid",
+        propiedades: [
+          { label: "Rendimiento",         valor: "1.10", unidad: "m² / m²" },
+          { label: "Absorción de agua",   valor: "< 0.5", unidad: "%" },
+          { label: "Resistencia al desgaste", valor: "PEI 5", unidad: "" },
+          { label: "Espesor",             valor: "9 – 12", unidad: "mm" },
+        ],
+        presentaciones: ["60×60 cm", "60×120 cm", "80×80 cm", "120×120 cm"],
+        usos: ["Pisos de alto tráfico", "Fachadas", "Zonas húmedas"],
+        normas: [
+          { codigo: "COVENIN 1335", desc: "Baldosas cerámicas — gres porcelánico" },
+        ],
+      },
+    ],
+  },
+];
+
+
+
+// ─── MÓDULO 2: DOSIFICACIÓN DE CONCRETO ─────────────────────
+function ModuloConcreto() {
+  const [dosifId,  setDosifId]  = useState("f210");
+  const [volumen,  setVolumen]  = useState("3.00");
+  const [proyecto, setProyecto] = useState("edificio");
+  const [nivel,    setNivel]    = useState("nivel1");
+  const [calculado, setCalculado] = useState(false);
+
+  const dosif = DOSIFICACIONES.find((d) => d.id === dosifId) || DOSIFICACIONES[2];
+  const vol   = parseFloat(volumen) || 0;
+
+  const resultados = {
+    cemento: Math.ceil(dosif.cemento * vol),
+    arena:   (dosif.arena  * vol).toFixed(2),
+    piedra:  (dosif.piedra * vol).toFixed(2),
+    agua:    Math.round(dosif.agua   * vol),
+  };
+
+  const handleLimpiar = () => {
+    setVolumen("3.00");
+    setDosifId("f210");
+    setProyecto("edificio");
+    setNivel("nivel1");
+    setCalculado(false);
+  };
+
+  return (
+    <div className="page">
+      <div className="page-greeting">
+        <h1>Dosificación de <span className="text-orange">Concreto</span></h1>
+        <p>Calcula los materiales necesarios según resistencia y volumen requerido.</p>
+      </div>
+
+      <div className="modulo-card">
+        {/* PASO 1: Resistencia */}
+        <div className="modulo-section-title">1. Seleccionar resistencia (f'c)</div>
+        <div className="conc-mix-grid">
+          {DOSIFICACIONES.map((d) => (
+            <div
+              key={d.id}
+              className={`conc-mix-card ${dosifId === d.id ? "selected" : ""}`}
+              onClick={() => { setDosifId(d.id); setCalculado(false); }}
+            >
+              <div className="conc-mix-fc">{d.fc}</div>
+              <div className="conc-mix-ratio">{d.ratio}</div>
+              <div className="conc-mix-desc">{d.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* PASO 2: Volumen y datos */}
+        <div className="modulo-section-title" style={{ marginTop: 18 }}>2. Volumen y datos del proyecto</div>
+        <div className="form-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+          <div className="form-field">
+            <label>Volumen de concreto (m³)</label>
+            <input
+              type="number"
+              value={volumen}
+              step="0.10"
+              min="0.10"
+              onChange={(e) => { setVolumen(e.target.value); setCalculado(false); }}
+            />
+          </div>
+          <div className="form-field">
+            <label>Proyecto</label>
+            <select value={proyecto} onChange={(e) => setProyecto(e.target.value)}>
+              <option value="edificio">Edificio Residencial - Santa Marta</option>
+              <option value="comercial">C. Comercial - Barranquilla</option>
+              <option value="otro">Otro proyecto</option>
+            </select>
+          </div>
+          <div className="form-field">
+            <label>Nivel / Elemento</label>
+            <select value={nivel} onChange={(e) => setNivel(e.target.value)}>
+              <option value="nivel1">Columnas - Nivel 1</option>
+              <option value="nivel2">Vigas - Nivel 2</option>
+              <option value="losa">Losa entrepiso</option>
+              <option value="fund">Fundaciones</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Fila de mezcla seleccionada */}
+        <div className="conc-ratio-row">
+          <span className="conc-ratio-lbl">Mezcla seleccionada:</span>
+          {dosif.ratio.split(":").map((v, i, arr) => (
+            <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span className="conc-ratio-val">{v.trim()}</span>
+              {i < arr.length - 1 && <span className="conc-ratio-sep">:</span>}
+            </span>
+          ))}
+          <span className="conc-ratio-fc">{dosif.fc}</span>
+        </div>
+
+        {/* PASO 3: Resultados */}
+        <div className="modulo-section-title" style={{ marginTop: 18 }}>3. Resultados</div>
+        <div className="conc-res-grid">
+          <div className={`conc-res-cell ${calculado ? "calculado" : ""}`}>
+            <div className="conc-res-label">🏗️ Cemento</div>
+            <div className="conc-res-val">{calculado ? resultados.cemento : "—"}</div>
+            <div className="conc-res-unit">sacos ({dosif.pesoSaco} kg c/u)</div>
+          </div>
+          <div className={`conc-res-cell ${calculado ? "calculado" : ""}`}>
+            <div className="conc-res-label">🏜️ Arena</div>
+            <div className="conc-res-val">{calculado ? resultados.arena : "—"}</div>
+            <div className="conc-res-unit">m³</div>
+          </div>
+          <div className={`conc-res-cell ${calculado ? "calculado" : ""}`}>
+            <div className="conc-res-label">🪨 Piedra</div>
+            <div className="conc-res-val">{calculado ? resultados.piedra : "—"}</div>
+            <div className="conc-res-unit">m³</div>
+          </div>
+          <div className={`conc-res-cell ${calculado ? "calculado" : ""}`}>
+            <div className="conc-res-label">💧 Agua</div>
+            <div className="conc-res-val">{calculado ? resultados.agua : "—"}</div>
+            <div className="conc-res-unit">litros</div>
+          </div>
+        </div>
+
+        {/* Botones */}
+        <div className="action-row" style={{ marginTop: 16 }}>
+          <button className="btn btn-ghost" onClick={handleLimpiar}>
+            <Icon name="trash" size={15} /> Limpiar
+          </button>
+          <button className="btn btn-ghost">
+            <Icon name="export" size={15} /> Exportar PDF
+          </button>
+          <button
+            className="btn btn-orange"
+            onClick={() => setCalculado(true)}
+            disabled={vol <= 0}
+          >
+            <Icon name="calc" size={15} /> Calcular
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── MÓDULO 3: BIBLIOTECA DE MATERIALES ──────────────────────
+function ModuloBiblioteca() {
+  const [busqueda,      setBusqueda]      = useState("");
+  const [materialActivo, setMaterialActivo] = useState(
+    CATEGORIAS_MATERIALES[0].materiales[0]
+  );
+
+  // Filtra materiales según búsqueda
+  const categoriasFiltradas = CATEGORIAS_MATERIALES.map((cat) => ({
+    ...cat,
+    materiales: cat.materiales.filter((m) =>
+      m.nombre.toLowerCase().includes(busqueda.toLowerCase())
+    ),
+  })).filter((cat) => cat.materiales.length > 0);
+
+  return (
+    <div className="page">
+      <div className="page-greeting">
+        <h1>Biblioteca de <span className="text-purple">Materiales</span></h1>
+        <p>Consulta información técnica de materiales de construcción y sus propiedades.</p>
+      </div>
+
+      <div className="bib-layout">
+        {/* PANEL IZQUIERDO — Lista */}
+        <div className="bib-panel-left">
+          {/* Buscador */}
+          <div className="bib-search">
+            <Icon name="search" size={15} />
+            <input
+              type="text"
+              placeholder="Buscar material..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+            />
+          </div>
+
+          {/* Lista por categorías */}
+          {categoriasFiltradas.map((cat) => (
+            <div key={cat.id}>
+              <div className="bib-cat-label">{cat.label}</div>
+              {cat.materiales.map((mat) => (
+                <div
+                  key={mat.id}
+                  className={`bib-mat-item ${materialActivo?.id === mat.id ? "active" : ""}`}
+                  onClick={() => setMaterialActivo(mat)}
+                >
+                  <span className="bib-mat-dot" style={{ background: cat.color }} />
+                  {mat.nombre}
+                </div>
+              ))}
+            </div>
+          ))}
+
+          {categoriasFiltradas.length === 0 && (
+            <div className="bib-empty">
+              <Icon name="search" size={20} />
+              <p>Sin resultados</p>
+            </div>
+          )}
+        </div>
+
+        {/* PANEL DERECHO — Ficha técnica */}
+        {materialActivo && (
+          <div className="bib-panel-right">
+            {/* Header */}
+            <div className="bib-det-header">
+              <div className="bib-det-icon">
+                <Icon name={materialActivo.icono} size={24} />
+              </div>
+              <div>
+                <div className="bib-det-name">{materialActivo.nombre}</div>
+                <div className="bib-det-cat">{materialActivo.categoria}</div>
+                <span className="bib-det-badge">{materialActivo.norma}</span>
+              </div>
+            </div>
+
+            {/* Propiedades físicas */}
+            <div className="bib-section-title">Propiedades físicas</div>
+            <div className="bib-props-grid">
+              {materialActivo.propiedades.map((p, i) => (
+                <div key={i} className="bib-prop">
+                  <div className="bib-prop-label">{p.label}</div>
+                  <div className="bib-prop-val">
+                    {p.valor} <span className="bib-prop-unit">{p.unidad}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Presentaciones */}
+            <div className="bib-section-title">Presentaciones disponibles</div>
+            <div className="bib-tag-row">
+              {materialActivo.presentaciones.map((t, i) => (
+                <span key={i} className="bib-tag">{t}</span>
+              ))}
+            </div>
+
+            {/* Usos */}
+            <div className="bib-section-title">Usos principales</div>
+            <div className="bib-tag-row">
+              {materialActivo.usos.map((u, i) => (
+                <span key={i} className="bib-tag">{u}</span>
+              ))}
+            </div>
+
+            {/* Normas */}
+            <div className="bib-section-title">Normas aplicables</div>
+            {materialActivo.normas.map((n, i) => (
+              <div key={i} className="bib-norm-row">
+                <span>{n.desc}</span>
+                <span className="bib-norm-code">{n.codigo}</span>
+              </div>
+            ))}
+
+            {/* Acciones */}
+            <div className="bib-action-row">
+              <button className="btn btn-ghost">
+                <Icon name="export" size={15} /> Exportar ficha
+              </button>
+              <button className="btn btn-purple">
+                <Icon name="calc" size={15} /> Usar en cálculo
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ─── PLACEHOLDER para módulos pendientes ──────────────────────
 function ModuloPendiente({ modulo }) {
   return (
@@ -1479,6 +1996,10 @@ export default function App() {
         />
       );
     if (activeModule === "computos") return <ModuloComputos />;
+    if (activeModule === "concreto")  return <ModuloConcreto />;
+    if (activeModule === "biblioteca") return <ModuloBiblioteca />;
+
+
     const m = MODULES.find((mod) => mod.key === activeModule);
     if (m) return <ModuloPendiente modulo={m} />;
     return (
