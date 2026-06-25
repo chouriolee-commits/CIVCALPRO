@@ -1505,3 +1505,136 @@ body {
 @media (max-width: 768px) {
   .bib-props-grid { grid-template-columns: 1fr; }
 }
+
+/* ─── MÓDULO 4: ESTIMACIÓN ───────────────────────────────────── */
+.text-blue { color: var(--blue); }
+
+.est-act-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.est-act-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all .15s;
+}
+
+.est-act-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-light);
+}
+
+.est-act-btn.active {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* Tabla de resultados */
+.est-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.est-tabla th {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.est-tabla td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+.est-tabla tr:last-child td { border-bottom: none; }
+.est-tabla tr:nth-child(even) td { background: var(--bg); }
+
+.est-qty {
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 14px;
+}
+
+/* Resumen */
+.est-resumen {
+  display: flex;
+  gap: 10px;
+}
+
+.est-resumen-cell {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 11px 14px;
+}
+
+.est-resumen-cell.destacado {
+  background: var(--blue-light);
+  border-color: #BFDBFE;
+}
+
+.est-resumen-lbl {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.est-resumen-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.est-resumen-cell.destacado .est-resumen-val { color: var(--blue); }
+
+/* Estado vacío */
+.est-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  gap: 10px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.est-empty p { font-size: 13px; max-width: 320px; }
+
+/* Botón azul */
+.btn-blue { background: var(--blue); color: #fff; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .est-act-grid { grid-template-columns: repeat(2, 1fr); }
+  .est-resumen  { flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) {
+  .est-act-grid { grid-template-columns: repeat(2, 1fr); }
+}
