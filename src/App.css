@@ -28,6 +28,7 @@
   --shadow-md:   0 4px 16px rgba(0,0,0,.09);
 }
 
+
 .dark-theme {
   --bg:          #0F172A;
   --white:       #111827;
@@ -76,6 +77,7 @@ body {
   font-size: 22px;
   line-height: 1.9;
   min-height: 100vh;
+
 }
 
 .theme-btn,
@@ -111,7 +113,9 @@ body {
 /* ─── LAYOUT ────────────────────────────────────────────────── */
 .app-layout {
   display: flex;
-  min-height: 100vh;
+  min-height: 0;
+  zoom: 1.2;
+  
 }
 
 /* ─── SIDEBAR ───────────────────────────────────────────────── */
@@ -235,7 +239,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+
 }
 
 /* ─── TOP BAR ───────────────────────────────────────────────── */
@@ -1144,9 +1148,7 @@ body {
   flex-shrink: 0;
 }
 
-.app-layout {
-  zoom: 1.2;
-}
+
 /* ─── MÓDULO GENÉRICO — card contenedor ─────────────────────── */
 .modulo-card {
   background: var(--white);
@@ -1514,6 +1516,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 4px;
+  
 }
 
 .est-act-btn {
@@ -1526,7 +1529,7 @@ body {
   border-radius: var(--radius-md);
   background: none;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--text-muted);
   transition: all .15s;

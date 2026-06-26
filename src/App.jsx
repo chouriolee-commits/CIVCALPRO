@@ -1675,15 +1675,12 @@ function ModuloBiblioteca() {
           <div className="bib-panel-right">
             {/* Header */}
             <div className="bib-det-header">
-              <div className="bib-det-icon">
-                <Icon name={materialActivo.icono} size={24} />
-              </div>
-              <div>
-                <div className="bib-det-name">{materialActivo.nombre}</div>
-                <div className="bib-det-cat">{materialActivo.categoria}</div>
-                <span className="bib-det-badge">{materialActivo.norma}</span>
-              </div>
-            </div>
+  <div>
+    <div className="bib-det-name">{materialActivo.nombre}</div>
+    <div className="bib-det-cat">{materialActivo.categoria}</div>
+    <span className="bib-det-badge">{materialActivo.norma}</span>
+  </div>
+</div>
 
             {/* Propiedades físicas */}
             <div className="bib-section-title">Propiedades físicas</div>
@@ -2093,142 +2090,193 @@ function MobileHome({
 
 // ─── MOBILE MÓDULO ────────────────────────────────────────────
 function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
-  const [elemento, setElemento] = useState("columna");
-  const [largo, setLargo] = useState("0.30");
-  const [ancho, setAncho] = useState("0.30");
-  const [altura, setAltura] = useState("3.00");
-  const [cantidad, setCantidad] = useState("12");
-
-  const volUnitario =
-    (parseFloat(largo) || 0) *
-    (parseFloat(ancho) || 0) *
-    (parseFloat(altura) || 0);
-  const volTotal = volUnitario * (parseFloat(cantidad) || 0);
-
   const modulo = MODULES.find((m) => m.key === moduloKey) || MODULES[0];
-  const pasosMobile = ["Elemento", "Dimensiones", "Resultados", "Guardar"];
 
-  return (
-    <>
-      <header className="mobile-module-topbar">
-        <button className="mobile-back-btn" onClick={onBack}>
-          <Icon name="back" size={22} />
+  const headerJsx = (
+    <header className="mobile-module-topbar">
+      <button className="mobile-back-btn" onClick={onBack}>
+        <Icon name="back" size={22} />
+      </button>
+      <h2>{modulo.label}</h2>
+      <div className="mobile-topbar-actions">
+        <ThemeToggleButton
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+          className="mobile-theme-btn"
+        />
+        <button className="mobile-save-btn">
+          <Icon name="save" size={22} />
         </button>
-        <h2>{modulo.label}</h2>
-        <div className="mobile-topbar-actions">
-          <ThemeToggleButton
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
-            className="mobile-theme-btn"
-          />
-          <button className="mobile-save-btn">
-            <Icon name="save" size={22} />
-          </button>
-        </div>
-      </header>
-      <div className="mobile-stepper">
-        {pasosMobile.map((label, i) => (
-          <div key={i} className={`mobile-step ${i === 0 ? "active" : ""}`}>
-            <div className="mobile-step-num">{i + 1}</div>
-            <div className="mobile-step-label">{label}</div>
-          </div>
-        ))}
       </div>
-      <div className="mobile-form-content">
-        <div className="mobile-section-h">1. Seleccionar elemento</div>
-        <div className="mobile-section-sub">
-          Elige el tipo de elemento que deseas calcular
-        </div>
-        <div className="mobile-element-grid">
-          {ELEMENTOS.map((el) => (
-            <button
-              key={el.id}
-              className={`mobile-element-btn ${elemento === el.id ? "active" : ""}`}
-              onClick={() => setElemento(el.id)}
-            >
-              <span className="mobile-element-btn-icon">{el.icon}</span>
-              {el.label}
-            </button>
+    </header>
+  );
+
+  // Render específico por módulo en móvil
+  if (moduloKey === "computos") {
+    // Mismo UI móvil para Cómputos (implementación existente)
+    const [elemento, setElemento] = useState("columna");
+    const [largo, setLargo] = useState("0.30");
+    const [ancho, setAncho] = useState("0.30");
+    const [altura, setAltura] = useState("3.00");
+    const [cantidad, setCantidad] = useState("12");
+
+    const volUnitario =
+      (parseFloat(largo) || 0) *
+      (parseFloat(ancho) || 0) *
+      (parseFloat(altura) || 0);
+    const volTotal = volUnitario * (parseFloat(cantidad) || 0);
+
+    const pasosMobile = ["Elemento", "Dimensiones", "Resultados", "Guardar"];
+
+    return (
+      <>
+        {headerJsx}
+        <div className="mobile-stepper">
+          {pasosMobile.map((label, i) => (
+            <div key={i} className={`mobile-step ${i === 0 ? "active" : ""}`}>
+              <div className="mobile-step-num">{i + 1}</div>
+              <div className="mobile-step-label">{label}</div>
+            </div>
           ))}
         </div>
-        <div className="mobile-section-h">2. Ingresar dimensiones</div>
-        <div className="mobile-section-sub" style={{ marginBottom: 14 }}>
-          Ingresa las medidas requeridas
+        <div className="mobile-form-content">
+          <div className="mobile-section-h">1. Seleccionar elemento</div>
+          <div className="mobile-section-sub">
+            Elige el tipo de elemento que deseas calcular
+          </div>
+          <div className="mobile-element-grid">
+            {ELEMENTOS.map((el) => (
+              <button
+                key={el.id}
+                className={`mobile-element-btn ${elemento === el.id ? "active" : ""}`}
+                onClick={() => setElemento(el.id)}
+              >
+                <span className="mobile-element-btn-icon">{el.icon}</span>
+                {el.label}
+              </button>
+            ))}
+          </div>
+          <div className="mobile-section-h">2. Ingresar dimensiones</div>
+          <div className="mobile-section-sub" style={{ marginBottom: 14 }}>
+            Ingresa las medidas requeridas
+          </div>
+          <div className="mobile-form-grid">
+            <div className="mobile-field">
+              <label>Largo (m)</label>
+              <input
+                type="number"
+                value={largo}
+                step="0.01"
+                onChange={(e) => setLargo(e.target.value)}
+              />
+            </div>
+            <div className="mobile-field">
+              <label>Ancho (m)</label>
+              <input
+                type="number"
+                value={ancho}
+                step="0.01"
+                onChange={(e) => setAncho(e.target.value)}
+              />
+            </div>
+            <div className="mobile-field">
+              <label>Altura (m)</label>
+              <input
+                type="number"
+                value={altura}
+                step="0.01"
+                onChange={(e) => setAltura(e.target.value)}
+              />
+            </div>
+            <div className="mobile-field">
+              <label>Cantidad</label>
+              <input
+                type="number"
+                value={cantidad}
+                min="1"
+                onChange={(e) => setCantidad(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="mobile-form-grid full">
+            <div className="mobile-field">
+              <label>Proyecto</label>
+              <select defaultValue="edificio">
+                <option value="edificio">Edificio Residencial - Santa Marta</option>
+                <option value="otro">Otro proyecto</option>
+              </select>
+            </div>
+            <div className="mobile-field">
+              <label>Nivel / Piso</label>
+              <select defaultValue="nivel1">
+                <option value="nivel1">Nivel 1</option>
+                <option value="nivel2">Nivel 2</option>
+              </select>
+            </div>
+          </div>
+          <div className="mobile-result-box">
+            <div className="mobile-result-cell">
+              <label>Volumen unitario</label>
+              <div className="val val-secondary">{volUnitario.toFixed(2)} m³</div>
+            </div>
+            <div className="mobile-result-cell">
+              <label>Volumen total</label>
+              <div className="val">{volTotal.toFixed(2)} m³</div>
+            </div>
+          </div>
         </div>
-        <div className="mobile-form-grid">
-          <div className="mobile-field">
-            <label>Largo (m)</label>
-            <input
-              type="number"
-              value={largo}
-              step="0.01"
-              onChange={(e) => setLargo(e.target.value)}
-            />
-          </div>
-          <div className="mobile-field">
-            <label>Ancho (m)</label>
-            <input
-              type="number"
-              value={ancho}
-              step="0.01"
-              onChange={(e) => setAncho(e.target.value)}
-            />
-          </div>
-          <div className="mobile-field">
-            <label>Altura (m)</label>
-            <input
-              type="number"
-              value={altura}
-              step="0.01"
-              onChange={(e) => setAltura(e.target.value)}
-            />
-          </div>
-          <div className="mobile-field">
-            <label>Cantidad</label>
-            <input
-              type="number"
-              value={cantidad}
-              min="1"
-              onChange={(e) => setCantidad(e.target.value)}
-            />
-          </div>
+        <div className="mobile-action-row">
+          <button className="btn btn-ghost">
+            <Icon name="trash" size={15} /> Limpiar
+          </button>
+          <button className="btn btn-green">
+            Siguiente <Icon name="arrow_r" size={15} />
+          </button>
         </div>
-        <div className="mobile-form-grid full">
-          <div className="mobile-field">
-            <label>Proyecto</label>
-            <select defaultValue="edificio">
-              <option value="edificio">
-                Edificio Residencial - Santa Marta
-              </option>
-              <option value="otro">Otro proyecto</option>
-            </select>
-          </div>
-          <div className="mobile-field">
-            <label>Nivel / Piso</label>
-            <select defaultValue="nivel1">
-              <option value="nivel1">Nivel 1</option>
-              <option value="nivel2">Nivel 2</option>
-            </select>
-          </div>
+      </>
+    );
+  }
+
+  // Reusar los módulos existentes para móvil: concreto, biblioteca, estimación
+  if (moduloKey === "concreto") {
+    return (
+      <>
+        {headerJsx}
+        <div className="mobile-page">
+          <ModuloConcreto />
         </div>
-        <div className="mobile-result-box">
-          <div className="mobile-result-cell">
-            <label>Volumen unitario</label>
-            <div className="val val-secondary">{volUnitario.toFixed(2)} m³</div>
-          </div>
-          <div className="mobile-result-cell">
-            <label>Volumen total</label>
-            <div className="val">{volTotal.toFixed(2)} m³</div>
-          </div>
+      </>
+    );
+  }
+
+  if (moduloKey === "biblioteca") {
+    return (
+      <>
+        {headerJsx}
+        <div className="mobile-page">
+          <ModuloBiblioteca />
         </div>
-      </div>
-      <div className="mobile-action-row">
-        <button className="btn btn-ghost">
-          <Icon name="trash" size={15} /> Limpiar
-        </button>
-        <button className="btn btn-green">
-          Siguiente <Icon name="arrow_r" size={15} />
-        </button>
+      </>
+    );
+  }
+
+  if (moduloKey === "estimacion") {
+    return (
+      <>
+        {headerJsx}
+        <div className="mobile-page">
+          <ModuloEstimacion />
+        </div>
+      </>
+    );
+  }
+
+  // Fallback para módulos no implementados
+  return (
+    <>
+      {headerJsx}
+      <div className="mobile-page">
+        <ModuloPendiente modulo={modulo} />
       </div>
     </>
   );
