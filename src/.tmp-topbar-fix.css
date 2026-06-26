@@ -1,0 +1,11 @@
+/* Temporal: reglas para posicionar iconos en escritorio */
+@media (min-width: 769px) {
+  .topbar { position: relative; }
+  .topbar-right {
+    position: absolute;
+    right: 34px; /* coincide con el padding horizontal del topbar */
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0; /* asegurar que no se combine con margin auto */
+  }
+}

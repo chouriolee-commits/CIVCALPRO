@@ -726,18 +726,46 @@ function Sidebar({ activeModule, onNavigate, user }) {
 }
 
 // ─── TOPBAR ───────────────────────────────────────────────────
-function Topbar({ title, darkMode, setDarkMode, showOnline = false }) {
+// ─── TOPBAR ───────────────────────────────────────────────────
+function Topbar({ title, darkMode, setDarkMode, activeModule }) {
+  const modulo = MODULES.find((m) => m.key === activeModule);
+
   return (
     <header className="topbar desktop-only">
       <div className="topbar-left">
-        <span className="topbar-title">{title}</span>
+        <button className="topbar-menu-btn">
+          <Icon name="menu" size={20} />
+        </button>
+
+        {/* Breadcrumb */}
+        <div className="topbar-breadcrumb">
+          {modulo ? (
+            <>
+             <span className="topbar-breadcrumb-icon" style={{
+  width: 22,
+  height: 22,
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  overflow: "hidden",
+  flexShrink: 0
+}}>
+  {modulo.icon}
+</span>
+              <span className="topbar-breadcrumb-main">{modulo.label}</span>
+              <span className="topbar-breadcrumb-sep">›</span>
+              <span className="topbar-breadcrumb-sub">Cálculo de elementos</span>
+            </>
+          ) : (
+            <span className="topbar-breadcrumb-main">{title}</span>
+          )}
+        </div>
+
+        {/* Línea verde debajo del módulo activo */}
+        {modulo && <div className="topbar-breadcrumb-underline" />}
       </div>
+
       <div className="topbar-right">
-        {showOnline && (
-          <div className="normas-badge">
-            <Icon name="book" size={13} /> Normas COVENIN incluidas
-          </div>
-        )}
         <ThemeToggleButton darkMode={darkMode} setDarkMode={setDarkMode} />
         <button className="notif-btn">
           <Icon name="bell" size={22} />
@@ -2367,9 +2395,10 @@ export default function App() {
         <div className="main-content">
           <Topbar
             title={pageTitle()}
-            darkMode={darkMode}
             setDarkMode={setDarkMode}
+            darkMode={darkMode}
             showOnline={activeModule === "inicio"}
+            activeModule={activeModule}
           />
           {renderDesktopPage()}
         </div>

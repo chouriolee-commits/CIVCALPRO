@@ -255,11 +255,11 @@ body {
   z-index: 50;
 }
 
-.topbar-left { display: flex; align-items: center; gap: 14px; }
+.topbar-left { display: flex; align-items: center; gap: 14px; flex: 1; }
 .topbar-menu-btn { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 18px; display: none; }
 .topbar-title { font-size: 16px; font-weight: 600; color: var(--text-main); }
 
-.topbar-right { display: flex; align-items: center; gap: 12px; }
+.topbar-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
 .notif-btn {
   background: none; border: none; cursor: pointer;
   position: relative; padding: 6px;
@@ -277,6 +277,18 @@ body {
 
 /* ─── PAGE CONTENT ──────────────────────────────────────────── */
 .page { padding: 36px; }
+
+/* Posiciona acciones del topbar en la esquina derecha para escritorio */
+@media (min-width: 769px) {
+  .topbar { position: relative; }
+  .topbar-right {
+    position: absolute;
+    right: 34px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
+  }
+}
 
 .page-greeting h1 { font-size: 26px; font-weight: 700; color: var(--text-main); }
 .page-greeting h1 span { color: var(--green); }
@@ -539,6 +551,14 @@ body {
 }
 .mobile-topbar .logo-row strong { font-size: 15px; letter-spacing: .4px; }
 .mobile-topbar .logo-row strong span { color: var(--green); }
+
+/* Alinea las acciones (tema, notificaciones) a la esquina derecha en móvil */
+.mobile-topbar .mobile-topbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
 /* ─── MOBILE PAGE ───────────────────────────────────────────── */
 .mobile-page { padding: 20px 16px 90px; }
@@ -1640,4 +1660,69 @@ body {
 
 @media (max-width: 768px) {
   .est-act-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ─── TOPBAR BREADCRUMB ──────────────────────────────────────── */
+.topbar-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: background .15s;
+}
+.topbar-menu-btn:hover { background: var(--bg); }
+
+.topbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  padding-bottom: 2px;
+    flex: 1;
+
+}
+
+.topbar-breadcrumb-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.topbar-breadcrumb-main {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.topbar-breadcrumb-sep {
+  font-size: 16px;
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+.topbar-breadcrumb-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.topbar-breadcrumb-underline {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--green);
+  border-radius: 2px;
+}
+
+/* ─── ÍCONO EN BREADCRUMB DEL TOPBAR ────────────────────────── */
+.topbar-breadcrumb-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
 }
