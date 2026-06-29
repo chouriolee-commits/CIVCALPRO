@@ -390,6 +390,47 @@ const Icon = ({ name, size = 18 }) => {
         <circle cx="12" cy="17" r="1" fill="currentColor"/>
       </>
     ),
+    search: (
+      <>
+        <circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <path d="M21 21l-4.35-4.35" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </>
+    ),
+    eye: (
+      <>
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" strokeWidth="2"/>
+      </>
+    ),
+    copy: (
+      <>
+        <rect x="9" y="9" width="13" height="13" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" strokeWidth="2"/>
+      </>
+    ),
+    download: (
+      <>
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <polyline points="7 10 12 15 17 10" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </>
+    ),
+    ruler: (
+      <>
+        <path d="M3 21h18M3 7h1M5 7h1M7 7h1M9 7h1M11 7h1M13 7h1M15 7h1M17 7h1M19 7h1M21 7h1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="3" y="3" width="18" height="4" rx="1" fill="none" stroke="currentColor" strokeWidth="2"/>
+      </>
+    ),
+    building: (
+      <>
+        <path d="M4 20V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v11" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="6" y="9" width="3" height="3" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+        <rect x="15" y="9" width="3" height="3" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+        <rect x="6" y="13" width="3" height="3" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+        <rect x="15" y="13" width="3" height="3" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+        <line x1="4" y1="20" x2="20" y2="20" stroke="currentColor" strokeWidth="2"/>
+      </>
+    ),
   };
   return (
     <svg
@@ -2026,6 +2067,290 @@ function ModuloEstimacion() {
 }
 
 
+// ─── HISTORIAL DE CÁLCULOS ────────────────────────────────────
+function ModuloHistorial() {
+  const [filtroModulo, setFiltroModulo] = useState("Todos");
+  const [filtroTexto, setFiltroTexto] = useState("");
+  const [paginaActual, setPaginaActual] = useState(1);
+  const calculosPorPagina = 6;
+
+  // Datos de ejemplo del historial
+  const historialCompleto = [
+    {
+      id: 1,
+      fecha: "Hoy 10:32",
+      modulo: "Cómputos",
+      descripcion: "Columna 0.30×0.30 m — ×12",
+      proyecto: "Edif. Residencial",
+      resultado: "3.24 m³",
+      moduloKey: "computos",
+      badgeBg: "#E8F8EF",
+      badgeColor: "#166534",
+      icon: "ruler-2",
+    },
+    {
+      id: 2,
+      fecha: "Ayer 16:15",
+      modulo: "Concreto",
+      descripcion: "Dosificación f'c 210 — 3 m³",
+      proyecto: "Edif. Residencial",
+      resultado: "21 sacos",
+      moduloKey: "concreto",
+      badgeBg: "#FEF3E8",
+      badgeColor: "#9A3412",
+      icon: "building",
+    },
+    {
+      id: 3,
+      fecha: "Ayer 14:08",
+      modulo: "Estimación",
+      descripcion: "Pintura interior — 120 m²",
+      proyecto: "Edif. Residencial",
+      resultado: "8 galones",
+      moduloKey: "estimacion",
+      badgeBg: "#EFF4FF",
+      badgeColor: "#1D4ED8",
+      icon: "calculator",
+    },
+    {
+      id: 4,
+      fecha: "Hace 3 días",
+      modulo: "Cómputos",
+      descripcion: "Viga 0.25×0.50 m — ×8",
+      proyecto: "C. Comercial",
+      resultado: "8.0 m³",
+      moduloKey: "computos",
+      badgeBg: "#E8F8EF",
+      badgeColor: "#166534",
+      icon: "ruler-2",
+    },
+    {
+      id: 5,
+      fecha: "Hace 5 días",
+      modulo: "Concreto",
+      descripcion: "Dosificación f'c 180 — 5 m³",
+      proyecto: "Colegio Municipal",
+      resultado: "30 sacos",
+      moduloKey: "concreto",
+      badgeBg: "#FEF3E8",
+      badgeColor: "#9A3412",
+      icon: "building",
+    },
+    {
+      id: 6,
+      fecha: "Hace 1 sem",
+      modulo: "Estimación",
+      descripcion: "Cerámica piso — 85 m²",
+      proyecto: "Vivienda Bogotá",
+      resultado: "93.5 m²",
+      moduloKey: "estimacion",
+      badgeBg: "#EFF4FF",
+      badgeColor: "#1D4ED8",
+      icon: "calculator",
+    },
+  ];
+
+  // Filtrar datos
+  const historialFiltrado = historialCompleto.filter((item) => {
+    const cumpleFiltroModulo = filtroModulo === "Todos" || item.modulo === filtroModulo;
+    const cumpleTexto =
+      filtroTexto === "" ||
+      item.descripcion.toLowerCase().includes(filtroTexto.toLowerCase()) ||
+      item.proyecto.toLowerCase().includes(filtroTexto.toLowerCase());
+    return cumpleFiltroModulo && cumpleTexto;
+  });
+
+  // Paginación
+  const totalPaginas = Math.ceil(historialFiltrado.length / calculosPorPagina);
+  const inicio = (paginaActual - 1) * calculosPorPagina;
+  const fin = inicio + calculosPorPagina;
+  const calculosPagina = historialFiltrado.slice(inicio, fin);
+
+  // Estadísticas
+  const totales = {
+    total: historialCompleto.length,
+    computos: historialCompleto.filter((h) => h.moduloKey === "computos").length,
+    concreto: historialCompleto.filter((h) => h.moduloKey === "concreto").length,
+    biblioteca: historialCompleto.filter((h) => h.moduloKey === "biblioteca").length,
+    estimacion: historialCompleto.filter((h) => h.moduloKey === "estimacion").length,
+    exportados: Math.floor(historialCompleto.length * 0.5),
+  };
+
+  return (
+    <div className="page">
+      <div className="page-header">
+        <div>
+          <h1 className="page-title">Historial de <span>Cálculos</span></h1>
+          <p className="page-subtitle">Todos los cálculos realizados, ordenados por fecha</p>
+        </div>
+      </div>
+
+      {/* Stats cards */}
+      <div className="historial-stats">
+        <div className="stat-card">
+          <div className="stat-label">
+            <Icon name="calc" size={13} /> Total
+          </div>
+          <div className="stat-value">{totales.total}</div>
+          <div className="stat-sub">Cálculos realizados</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">
+            <Icon name="ruler" size={13} /> Cómputos
+          </div>
+          <div className="stat-value" style={{ color: "var(--green)" }}>
+            {totales.computos}
+          </div>
+          <div className="stat-sub">Mediciones</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">
+            <Icon name="building" size={13} /> Concreto
+          </div>
+          <div className="stat-value" style={{ color: "var(--orange)" }}>
+            {totales.concreto}
+          </div>
+          <div className="stat-sub">Dosificaciones</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">
+            <Icon name="export" size={13} /> Exportados
+          </div>
+          <div className="stat-value">{totales.exportados}</div>
+          <div className="stat-sub">Archivos descargados</div>
+        </div>
+      </div>
+
+      {/* Card principal */}
+      <div className="historial-card">
+        {/* Toolbar */}
+        <div className="historial-toolbar">
+          <div className="search-box">
+            <Icon name="search" size={13} />
+            <input
+              type="text"
+              placeholder="Buscar cálculo..."
+              value={filtroTexto}
+              onChange={(e) => {
+                setFiltroTexto(e.target.value);
+                setPaginaActual(1);
+              }}
+            />
+          </div>
+          <div className="filter-chips">
+            {["Todos", "Cómputos", "Concreto", "Biblioteca", "Estimación"].map(
+              (chip) => (
+                <button
+                  key={chip}
+                  className={`filter-chip ${filtroModulo === chip ? "active" : ""}`}
+                  onClick={() => {
+                    setFiltroModulo(chip);
+                    setPaginaActual(1);
+                  }}
+                >
+                  {chip}
+                </button>
+              )
+            )}
+          </div>
+        </div>
+
+        {/* Tabla */}
+        <div className="historial-table-wrapper">
+          <table className="historial-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Módulo</th>
+                <th>Descripción</th>
+                <th>Proyecto</th>
+                <th>Resultado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {calculosPagina.length > 0 ? (
+                calculosPagina.map((item) => (
+                  <tr key={item.id}>
+                    <td className="fecha-col">{item.fecha}</td>
+                    <td>
+                      <span
+                        className="badge"
+                        style={{
+                          background: item.badgeBg,
+                          color: item.badgeColor,
+                        }}
+                      >
+                        <Icon name={item.icon} size={10} style={{ marginRight: 4 }} />
+                        {item.modulo}
+                      </span>
+                    </td>
+                    <td>{item.descripcion}</td>
+                    <td className="proyecto-col">{item.proyecto}</td>
+                    <td className="resultado-col">{item.resultado}</td>
+                    <td>
+                      <div className="action-buttons">
+                        <button className="action-btn" title="Ver">
+                          <Icon name="eye" size={12} />
+                        </button>
+                        <button className="action-btn" title="Copiar">
+                          <Icon name="copy" size={12} />
+                        </button>
+                        <button className="action-btn" title="Descargar">
+                          <Icon name="download" size={12} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" style={{ textAlign: "center", padding: 20 }}>
+                    No hay cálculos que coincidan con los filtros
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Paginación */}
+        <div className="historial-pagination">
+          <span>
+            Mostrando {calculosPagina.length} de {historialFiltrado.length} cálculos
+          </span>
+          <div className="pagination-buttons">
+            <button
+              className="page-btn"
+              onClick={() => setPaginaActual(Math.max(1, paginaActual - 1))}
+              disabled={paginaActual === 1}
+            >
+              <Icon name="back" size={11} />
+            </button>
+            {Array.from({ length: totalPaginas }, (_, i) => (
+              <button
+                key={i + 1}
+                className={`page-btn ${paginaActual === i + 1 ? "active" : ""}`}
+                onClick={() => setPaginaActual(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              className="page-btn"
+              onClick={() => setPaginaActual(Math.min(totalPaginas, paginaActual + 1))}
+              disabled={paginaActual === totalPaginas}
+            >
+              <Icon name="chevron" size={11} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 // ─── PLACEHOLDER para módulos pendientes ──────────────────────
 function ModuloPendiente({ modulo }) {
   return (
@@ -2043,6 +2368,165 @@ function ModuloPendiente({ modulo }) {
           La vista de este módulo será implementada en la siguiente fase del
           proyecto.
         </p>
+      </div>
+    </div>
+  );
+}
+
+// ─── MOBILE HISTORIAL ─────────────────────────────────────────
+function MobileHistorial() {
+  const [filtroModulo, setFiltroModulo] = useState("Todos");
+  const [filtroTexto, setFiltroTexto] = useState("");
+
+  const historialCompleto = [
+    {
+      id: 1,
+      fecha: "Hoy 10:32",
+      modulo: "Cómputos",
+      descripcion: "Columna 0.30×0.30 m — ×12",
+      proyecto: "Edif. Residencial",
+      resultado: "3.24 m³",
+      moduloKey: "computos",
+      badgeBg: "#E8F8EF",
+      badgeColor: "#166534",
+      icon: "ruler",
+    },
+    {
+      id: 2,
+      fecha: "Ayer 16:15",
+      modulo: "Concreto",
+      descripcion: "Dosificación f'c 210 — 3 m³",
+      proyecto: "Edif. Residencial",
+      resultado: "21 sacos",
+      moduloKey: "concreto",
+      badgeBg: "#FEF3E8",
+      badgeColor: "#9A3412",
+      icon: "building",
+    },
+    {
+      id: 3,
+      fecha: "Ayer 14:08",
+      modulo: "Estimación",
+      descripcion: "Pintura interior — 120 m²",
+      proyecto: "Edif. Residencial",
+      resultado: "8 galones",
+      moduloKey: "estimacion",
+      badgeBg: "#EFF4FF",
+      badgeColor: "#1D4ED8",
+      icon: "calculator",
+    },
+    {
+      id: 4,
+      fecha: "Hace 3 días",
+      modulo: "Cómputos",
+      descripcion: "Viga 0.25×0.50 m — ×8",
+      proyecto: "C. Comercial",
+      resultado: "8.0 m³",
+      moduloKey: "computos",
+      badgeBg: "#E8F8EF",
+      badgeColor: "#166534",
+      icon: "ruler",
+    },
+    {
+      id: 5,
+      fecha: "Hace 5 días",
+      modulo: "Concreto",
+      descripcion: "Dosificación f'c 180 — 5 m³",
+      proyecto: "Colegio Municipal",
+      resultado: "30 sacos",
+      moduloKey: "concreto",
+      badgeBg: "#FEF3E8",
+      badgeColor: "#9A3412",
+      icon: "building",
+    },
+    {
+      id: 6,
+      fecha: "Hace 1 sem",
+      modulo: "Estimación",
+      descripcion: "Cerámica piso — 85 m²",
+      proyecto: "Vivienda Bogotá",
+      resultado: "93.5 m²",
+      moduloKey: "estimacion",
+      badgeBg: "#EFF4FF",
+      badgeColor: "#1D4ED8",
+      icon: "calculator",
+    },
+  ];
+
+  const historialFiltrado = historialCompleto.filter((item) => {
+    const cumpleFiltroModulo = filtroModulo === "Todos" || item.modulo === filtroModulo;
+    const cumpleTexto =
+      filtroTexto === "" ||
+      item.descripcion.toLowerCase().includes(filtroTexto.toLowerCase()) ||
+      item.proyecto.toLowerCase().includes(filtroTexto.toLowerCase());
+    return cumpleFiltroModulo && cumpleTexto;
+  });
+
+  return (
+    <div className="mobile-historial">
+      <div style={{ marginBottom: "1rem" }}>
+        <h3 style={{ fontSize: "0.9rem", marginBottom: "0.5rem" }}>Buscar</h3>
+        <div className="search-box" style={{ marginBottom: "0.75rem" }}>
+          <Icon name="search" size={13} />
+          <input
+            type="text"
+            placeholder="Búsqueda..."
+            value={filtroTexto}
+            onChange={(e) => setFiltroTexto(e.target.value)}
+          />
+        </div>
+        <div className="filter-chips-mobile">
+          {["Todos", "Cómputos", "Concreto", "Biblioteca", "Estimación"].map(
+            (chip) => (
+              <button
+                key={chip}
+                className={`filter-chip-mobile ${filtroModulo === chip ? "active" : ""}`}
+                onClick={() => setFiltroModulo(chip)}
+              >
+                {chip}
+              </button>
+            )
+          )}
+        </div>
+      </div>
+
+      <div className="mobile-historial-list">
+        {historialFiltrado.length > 0 ? (
+          historialFiltrado.map((item) => (
+            <div key={item.id} className="mobile-historial-item">
+              <div className="mobile-historial-header">
+                <span className="mobile-historial-fecha">{item.fecha}</span>
+                <span
+                  className="mobile-historial-badge"
+                  style={{
+                    background: item.badgeBg,
+                    color: item.badgeColor,
+                  }}
+                >
+                  {item.modulo}
+                </span>
+              </div>
+              <div className="mobile-historial-desc">{item.descripcion}</div>
+              <div className="mobile-historial-proyecto">{item.proyecto}</div>
+              <div className="mobile-historial-result">{item.resultado}</div>
+              <div className="mobile-historial-actions">
+                <button className="mobile-action-small" title="Ver">
+                  <Icon name="eye" size={13} />
+                </button>
+                <button className="mobile-action-small" title="Copiar">
+                  <Icon name="copy" size={13} />
+                </button>
+                <button className="mobile-action-small" title="Descargar">
+                  <Icon name="download" size={13} />
+                </button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div style={{ textAlign: "center", padding: "2rem", color: "var(--text-muted)" }}>
+            No hay cálculos que coincidan
+          </div>
+        )}
       </div>
     </div>
   );
@@ -2407,6 +2891,17 @@ function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
     );
   }
 
+  if (moduloKey === "historial" || moduloKey === "reportes") {
+    return (
+      <>
+        {headerJsx}
+        <div className="mobile-page" style={{ padding: "0.75rem" }}>
+          <MobileHistorial />
+        </div>
+      </>
+    );
+  }
+
   if (moduloKey === "estimacion") {
     return (
       <>
@@ -2485,7 +2980,9 @@ export default function App() {
           dashboardData={dashboardData}
         />
       );
-      if (activeModule === "proyectos") return <ModuloProyectos />;
+    if (activeModule === "proyectos") return <ModuloProyectos />;
+    if (activeModule === "historial") return <ModuloHistorial />;
+    if (activeModule === "reportes") return <ModuloHistorial />;
     if (activeModule === "computos") return <ModuloComputos />;
     if (activeModule === "concreto")  return <ModuloConcreto />;
     if (activeModule === "biblioteca") return <ModuloBiblioteca />;
