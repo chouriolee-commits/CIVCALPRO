@@ -14,7 +14,6 @@ import vigaImg from "./assets/img/viga.png";
 import zapataImg from "./assets/img/zapata.png";
 import "./App.css";
 
-
 // ─── ICONS ───────────────────────────────────────────────────
 const Icon = ({ name, size = 18 }) => {
   const icons = {
@@ -380,55 +379,191 @@ const Icon = ({ name, size = 18 }) => {
     ),
     book: (
       <>
-        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <path
+          d="M4 19.5A2.5 2.5 0 016.5 17H20"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
       </>
     ),
     device: (
       <>
-        <rect x="5" y="2" width="14" height="20" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/>
-        <circle cx="12" cy="17" r="1" fill="currentColor"/>
+        <rect
+          x="5"
+          y="2"
+          width="14"
+          height="20"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <circle cx="12" cy="17" r="1" fill="currentColor" />
       </>
     ),
     search: (
       <>
-        <circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" strokeWidth="2"/>
-        <path d="M21 21l-4.35-4.35" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <circle
+          cx="11"
+          cy="11"
+          r="8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M21 21l-4.35-4.35"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
       </>
     ),
     eye: (
       <>
-        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" fill="none" stroke="currentColor" strokeWidth="2"/>
-        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <path
+          d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
       </>
     ),
     copy: (
       <>
-        <rect x="9" y="9" width="13" height="13" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <rect
+          x="9"
+          y="9"
+          width="13"
+          height="13"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
       </>
     ),
     download: (
       <>
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" strokeWidth="2"/>
-        <polyline points="7 10 12 15 17 10" fill="none" stroke="currentColor" strokeWidth="2"/>
-        <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <path
+          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <polyline
+          points="7 10 12 15 17 10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <line
+          x1="12"
+          y1="15"
+          x2="12"
+          y2="3"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
       </>
     ),
     ruler: (
       <>
-        <path d="M3 21h18M3 7h1M5 7h1M7 7h1M9 7h1M11 7h1M13 7h1M15 7h1M17 7h1M19 7h1M21 7h1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <rect x="3" y="3" width="18" height="4" rx="1" fill="none" stroke="currentColor" strokeWidth="2"/>
+        <path
+          d="M3 21h18M3 7h1M5 7h1M7 7h1M9 7h1M11 7h1M13 7h1M15 7h1M17 7h1M19 7h1M21 7h1"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <rect
+          x="3"
+          y="3"
+          width="18"
+          height="4"
+          rx="1"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
       </>
     ),
     building: (
       <>
-        <path d="M4 20V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v11" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <rect x="6" y="9" width="3" height="3" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-        <rect x="15" y="9" width="3" height="3" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-        <rect x="6" y="13" width="3" height="3" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-        <rect x="15" y="13" width="3" height="3" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-        <line x1="4" y1="20" x2="20" y2="20" stroke="currentColor" strokeWidth="2"/>
+        <path
+          d="M4 20V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v11"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <rect
+          x="6"
+          y="9"
+          width="3"
+          height="3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <rect
+          x="15"
+          y="9"
+          width="3"
+          height="3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <rect
+          x="6"
+          y="13"
+          width="3"
+          height="3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <rect
+          x="15"
+          y="13"
+          width="3"
+          height="3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="4"
+          y1="20"
+          x2="20"
+          y2="20"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
       </>
     ),
   };
@@ -490,13 +625,21 @@ const MODULES = [
 ];
 
 const ELEMENTOS = [
-  { id: "columna", label: "Columna", icon: <img src={columnaImg} alt="Columna" /> },
+  {
+    id: "columna",
+    label: "Columna",
+    icon: <img src={columnaImg} alt="Columna" />,
+  },
   { id: "viga", label: "Viga", icon: <img src={vigaImg} alt="Viga" /> },
   { id: "losa", label: "Losa", icon: <img src={losaImg} alt="Losa" /> },
   { id: "muro", label: "Muro", icon: <img src={muroImg} alt="Muro" /> },
   { id: "zapata", label: "Zapata", icon: <img src={zapataImg} alt="Zapata" /> },
   { id: "piso", label: "Piso", icon: <img src={pisoImg} alt="Piso" /> },
-  { id: "excavacion", label: "Excavación", icon: <img src={excavacionImg} alt="Excavación" /> },
+  {
+    id: "excavacion",
+    label: "Excavación",
+    icon: <img src={excavacionImg} alt="Excavación" />,
+  },
   { id: "otro", label: "Otro", icon: <img src={otroImg} alt="Otro" /> },
 ];
 
@@ -708,7 +851,9 @@ function Sidebar({ activeModule, onNavigate, user }) {
             onClick={() => onNavigate(m.key)}
           >
             <span className="item-icon">{m.icon}</span>
-            <span className="module-label">{m.id}. {m.label}</span>
+            <span className="module-label">
+              {m.id}. {m.label}
+            </span>
           </button>
         ))}
         <div className="sidebar-section-label">Gestión</div>
@@ -774,28 +919,33 @@ function Topbar({ title, darkMode, setDarkMode, activeModule }) {
   return (
     <header className="topbar desktop-only">
       <div className="topbar-left">
-        <button className="topbar-menu-btn">
-          <Icon name="menu" size={20} />
+        <button className="menu-btn" onClick={() => setShowMenuDrawer(true)}>
+          <Icon name="menu" size={22} />
         </button>
 
         {/* Breadcrumb */}
         <div className="topbar-breadcrumb">
           {modulo ? (
             <>
-             <span className="topbar-breadcrumb-icon" style={{
-  width: 22,
-  height: 22,
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  overflow: "hidden",
-  flexShrink: 0
-}}>
-  {modulo.icon}
-</span>
+              <span
+                className="topbar-breadcrumb-icon"
+                style={{
+                  width: 22,
+                  height: 22,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  flexShrink: 0,
+                }}
+              >
+                {modulo.icon}
+              </span>
               <span className="topbar-breadcrumb-main">{modulo.label}</span>
               <span className="topbar-breadcrumb-sep">›</span>
-              <span className="topbar-breadcrumb-sub">Cálculo de elementos</span>
+              <span className="topbar-breadcrumb-sub">
+                Cálculo de elementos
+              </span>
             </>
           ) : (
             <span className="topbar-breadcrumb-main">{title}</span>
@@ -870,7 +1020,7 @@ function DesktopHome({ onNavigate, user, dashboardData }) {
           <h1>
             Bienvenido a <span>CivCalPro</span>
           </h1>
-          <p>{todayFormatted} —  aquí está el resumen de tu actividad</p>
+          <p>{todayFormatted} — aquí está el resumen de tu actividad</p>
         </div>
       </div>
 
@@ -908,7 +1058,9 @@ function DesktopHome({ onNavigate, user, dashboardData }) {
                   {m.icon}
                 </div>
                 <div className="home-module-info">
-                  <strong><span className="module-label">{m.label}</span></strong>
+                  <strong>
+                    <span className="module-label">{m.label}</span>
+                  </strong>
                   <small>{m.desc}</small>
                 </div>
                 <span className="home-module-arrow">
@@ -1258,7 +1410,6 @@ function ModuloComputos() {
   );
 }
 
-
 // ─── DATOS: DOSIFICACIONES DE CONCRETO ───────────────────────
 const DOSIFICACIONES = [
   {
@@ -1266,10 +1417,10 @@ const DOSIFICACIONES = [
     fc: "f'c = 150 kg/cm²",
     ratio: "1 : 3 : 6",
     desc: "Replantillos, andenes, pisos",
-    cemento: 5.5,   // sacos por m³
-    arena:   0.56,  // m³ por m³ de concreto
-    piedra:  0.84,  // m³ por m³ de concreto
-    agua:    216,   // litros por m³
+    cemento: 5.5, // sacos por m³
+    arena: 0.56, // m³ por m³ de concreto
+    piedra: 0.84, // m³ por m³ de concreto
+    agua: 216, // litros por m³
     pesoSaco: 42.5,
   },
   {
@@ -1278,9 +1429,9 @@ const DOSIFICACIONES = [
     ratio: "1 : 2.5 : 4",
     desc: "Losas, escaleras, muros",
     cemento: 6.5,
-    arena:   0.52,
-    piedra:  0.74,
-    agua:    204,
+    arena: 0.52,
+    piedra: 0.74,
+    agua: 204,
     pesoSaco: 42.5,
   },
   {
@@ -1289,9 +1440,9 @@ const DOSIFICACIONES = [
     ratio: "1 : 1.5 : 3",
     desc: "Columnas, vigas, cimentaciones",
     cemento: 7.0,
-    arena:   0.50,
-    piedra:  0.70,
-    agua:    195,
+    arena: 0.5,
+    piedra: 0.7,
+    agua: 195,
     pesoSaco: 42.5,
   },
 ];
@@ -1310,16 +1461,31 @@ const CATEGORIAS_MATERIALES = [
         norma: "COVENIN 1618",
         icono: "tools",
         propiedades: [
-          { label: "Densidad / Peso específico", valor: "7,850", unidad: "kg/m³" },
-          { label: "Módulo de elasticidad",      valor: "200,000", unidad: "MPa" },
-          { label: "Límite de fluencia fy",      valor: "4,200", unidad: "kg/cm²" },
-          { label: "Resistencia a tensión",      valor: "6,300", unidad: "kg/cm²" },
+          {
+            label: "Densidad / Peso específico",
+            valor: "7,850",
+            unidad: "kg/m³",
+          },
+          { label: "Módulo de elasticidad", valor: "200,000", unidad: "MPa" },
+          { label: "Límite de fluencia fy", valor: "4,200", unidad: "kg/cm²" },
+          { label: "Resistencia a tensión", valor: "6,300", unidad: "kg/cm²" },
         ],
-        presentaciones: ["Ø 3/8\" (9.5 mm)", "Ø 1/2\" (12.7 mm)", "Ø 5/8\" (15.9 mm)", "Ø 3/4\" (19.1 mm)", "Ø 1\" (25.4 mm)"],
-        usos: ["Vigas y columnas", "Losas de entrepiso", "Cimentaciones", "Muros estructurales"],
+        presentaciones: [
+          'Ø 3/8" (9.5 mm)',
+          'Ø 1/2" (12.7 mm)',
+          'Ø 5/8" (15.9 mm)',
+          'Ø 3/4" (19.1 mm)',
+          'Ø 1" (25.4 mm)',
+        ],
+        usos: [
+          "Vigas y columnas",
+          "Losas de entrepiso",
+          "Cimentaciones",
+          "Muros estructurales",
+        ],
         normas: [
           { codigo: "COVENIN 1638", desc: "Barras de acero de refuerzo" },
-          { codigo: "ASTM A615",    desc: "Grado 60" },
+          { codigo: "ASTM A615", desc: "Grado 60" },
         ],
       },
       {
@@ -1329,16 +1495,21 @@ const CATEGORIAS_MATERIALES = [
         norma: "COVENIN 1753",
         icono: "building",
         propiedades: [
-          { label: "Densidad",           valor: "2,400", unidad: "kg/m³" },
-          { label: "Resistencia f'c",    valor: "210",   unidad: "kg/cm²" },
-          { label: "Módulo de Young",    valor: "21,538", unidad: "MPa" },
-          { label: "Coef. de Poisson",   valor: "0.20",  unidad: "" },
+          { label: "Densidad", valor: "2,400", unidad: "kg/m³" },
+          { label: "Resistencia f'c", valor: "210", unidad: "kg/cm²" },
+          { label: "Módulo de Young", valor: "21,538", unidad: "MPa" },
+          { label: "Coef. de Poisson", valor: "0.20", unidad: "" },
         ],
-        presentaciones: ["f'c 150 kg/cm²", "f'c 180 kg/cm²", "f'c 210 kg/cm²", "f'c 250 kg/cm²"],
+        presentaciones: [
+          "f'c 150 kg/cm²",
+          "f'c 180 kg/cm²",
+          "f'c 210 kg/cm²",
+          "f'c 250 kg/cm²",
+        ],
         usos: ["Columnas", "Vigas", "Losas", "Fundaciones"],
         normas: [
           { codigo: "COVENIN 1753", desc: "Estructuras de concreto armado" },
-          { codigo: "COVENIN 633",  desc: "Cemento Portland" },
+          { codigo: "COVENIN 633", desc: "Cemento Portland" },
         ],
       },
       {
@@ -1348,13 +1519,17 @@ const CATEGORIAS_MATERIALES = [
         norma: "COVENIN 42",
         icono: "layout-board",
         propiedades: [
-          { label: "Densidad",           valor: "1,800", unidad: "kg/m³" },
+          { label: "Densidad", valor: "1,800", unidad: "kg/m³" },
           { label: "Resistencia compresión", valor: "40", unidad: "kg/cm²" },
-          { label: "Absorción de agua",  valor: "< 15",  unidad: "%" },
-          { label: "Dimensiones",        valor: "40×20×15", unidad: "cm" },
+          { label: "Absorción de agua", valor: "< 15", unidad: "%" },
+          { label: "Dimensiones", valor: "40×20×15", unidad: "cm" },
         ],
         presentaciones: ["Bloque 10 cm", "Bloque 15 cm", "Bloque 20 cm"],
-        usos: ["Paredes interiores", "Paredes exteriores", "Tabiques divisorios"],
+        usos: [
+          "Paredes interiores",
+          "Paredes exteriores",
+          "Tabiques divisorios",
+        ],
         normas: [
           { codigo: "COVENIN 42", desc: "Bloques y ladrillos de arcilla" },
         ],
@@ -1366,10 +1541,10 @@ const CATEGORIAS_MATERIALES = [
         norma: "COVENIN 28",
         icono: "layout-board",
         propiedades: [
-          { label: "Densidad",               valor: "2,000", unidad: "kg/m³" },
-          { label: "Resistencia compresión", valor: "50",    unidad: "kg/cm²" },
-          { label: "Absorción de agua",      valor: "< 10",  unidad: "%" },
-          { label: "Dimensiones",            valor: "40×20×15", unidad: "cm" },
+          { label: "Densidad", valor: "2,000", unidad: "kg/m³" },
+          { label: "Resistencia compresión", valor: "50", unidad: "kg/cm²" },
+          { label: "Absorción de agua", valor: "< 10", unidad: "%" },
+          { label: "Dimensiones", valor: "40×20×15", unidad: "cm" },
         ],
         presentaciones: ["Bloque 10 cm", "Bloque 15 cm", "Bloque 20 cm"],
         usos: ["Paredes de carga", "Cercos", "Muros de contención"],
@@ -1392,14 +1567,22 @@ const CATEGORIAS_MATERIALES = [
         icono: "triangle",
         propiedades: [
           { label: "Densidad aparente", valor: "1,600", unidad: "kg/m³" },
-          { label: "Tamaño máximo",     valor: "4.75",  unidad: "mm" },
-          { label: "Módulo de finura",  valor: "2.3 – 3.1", unidad: "" },
-          { label: "Contenido de finos", valor: "< 5",  unidad: "%" },
+          { label: "Tamaño máximo", valor: "4.75", unidad: "mm" },
+          { label: "Módulo de finura", valor: "2.3 – 3.1", unidad: "" },
+          { label: "Contenido de finos", valor: "< 5", unidad: "%" },
         ],
         presentaciones: ["Arena lavada", "Arena de río", "Arena de cantera"],
-        usos: ["Mezclas de concreto", "Morteros", "Rellenos", "Pega de bloques"],
+        usos: [
+          "Mezclas de concreto",
+          "Morteros",
+          "Rellenos",
+          "Pega de bloques",
+        ],
         normas: [
-          { codigo: "COVENIN 277", desc: "Áridos para concreto de cemento Portland" },
+          {
+            codigo: "COVENIN 277",
+            desc: "Áridos para concreto de cemento Portland",
+          },
         ],
       },
       {
@@ -1410,14 +1593,17 @@ const CATEGORIAS_MATERIALES = [
         icono: "circle",
         propiedades: [
           { label: "Densidad aparente", valor: "1,550", unidad: "kg/m³" },
-          { label: "Tamaño máximo",     valor: "25",    unidad: "mm" },
+          { label: "Tamaño máximo", valor: "25", unidad: "mm" },
           { label: "Desgaste Los Ángeles", valor: "< 40", unidad: "%" },
-          { label: "Absorción",         valor: "< 2",   unidad: "%" },
+          { label: "Absorción", valor: "< 2", unidad: "%" },
         ],
-        presentaciones: ["Grava 3/4\"", "Grava 1/2\"", "Grava 3/8\""],
+        presentaciones: ['Grava 3/4"', 'Grava 1/2"', 'Grava 3/8"'],
         usos: ["Mezclas de concreto", "Drenajes", "Rellenos granulares"],
         normas: [
-          { codigo: "COVENIN 277", desc: "Áridos para concreto de cemento Portland" },
+          {
+            codigo: "COVENIN 277",
+            desc: "Áridos para concreto de cemento Portland",
+          },
         ],
       },
       {
@@ -1427,15 +1613,27 @@ const CATEGORIAS_MATERIALES = [
         norma: "COVENIN 633",
         icono: "package",
         propiedades: [
-          { label: "Peso por saco",     valor: "42.5",  unidad: "kg" },
-          { label: "Densidad",          valor: "1,500", unidad: "kg/m³" },
+          { label: "Peso por saco", valor: "42.5", unidad: "kg" },
+          { label: "Densidad", valor: "1,500", unidad: "kg/m³" },
           { label: "Resistencia 28 días", valor: "350", unidad: "kg/cm²" },
-          { label: "Fraguado inicial",  valor: "≥ 45",  unidad: "min" },
+          { label: "Fraguado inicial", valor: "≥ 45", unidad: "min" },
         ],
-        presentaciones: ["Tipo I (uso general)", "Tipo II (moderado)", "Tipo V (sulfatorresistente)"],
-        usos: ["Concreto estructural", "Morteros", "Pega de bloques", "Repello"],
+        presentaciones: [
+          "Tipo I (uso general)",
+          "Tipo II (moderado)",
+          "Tipo V (sulfatorresistente)",
+        ],
+        usos: [
+          "Concreto estructural",
+          "Morteros",
+          "Pega de bloques",
+          "Repello",
+        ],
         normas: [
-          { codigo: "COVENIN 633", desc: "Cemento Portland — especificaciones" },
+          {
+            codigo: "COVENIN 633",
+            desc: "Cemento Portland — especificaciones",
+          },
         ],
       },
     ],
@@ -1452,15 +1650,22 @@ const CATEGORIAS_MATERIALES = [
         norma: "COVENIN 1292",
         icono: "paint",
         propiedades: [
-          { label: "Rendimiento",       valor: "30",    unidad: "m² / galón" },
-          { label: "Tiempo de secado",  valor: "2 – 4", unidad: "horas" },
-          { label: "Dilución máxima",   valor: "10",    unidad: "%" },
-          { label: "N° de manos",       valor: "2",     unidad: "manos" },
+          { label: "Rendimiento", valor: "30", unidad: "m² / galón" },
+          { label: "Tiempo de secado", valor: "2 – 4", unidad: "horas" },
+          { label: "Dilución máxima", valor: "10", unidad: "%" },
+          { label: "N° de manos", valor: "2", unidad: "manos" },
         ],
-        presentaciones: ["Galón (3.78 L)", "Cuñete (18.9 L)", "Cubeta (3.78 L)"],
+        presentaciones: [
+          "Galón (3.78 L)",
+          "Cuñete (18.9 L)",
+          "Cubeta (3.78 L)",
+        ],
         usos: ["Paredes interiores", "Paredes exteriores", "Cielos rasos"],
         normas: [
-          { codigo: "COVENIN 1292", desc: "Pinturas y barnices — terminología" },
+          {
+            codigo: "COVENIN 1292",
+            desc: "Pinturas y barnices — terminología",
+          },
         ],
       },
       {
@@ -1470,15 +1675,18 @@ const CATEGORIAS_MATERIALES = [
         norma: "COVENIN 1335",
         icono: "layout-grid",
         propiedades: [
-          { label: "Rendimiento",         valor: "1.10", unidad: "m² / m²" },
-          { label: "Absorción de agua",   valor: "< 3",  unidad: "%" },
+          { label: "Rendimiento", valor: "1.10", unidad: "m² / m²" },
+          { label: "Absorción de agua", valor: "< 3", unidad: "%" },
           { label: "Resistencia al desgaste", valor: "PEI 4", unidad: "" },
-          { label: "Espesor",             valor: "8 – 10", unidad: "mm" },
+          { label: "Espesor", valor: "8 – 10", unidad: "mm" },
         ],
         presentaciones: ["30×30 cm", "40×40 cm", "45×45 cm", "60×60 cm"],
         usos: ["Pisos interiores", "Pisos exteriores", "Baños", "Cocinas"],
         normas: [
-          { codigo: "COVENIN 1335", desc: "Baldosas cerámicas — clasificación" },
+          {
+            codigo: "COVENIN 1335",
+            desc: "Baldosas cerámicas — clasificación",
+          },
         ],
       },
       {
@@ -1488,15 +1696,18 @@ const CATEGORIAS_MATERIALES = [
         norma: "COVENIN 1335",
         icono: "layout-grid",
         propiedades: [
-          { label: "Rendimiento",         valor: "1.10", unidad: "m² / m²" },
-          { label: "Absorción de agua",   valor: "< 0.5", unidad: "%" },
+          { label: "Rendimiento", valor: "1.10", unidad: "m² / m²" },
+          { label: "Absorción de agua", valor: "< 0.5", unidad: "%" },
           { label: "Resistencia al desgaste", valor: "PEI 5", unidad: "" },
-          { label: "Espesor",             valor: "9 – 12", unidad: "mm" },
+          { label: "Espesor", valor: "9 – 12", unidad: "mm" },
         ],
         presentaciones: ["60×60 cm", "60×120 cm", "80×80 cm", "120×120 cm"],
         usos: ["Pisos de alto tráfico", "Fachadas", "Zonas húmedas"],
         normas: [
-          { codigo: "COVENIN 1335", desc: "Baldosas cerámicas — gres porcelánico" },
+          {
+            codigo: "COVENIN 1335",
+            desc: "Baldosas cerámicas — gres porcelánico",
+          },
         ],
       },
     ],
@@ -1510,32 +1721,76 @@ const ACTIVIDADES_ESTIMACION = [
     label: "Pintura",
     icon: "paint",
     campos: [
-      { id: "area",   label: "Área total (m²)",  tipo: "number", default: "120" },
-      { id: "manos",  label: "N° de manos",       tipo: "number", default: "2"   },
-      { id: "tipo",   label: "Tipo de pintura",   tipo: "select",
-        opciones: ["Pintura de caucho interior", "Pintura de caucho exterior", "Pintura al aceite"] },
-      { id: "proyecto", label: "Proyecto",         tipo: "select",
-        opciones: ["Edif. Residencial - Santa Marta", "C. Comercial - Barranquilla", "Otro"] },
+      { id: "area", label: "Área total (m²)", tipo: "number", default: "120" },
+      { id: "manos", label: "N° de manos", tipo: "number", default: "2" },
+      {
+        id: "tipo",
+        label: "Tipo de pintura",
+        tipo: "select",
+        opciones: [
+          "Pintura de caucho interior",
+          "Pintura de caucho exterior",
+          "Pintura al aceite",
+        ],
+      },
+      {
+        id: "proyecto",
+        label: "Proyecto",
+        tipo: "select",
+        opciones: [
+          "Edif. Residencial - Santa Marta",
+          "C. Comercial - Barranquilla",
+          "Otro",
+        ],
+      },
     ],
     calcular: (campos) => {
-      const area  = parseFloat(campos.area)  || 0;
+      const area = parseFloat(campos.area) || 0;
       const manos = parseFloat(campos.manos) || 1;
-      const rendPintura  = 30;
+      const rendPintura = 30;
       const rendSellador = 35;
-      const galPintura   = Math.ceil((area * manos) / rendPintura);
-      const galSellador  = Math.ceil(area / rendSellador);
-      const rodillos     = Math.ceil(area / 60);
+      const galPintura = Math.ceil((area * manos) / rendPintura);
+      const galSellador = Math.ceil(area / rendSellador);
+      const rodillos = Math.ceil(area / 60);
       return {
         filas: [
-          { material: "Pintura de caucho", rendimiento: `${rendPintura} m² / galón`, cantidad: galPintura, unidad: "galones", obs: `${manos} mano(s) × ${Math.ceil(area/rendPintura)} gal/mano` },
-          { material: "Sellador / base",   rendimiento: `${rendSellador} m² / galón`, cantidad: galSellador, unidad: "galones", obs: "1 mano antes de pintura" },
-          { material: "Rodillo de 9\"",    rendimiento: "—", cantidad: rodillos, unidad: "unidades", obs: "Estimado por área" },
-          { material: "Bandeja",           rendimiento: "—", cantidad: rodillos, unidad: "unidades", obs: "Una por rodillo" },
+          {
+            material: "Pintura de caucho",
+            rendimiento: `${rendPintura} m² / galón`,
+            cantidad: galPintura,
+            unidad: "galones",
+            obs: `${manos} mano(s) × ${Math.ceil(area / rendPintura)} gal/mano`,
+          },
+          {
+            material: "Sellador / base",
+            rendimiento: `${rendSellador} m² / galón`,
+            cantidad: galSellador,
+            unidad: "galones",
+            obs: "1 mano antes de pintura",
+          },
+          {
+            material: 'Rodillo de 9"',
+            rendimiento: "—",
+            cantidad: rodillos,
+            unidad: "unidades",
+            obs: "Estimado por área",
+          },
+          {
+            material: "Bandeja",
+            rendimiento: "—",
+            cantidad: rodillos,
+            unidad: "unidades",
+            obs: "Una por rodillo",
+          },
         ],
         resumen: [
-          { label: "Área calculada",         valor: `${area} m²` },
-          { label: "Rendimiento promedio",    valor: `${rendPintura} m²/gal` },
-          { label: "Total pintura principal", valor: `${galPintura} galones`, destacado: true },
+          { label: "Área calculada", valor: `${area} m²` },
+          { label: "Rendimiento promedio", valor: `${rendPintura} m²/gal` },
+          {
+            label: "Total pintura principal",
+            valor: `${galPintura} galones`,
+            destacado: true,
+          },
         ],
       };
     },
@@ -1545,29 +1800,73 @@ const ACTIVIDADES_ESTIMACION = [
     label: "Cerámica",
     icon: "layout-grid",
     campos: [
-      { id: "area",     label: "Área a cubrir (m²)", tipo: "number", default: "85" },
-      { id: "desperdicio", label: "% Desperdicio",   tipo: "number", default: "10" },
-      { id: "formato",  label: "Formato de pieza",   tipo: "select",
-        opciones: ["30×30 cm", "40×40 cm", "45×45 cm", "60×60 cm"] },
-      { id: "proyecto", label: "Proyecto",            tipo: "select",
-        opciones: ["Edif. Residencial - Santa Marta", "C. Comercial - Barranquilla", "Otro"] },
+      {
+        id: "area",
+        label: "Área a cubrir (m²)",
+        tipo: "number",
+        default: "85",
+      },
+      {
+        id: "desperdicio",
+        label: "% Desperdicio",
+        tipo: "number",
+        default: "10",
+      },
+      {
+        id: "formato",
+        label: "Formato de pieza",
+        tipo: "select",
+        opciones: ["30×30 cm", "40×40 cm", "45×45 cm", "60×60 cm"],
+      },
+      {
+        id: "proyecto",
+        label: "Proyecto",
+        tipo: "select",
+        opciones: [
+          "Edif. Residencial - Santa Marta",
+          "C. Comercial - Barranquilla",
+          "Otro",
+        ],
+      },
     ],
     calcular: (campos) => {
-      const area        = parseFloat(campos.area)        || 0;
+      const area = parseFloat(campos.area) || 0;
       const desperdicio = parseFloat(campos.desperdicio) || 10;
-      const totalArea   = area * (1 + desperdicio / 100);
-      const pegamento   = Math.ceil(totalArea / 5);
-      const fragua      = Math.ceil(totalArea / 10);
+      const totalArea = area * (1 + desperdicio / 100);
+      const pegamento = Math.ceil(totalArea / 5);
+      const fragua = Math.ceil(totalArea / 10);
       return {
         filas: [
-          { material: "Cerámica",   rendimiento: "1 m² / m²", cantidad: totalArea.toFixed(2), unidad: "m²",   obs: `Incluye ${desperdicio}% desperdicio` },
-          { material: "Pegamento",  rendimiento: "5 m² / saco", cantidad: pegamento, unidad: "sacos", obs: "Saco de 25 kg" },
-          { material: "Fragua",     rendimiento: "10 m² / kg",  cantidad: fragua,    unidad: "kg",    obs: "Según junta" },
+          {
+            material: "Cerámica",
+            rendimiento: "1 m² / m²",
+            cantidad: totalArea.toFixed(2),
+            unidad: "m²",
+            obs: `Incluye ${desperdicio}% desperdicio`,
+          },
+          {
+            material: "Pegamento",
+            rendimiento: "5 m² / saco",
+            cantidad: pegamento,
+            unidad: "sacos",
+            obs: "Saco de 25 kg",
+          },
+          {
+            material: "Fragua",
+            rendimiento: "10 m² / kg",
+            cantidad: fragua,
+            unidad: "kg",
+            obs: "Según junta",
+          },
         ],
         resumen: [
-          { label: "Área neta",        valor: `${area} m²` },
-          { label: "Con desperdicio",  valor: `${totalArea.toFixed(2)} m²` },
-          { label: "Cerámica total",   valor: `${totalArea.toFixed(2)} m²`, destacado: true },
+          { label: "Área neta", valor: `${area} m²` },
+          { label: "Con desperdicio", valor: `${totalArea.toFixed(2)} m²` },
+          {
+            label: "Cerámica total",
+            valor: `${totalArea.toFixed(2)} m²`,
+            destacado: true,
+          },
         ],
       };
     },
@@ -1577,28 +1876,61 @@ const ACTIVIDADES_ESTIMACION = [
     label: "Repello / Friso",
     icon: "wall",
     campos: [
-      { id: "area",    label: "Área de pared (m²)", tipo: "number", default: "60" },
-      { id: "espesor", label: "Espesor (cm)",        tipo: "number", default: "1.5" },
-      { id: "tipo",    label: "Tipo de mezcla",      tipo: "select",
-        opciones: ["1:4 (cemento:arena)", "1:3 (cemento:arena)", "1:6 (cemento:arena)"] },
-      { id: "proyecto", label: "Proyecto",           tipo: "select",
-        opciones: ["Edif. Residencial - Santa Marta", "C. Comercial - Barranquilla", "Otro"] },
+      {
+        id: "area",
+        label: "Área de pared (m²)",
+        tipo: "number",
+        default: "60",
+      },
+      { id: "espesor", label: "Espesor (cm)", tipo: "number", default: "1.5" },
+      {
+        id: "tipo",
+        label: "Tipo de mezcla",
+        tipo: "select",
+        opciones: [
+          "1:4 (cemento:arena)",
+          "1:3 (cemento:arena)",
+          "1:6 (cemento:arena)",
+        ],
+      },
+      {
+        id: "proyecto",
+        label: "Proyecto",
+        tipo: "select",
+        opciones: [
+          "Edif. Residencial - Santa Marta",
+          "C. Comercial - Barranquilla",
+          "Otro",
+        ],
+      },
     ],
     calcular: (campos) => {
-      const area    = parseFloat(campos.area)    || 0;
+      const area = parseFloat(campos.area) || 0;
       const espesor = parseFloat(campos.espesor) || 1.5;
-      const vol     = area * (espesor / 100);
-      const sacos   = Math.ceil(vol * 8);
-      const arena   = parseFloat((vol * 0.04).toFixed(3));
+      const vol = area * (espesor / 100);
+      const sacos = Math.ceil(vol * 8);
+      const arena = parseFloat((vol * 0.04).toFixed(3));
       return {
         filas: [
-          { material: "Cemento", rendimiento: "8 sacos / m³", cantidad: sacos, unidad: "sacos",  obs: "Mezcla 1:4" },
-          { material: "Arena",   rendimiento: "0.04 m³ / m²", cantidad: arena, unidad: "m³",     obs: `Espesor ${espesor} cm` },
+          {
+            material: "Cemento",
+            rendimiento: "8 sacos / m³",
+            cantidad: sacos,
+            unidad: "sacos",
+            obs: "Mezcla 1:4",
+          },
+          {
+            material: "Arena",
+            rendimiento: "0.04 m³ / m²",
+            cantidad: arena,
+            unidad: "m³",
+            obs: `Espesor ${espesor} cm`,
+          },
         ],
         resumen: [
-          { label: "Área total",     valor: `${area} m²` },
+          { label: "Área total", valor: `${area} m²` },
           { label: "Volumen mezcla", valor: `${vol.toFixed(3)} m³` },
-          { label: "Cemento total",  valor: `${sacos} sacos`, destacado: true },
+          { label: "Cemento total", valor: `${sacos} sacos`, destacado: true },
         ],
       };
     },
@@ -1608,53 +1940,91 @@ const ACTIVIDADES_ESTIMACION = [
     label: "Enchape",
     icon: "layers-intersect",
     campos: [
-      { id: "area",        label: "Área (m²)",        tipo: "number", default: "40" },
-      { id: "desperdicio", label: "% Desperdicio",    tipo: "number", default: "10" },
-      { id: "formato",     label: "Formato de pieza", tipo: "select",
-        opciones: ["20×40 cm", "30×60 cm", "45×90 cm", "60×120 cm"] },
-      { id: "proyecto",    label: "Proyecto",          tipo: "select",
-        opciones: ["Edif. Residencial - Santa Marta", "C. Comercial - Barranquilla", "Otro"] },
+      { id: "area", label: "Área (m²)", tipo: "number", default: "40" },
+      {
+        id: "desperdicio",
+        label: "% Desperdicio",
+        tipo: "number",
+        default: "10",
+      },
+      {
+        id: "formato",
+        label: "Formato de pieza",
+        tipo: "select",
+        opciones: ["20×40 cm", "30×60 cm", "45×90 cm", "60×120 cm"],
+      },
+      {
+        id: "proyecto",
+        label: "Proyecto",
+        tipo: "select",
+        opciones: [
+          "Edif. Residencial - Santa Marta",
+          "C. Comercial - Barranquilla",
+          "Otro",
+        ],
+      },
     ],
     calcular: (campos) => {
-      const area        = parseFloat(campos.area)        || 0;
+      const area = parseFloat(campos.area) || 0;
       const desperdicio = parseFloat(campos.desperdicio) || 10;
-      const totalArea   = area * (1 + desperdicio / 100);
-      const pegamento   = Math.ceil(totalArea / 4);
-      const fragua      = Math.ceil(totalArea / 8);
+      const totalArea = area * (1 + desperdicio / 100);
+      const pegamento = Math.ceil(totalArea / 4);
+      const fragua = Math.ceil(totalArea / 8);
       return {
         filas: [
-          { material: "Porcelanato / enchape", rendimiento: "1 m² / m²", cantidad: totalArea.toFixed(2), unidad: "m²",   obs: `Incluye ${desperdicio}% desperdicio` },
-          { material: "Pegamento especial",    rendimiento: "4 m² / saco", cantidad: pegamento, unidad: "sacos", obs: "Saco de 25 kg" },
-          { material: "Fragua epoxi",          rendimiento: "8 m² / kg",   cantidad: fragua,    unidad: "kg",    obs: "Junta fina" },
+          {
+            material: "Porcelanato / enchape",
+            rendimiento: "1 m² / m²",
+            cantidad: totalArea.toFixed(2),
+            unidad: "m²",
+            obs: `Incluye ${desperdicio}% desperdicio`,
+          },
+          {
+            material: "Pegamento especial",
+            rendimiento: "4 m² / saco",
+            cantidad: pegamento,
+            unidad: "sacos",
+            obs: "Saco de 25 kg",
+          },
+          {
+            material: "Fragua epoxi",
+            rendimiento: "8 m² / kg",
+            cantidad: fragua,
+            unidad: "kg",
+            obs: "Junta fina",
+          },
         ],
         resumen: [
-          { label: "Área neta",       valor: `${area} m²` },
+          { label: "Área neta", valor: `${area} m²` },
           { label: "Con desperdicio", valor: `${totalArea.toFixed(2)} m²` },
-          { label: "Enchape total",   valor: `${totalArea.toFixed(2)} m²`, destacado: true },
+          {
+            label: "Enchape total",
+            valor: `${totalArea.toFixed(2)} m²`,
+            destacado: true,
+          },
         ],
       };
     },
   },
 ];
 
-
-
 // ─── MÓDULO 2: DOSIFICACIÓN DE CONCRETO ─────────────────────
 function ModuloConcreto() {
-  const [dosifId,  setDosifId]  = useState("f210");
-  const [volumen,  setVolumen]  = useState("3.00");
+  const [dosifId, setDosifId] = useState("f210");
+  const [volumen, setVolumen] = useState("3.00");
   const [proyecto, setProyecto] = useState("edificio");
-  const [nivel,    setNivel]    = useState("nivel1");
+  const [nivel, setNivel] = useState("nivel1");
   const [calculado, setCalculado] = useState(false);
 
-  const dosif = DOSIFICACIONES.find((d) => d.id === dosifId) || DOSIFICACIONES[2];
-  const vol   = parseFloat(volumen) || 0;
+  const dosif =
+    DOSIFICACIONES.find((d) => d.id === dosifId) || DOSIFICACIONES[2];
+  const vol = parseFloat(volumen) || 0;
 
   const resultados = {
     cemento: Math.ceil(dosif.cemento * vol),
-    arena:   (dosif.arena  * vol).toFixed(2),
-    piedra:  (dosif.piedra * vol).toFixed(2),
-    agua:    Math.round(dosif.agua   * vol),
+    arena: (dosif.arena * vol).toFixed(2),
+    piedra: (dosif.piedra * vol).toFixed(2),
+    agua: Math.round(dosif.agua * vol),
   };
 
   const handleLimpiar = () => {
@@ -1668,19 +2038,29 @@ function ModuloConcreto() {
   return (
     <div className="page">
       <div className="page-greeting">
-        <h1>Dosificación de <span className="text-orange">Concreto</span></h1>
-        <p>Calcula los materiales necesarios según resistencia y volumen requerido.</p>
+        <h1>
+          Dosificación de <span className="text-orange">Concreto</span>
+        </h1>
+        <p>
+          Calcula los materiales necesarios según resistencia y volumen
+          requerido.
+        </p>
       </div>
 
       <div className="modulo-card">
         {/* PASO 1: Resistencia */}
-        <div className="modulo-section-title">1. Seleccionar resistencia (f'c)</div>
+        <div className="modulo-section-title">
+          1. Seleccionar resistencia (f'c)
+        </div>
         <div className="conc-mix-grid">
           {DOSIFICACIONES.map((d) => (
             <div
               key={d.id}
               className={`conc-mix-card ${dosifId === d.id ? "selected" : ""}`}
-              onClick={() => { setDosifId(d.id); setCalculado(false); }}
+              onClick={() => {
+                setDosifId(d.id);
+                setCalculado(false);
+              }}
             >
               <div className="conc-mix-fc">{d.fc}</div>
               <div className="conc-mix-ratio">{d.ratio}</div>
@@ -1690,8 +2070,13 @@ function ModuloConcreto() {
         </div>
 
         {/* PASO 2: Volumen y datos */}
-        <div className="modulo-section-title" style={{ marginTop: 18 }}>2. Volumen y datos del proyecto</div>
-        <div className="form-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <div className="modulo-section-title" style={{ marginTop: 18 }}>
+          2. Volumen y datos del proyecto
+        </div>
+        <div
+          className="form-grid"
+          style={{ gridTemplateColumns: "repeat(3, 1fr)" }}
+        >
           <div className="form-field">
             <label>Volumen de concreto (m³)</label>
             <input
@@ -1699,13 +2084,21 @@ function ModuloConcreto() {
               value={volumen}
               step="0.10"
               min="0.10"
-              onChange={(e) => { setVolumen(e.target.value); setCalculado(false); }}
+              onChange={(e) => {
+                setVolumen(e.target.value);
+                setCalculado(false);
+              }}
             />
           </div>
           <div className="form-field">
             <label>Proyecto</label>
-            <select value={proyecto} onChange={(e) => setProyecto(e.target.value)}>
-              <option value="edificio">Edificio Residencial - Santa Marta</option>
+            <select
+              value={proyecto}
+              onChange={(e) => setProyecto(e.target.value)}
+            >
+              <option value="edificio">
+                Edificio Residencial - Santa Marta
+              </option>
               <option value="comercial">C. Comercial - Barranquilla</option>
               <option value="otro">Otro proyecto</option>
             </select>
@@ -1725,7 +2118,10 @@ function ModuloConcreto() {
         <div className="conc-ratio-row">
           <span className="conc-ratio-lbl">Mezcla seleccionada:</span>
           {dosif.ratio.split(":").map((v, i, arr) => (
-            <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <span
+              key={i}
+              style={{ display: "flex", alignItems: "center", gap: 6 }}
+            >
               <span className="conc-ratio-val">{v.trim()}</span>
               {i < arr.length - 1 && <span className="conc-ratio-sep">:</span>}
             </span>
@@ -1734,26 +2130,36 @@ function ModuloConcreto() {
         </div>
 
         {/* PASO 3: Resultados */}
-        <div className="modulo-section-title" style={{ marginTop: 18 }}>3. Resultados</div>
+        <div className="modulo-section-title" style={{ marginTop: 18 }}>
+          3. Resultados
+        </div>
         <div className="conc-res-grid">
           <div className={`conc-res-cell ${calculado ? "calculado" : ""}`}>
             <div className="conc-res-label">🏗️ Cemento</div>
-            <div className="conc-res-val">{calculado ? resultados.cemento : "—"}</div>
+            <div className="conc-res-val">
+              {calculado ? resultados.cemento : "—"}
+            </div>
             <div className="conc-res-unit">sacos ({dosif.pesoSaco} kg c/u)</div>
           </div>
           <div className={`conc-res-cell ${calculado ? "calculado" : ""}`}>
             <div className="conc-res-label">🏜️ Arena</div>
-            <div className="conc-res-val">{calculado ? resultados.arena : "—"}</div>
+            <div className="conc-res-val">
+              {calculado ? resultados.arena : "—"}
+            </div>
             <div className="conc-res-unit">m³</div>
           </div>
           <div className={`conc-res-cell ${calculado ? "calculado" : ""}`}>
             <div className="conc-res-label">🪨 Piedra</div>
-            <div className="conc-res-val">{calculado ? resultados.piedra : "—"}</div>
+            <div className="conc-res-val">
+              {calculado ? resultados.piedra : "—"}
+            </div>
             <div className="conc-res-unit">m³</div>
           </div>
           <div className={`conc-res-cell ${calculado ? "calculado" : ""}`}>
             <div className="conc-res-label">💧 Agua</div>
-            <div className="conc-res-val">{calculado ? resultados.agua : "—"}</div>
+            <div className="conc-res-val">
+              {calculado ? resultados.agua : "—"}
+            </div>
             <div className="conc-res-unit">litros</div>
           </div>
         </div>
@@ -1781,24 +2187,29 @@ function ModuloConcreto() {
 
 // ─── MÓDULO 3: BIBLIOTECA DE MATERIALES ──────────────────────
 function ModuloBiblioteca() {
-  const [busqueda,      setBusqueda]      = useState("");
+  const [busqueda, setBusqueda] = useState("");
   const [materialActivo, setMaterialActivo] = useState(
-    CATEGORIAS_MATERIALES[0].materiales[0]
+    CATEGORIAS_MATERIALES[0].materiales[0],
   );
 
   // Filtra materiales según búsqueda
   const categoriasFiltradas = CATEGORIAS_MATERIALES.map((cat) => ({
     ...cat,
     materiales: cat.materiales.filter((m) =>
-      m.nombre.toLowerCase().includes(busqueda.toLowerCase())
+      m.nombre.toLowerCase().includes(busqueda.toLowerCase()),
     ),
   })).filter((cat) => cat.materiales.length > 0);
 
   return (
     <div className="page">
       <div className="page-greeting">
-        <h1>Biblioteca de <span className="text-purple">Materiales</span></h1>
-        <p>Consulta información técnica de materiales de construcción y sus propiedades.</p>
+        <h1>
+          Biblioteca de <span className="text-purple">Materiales</span>
+        </h1>
+        <p>
+          Consulta información técnica de materiales de construcción y sus
+          propiedades.
+        </p>
       </div>
 
       <div className="bib-layout">
@@ -1825,7 +2236,10 @@ function ModuloBiblioteca() {
                   className={`bib-mat-item ${materialActivo?.id === mat.id ? "active" : ""}`}
                   onClick={() => setMaterialActivo(mat)}
                 >
-                  <span className="bib-mat-dot" style={{ background: cat.color }} />
+                  <span
+                    className="bib-mat-dot"
+                    style={{ background: cat.color }}
+                  />
                   {mat.nombre}
                 </div>
               ))}
@@ -1845,12 +2259,12 @@ function ModuloBiblioteca() {
           <div className="bib-panel-right">
             {/* Header */}
             <div className="bib-det-header">
-  <div>
-    <div className="bib-det-name">{materialActivo.nombre}</div>
-    <div className="bib-det-cat">{materialActivo.categoria}</div>
-    <span className="bib-det-badge">{materialActivo.norma}</span>
-  </div>
-</div>
+              <div>
+                <div className="bib-det-name">{materialActivo.nombre}</div>
+                <div className="bib-det-cat">{materialActivo.categoria}</div>
+                <span className="bib-det-badge">{materialActivo.norma}</span>
+              </div>
+            </div>
 
             {/* Propiedades físicas */}
             <div className="bib-section-title">Propiedades físicas</div>
@@ -1869,7 +2283,9 @@ function ModuloBiblioteca() {
             <div className="bib-section-title">Presentaciones disponibles</div>
             <div className="bib-tag-row">
               {materialActivo.presentaciones.map((t, i) => (
-                <span key={i} className="bib-tag">{t}</span>
+                <span key={i} className="bib-tag">
+                  {t}
+                </span>
               ))}
             </div>
 
@@ -1877,7 +2293,9 @@ function ModuloBiblioteca() {
             <div className="bib-section-title">Usos principales</div>
             <div className="bib-tag-row">
               {materialActivo.usos.map((u, i) => (
-                <span key={i} className="bib-tag">{u}</span>
+                <span key={i} className="bib-tag">
+                  {u}
+                </span>
               ))}
             </div>
 
@@ -1909,8 +2327,8 @@ function ModuloBiblioteca() {
 // ─── MÓDULO 4: ESTIMACIÓN DE MATERIALES ──────────────────────
 function ModuloEstimacion() {
   const [actividadId, setActividadId] = useState("pintura");
-  const [campos,      setCampos]      = useState({});
-  const [calculado,   setCalculado]   = useState(false);
+  const [campos, setCampos] = useState({});
+  const [calculado, setCalculado] = useState(false);
 
   const actividad = ACTIVIDADES_ESTIMACION.find((a) => a.id === actividadId);
 
@@ -1918,14 +2336,18 @@ function ModuloEstimacion() {
   const handleActividad = (id) => {
     const act = ACTIVIDADES_ESTIMACION.find((a) => a.id === id);
     const defaults = {};
-    act.campos.forEach((c) => { defaults[c.id] = c.default || ""; });
+    act.campos.forEach((c) => {
+      defaults[c.id] = c.default || "";
+    });
     setActividadId(id);
     setCampos(defaults);
     setCalculado(false);
   };
 
   // Inicializa al montar
-  useState(() => { handleActividad("pintura"); }, []);
+  useState(() => {
+    handleActividad("pintura");
+  }, []);
 
   const handleCampo = (id, val) => {
     setCampos((prev) => ({ ...prev, [id]: val }));
@@ -1937,13 +2359,17 @@ function ModuloEstimacion() {
   return (
     <div className="page">
       <div className="page-greeting">
-        <h1>Estimación de <span className="text-blue">Materiales</span></h1>
-        <p>Selecciona una actividad y calcula los materiales necesarios con sus rendimientos.</p>
+        <h1>
+          Estimación de <span className="text-blue">Materiales</span>
+        </h1>
+        <p>
+          Selecciona una actividad y calcula los materiales necesarios con sus
+          rendimientos.
+        </p>
       </div>
 
       {/* CARD 1: Actividad + datos */}
       <div className="modulo-card">
-
         {/* PASO 1: Actividad */}
         <div className="modulo-section-title">1. Actividad a calcular</div>
         <div className="est-act-grid">
@@ -1963,7 +2389,10 @@ function ModuloEstimacion() {
         <div className="modulo-section-title" style={{ marginTop: 18 }}>
           2. Datos de la actividad
         </div>
-        <div className="form-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+        <div
+          className="form-grid"
+          style={{ gridTemplateColumns: "repeat(4, 1fr)" }}
+        >
           {actividad?.campos.map((c) => (
             <div key={c.id} className="form-field">
               <label>{c.label}</label>
@@ -1973,7 +2402,9 @@ function ModuloEstimacion() {
                   onChange={(e) => handleCampo(c.id, e.target.value)}
                 >
                   {c.opciones.map((op) => (
-                    <option key={op} value={op}>{op}</option>
+                    <option key={op} value={op}>
+                      {op}
+                    </option>
                   ))}
                 </select>
               ) : (
@@ -1991,13 +2422,15 @@ function ModuloEstimacion() {
 
         {/* Botón calcular */}
         <div className="action-row" style={{ marginTop: 14 }}>
-          <button className="btn btn-ghost" onClick={() => { handleActividad(actividadId); }}>
+          <button
+            className="btn btn-ghost"
+            onClick={() => {
+              handleActividad(actividadId);
+            }}
+          >
             <Icon name="trash" size={15} /> Limpiar
           </button>
-          <button
-            className="btn btn-blue"
-            onClick={() => setCalculado(true)}
-          >
+          <button className="btn btn-blue" onClick={() => setCalculado(true)}>
             <Icon name="calc" size={15} /> Calcular
           </button>
         </div>
@@ -2010,7 +2443,9 @@ function ModuloEstimacion() {
         {!resultado ? (
           <div className="est-empty">
             <Icon name="calculator" size={28} />
-            <p>Ingresa los datos y presiona Calcular para ver los resultados.</p>
+            <p>
+              Ingresa los datos y presiona Calcular para ver los resultados.
+            </p>
           </div>
         ) : (
           <>
@@ -2028,10 +2463,14 @@ function ModuloEstimacion() {
                 {resultado.filas.map((f, i) => (
                   <tr key={i}>
                     <td>{f.material}</td>
-                    <td style={{ color: "var(--text-muted)" }}>{f.rendimiento}</td>
+                    <td style={{ color: "var(--text-muted)" }}>
+                      {f.rendimiento}
+                    </td>
                     <td className="est-qty">{f.cantidad}</td>
                     <td style={{ color: "var(--text-muted)" }}>{f.unidad}</td>
-                    <td style={{ color: "var(--text-muted)", fontSize: 12 }}>{f.obs}</td>
+                    <td style={{ color: "var(--text-muted)", fontSize: 12 }}>
+                      {f.obs}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -2040,7 +2479,10 @@ function ModuloEstimacion() {
             {/* Resumen */}
             <div className="est-resumen">
               {resultado.resumen.map((r, i) => (
-                <div key={i} className={`est-resumen-cell ${r.destacado ? "destacado" : ""}`}>
+                <div
+                  key={i}
+                  className={`est-resumen-cell ${r.destacado ? "destacado" : ""}`}
+                >
                   <div className="est-resumen-lbl">{r.label}</div>
                   <div className="est-resumen-val">{r.valor}</div>
                 </div>
@@ -2065,7 +2507,6 @@ function ModuloEstimacion() {
     </div>
   );
 }
-
 
 // ─── HISTORIAL DE CÁLCULOS ────────────────────────────────────
 function ModuloHistorial() {
@@ -2152,7 +2593,8 @@ function ModuloHistorial() {
 
   // Filtrar datos
   const historialFiltrado = historialCompleto.filter((item) => {
-    const cumpleFiltroModulo = filtroModulo === "Todos" || item.modulo === filtroModulo;
+    const cumpleFiltroModulo =
+      filtroModulo === "Todos" || item.modulo === filtroModulo;
     const cumpleTexto =
       filtroTexto === "" ||
       item.descripcion.toLowerCase().includes(filtroTexto.toLowerCase()) ||
@@ -2169,10 +2611,14 @@ function ModuloHistorial() {
   // Estadísticas
   const totales = {
     total: historialCompleto.length,
-    computos: historialCompleto.filter((h) => h.moduloKey === "computos").length,
-    concreto: historialCompleto.filter((h) => h.moduloKey === "concreto").length,
-    biblioteca: historialCompleto.filter((h) => h.moduloKey === "biblioteca").length,
-    estimacion: historialCompleto.filter((h) => h.moduloKey === "estimacion").length,
+    computos: historialCompleto.filter((h) => h.moduloKey === "computos")
+      .length,
+    concreto: historialCompleto.filter((h) => h.moduloKey === "concreto")
+      .length,
+    biblioteca: historialCompleto.filter((h) => h.moduloKey === "biblioteca")
+      .length,
+    estimacion: historialCompleto.filter((h) => h.moduloKey === "estimacion")
+      .length,
     exportados: Math.floor(historialCompleto.length * 0.5),
   };
 
@@ -2180,8 +2626,12 @@ function ModuloHistorial() {
     <div className="page">
       <div className="page-header">
         <div>
-          <h1 className="page-title">Historial de <span>Cálculos</span></h1>
-          <p className="page-subtitle">Todos los cálculos realizados, ordenados por fecha</p>
+          <h1 className="page-title">
+            Historial de <span>Cálculos</span>
+          </h1>
+          <p className="page-subtitle">
+            Todos los cálculos realizados, ordenados por fecha
+          </p>
         </div>
       </div>
 
@@ -2250,7 +2700,7 @@ function ModuloHistorial() {
                 >
                   {chip}
                 </button>
-              )
+              ),
             )}
           </div>
         </div>
@@ -2281,7 +2731,11 @@ function ModuloHistorial() {
                           color: item.badgeColor,
                         }}
                       >
-                        <Icon name={item.icon} size={10} style={{ marginRight: 4 }} />
+                        <Icon
+                          name={item.icon}
+                          size={10}
+                          style={{ marginRight: 4 }}
+                        />
                         {item.modulo}
                       </span>
                     </td>
@@ -2317,7 +2771,8 @@ function ModuloHistorial() {
         {/* Paginación */}
         <div className="historial-pagination">
           <span>
-            Mostrando {calculosPagina.length} de {historialFiltrado.length} cálculos
+            Mostrando {calculosPagina.length} de {historialFiltrado.length}{" "}
+            cálculos
           </span>
           <div className="pagination-buttons">
             <button
@@ -2338,7 +2793,9 @@ function ModuloHistorial() {
             ))}
             <button
               className="page-btn"
-              onClick={() => setPaginaActual(Math.min(totalPaginas, paginaActual + 1))}
+              onClick={() =>
+                setPaginaActual(Math.min(totalPaginas, paginaActual + 1))
+              }
               disabled={paginaActual === totalPaginas}
             >
               <Icon name="chevron" size={11} />
@@ -2349,7 +2806,6 @@ function ModuloHistorial() {
     </div>
   );
 }
-
 
 // ─── PLACEHOLDER para módulos pendientes ──────────────────────
 function ModuloPendiente({ modulo }) {
@@ -2454,7 +2910,8 @@ function MobileHistorial() {
   ];
 
   const historialFiltrado = historialCompleto.filter((item) => {
-    const cumpleFiltroModulo = filtroModulo === "Todos" || item.modulo === filtroModulo;
+    const cumpleFiltroModulo =
+      filtroModulo === "Todos" || item.modulo === filtroModulo;
     const cumpleTexto =
       filtroTexto === "" ||
       item.descripcion.toLowerCase().includes(filtroTexto.toLowerCase()) ||
@@ -2485,7 +2942,7 @@ function MobileHistorial() {
               >
                 {chip}
               </button>
-            )
+            ),
           )}
         </div>
       </div>
@@ -2523,7 +2980,13 @@ function MobileHistorial() {
             </div>
           ))
         ) : (
-          <div style={{ textAlign: "center", padding: "2rem", color: "var(--text-muted)" }}>
+          <div
+            style={{
+              textAlign: "center",
+              padding: "2rem",
+              color: "var(--text-muted)",
+            }}
+          >
             No hay cálculos que coincidan
           </div>
         )}
@@ -2540,6 +3003,8 @@ function MobileHome({
   user,
   dashboardData,
 }) {
+  const [showMenuDrawer, setShowMenuDrawer] = useState(false);
+
   const stats = [
     {
       label: "Proyectos",
@@ -2569,7 +3034,7 @@ function MobileHome({
   return (
     <>
       <header className="mobile-topbar">
-        <button className="menu-btn">
+        <button className="menu-btn" onClick={() => setShowMenuDrawer(true)}>
           <Icon name="menu" size={22} />
         </button>
         <div className="logo-row">
@@ -2590,7 +3055,8 @@ function MobileHome({
       <div className="mobile-page">
         <div className="mobile-greeting">
           <h2>
-            Bienvenido a <span style={{color:"var(--green)"}}>CivCalPro</span>
+            Bienvenido a{" "}
+            <span style={{ color: "var(--green)" }}>CivCalPro</span>
           </h2>
           <p>¿Qué deseas calcular hoy?</p>
         </div>
@@ -2627,7 +3093,9 @@ function MobileHome({
                 {m.icon}
               </div>
               <div className="mobile-module-card-info">
-                <h4><span className="module-label">{m.label}</span></h4>
+                <h4>
+                  <span className="module-label">{m.label}</span>
+                </h4>
                 <p>{m.desc}</p>
               </div>
               <span className="mobile-chevron">
@@ -2696,15 +3164,148 @@ function MobileHome({
         <button className="mobile-fab">
           <Icon name="plus" size={26} />
         </button>
-        <button className="mobile-nav-item" onClick={() => onNavigate("computos")}
+        <button
+          className="mobile-nav-item"
+          onClick={() => onNavigate("reportes")}
         >
-          <Icon name="calc" size={22} /> Cálculos
+          <Icon name="chart" size={22} />
+          Reportes
         </button>
-        <button className="mobile-nav-item">
-          <Icon name="user" size={22} /> Perfil
+        <button
+          className="mobile-nav-item"
+          onClick={() => onNavigate("historial")}
+        >
+          <Icon name="clock" size={22} /> Historial
         </button>
       </nav>
+
+      {showMenuDrawer && (
+        <div
+          className="mobile-side-overlay"
+          onClick={() => setShowMenuDrawer(false)}
+        >
+          <div
+            className="mobile-side-drawer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="drawer-header">
+              <strong>CIVCALPRO</strong>
+            </div>
+
+            <button className="drawer-module-item">
+              <Icon name="settings" size={18} />
+              Configuración
+            </button>
+
+            <button className="drawer-module-item">
+              <Icon name="help" size={18} />
+              Ayuda
+            </button>
+
+            <button className="drawer-module-item">
+              <Icon name="book" size={18} />
+              Normas
+            </button>
+          </div>
+        </div>
+      )}
     </>
+  );
+}
+
+function ModuloReportes() {
+  const exportsList = [
+    {
+      name: "Columna 0.30x0.30.pdf",
+      date: "Hoy",
+      size: "320 KB",
+    },
+
+    {
+      name: "Dosificacion_fc210.xlsx",
+      date: "Ayer",
+      size: "180 KB",
+    },
+
+    {
+      name: "Vivienda_Bogota.pdf",
+      date: "Hace 3 días",
+      size: "1.2 MB",
+    },
+  ];
+
+  return (
+    <div className="reports-page">
+      <div className="reports-title">
+        <h1>
+          Reportes <span>Generados</span>
+        </h1>
+
+        <p>Documentos exportados y generación de informes.</p>
+      </div>
+
+      <div className="reports-stats">
+        <div className="report-stat-card">
+          <h4>Exportaciones</h4>
+
+          <strong>42</strong>
+        </div>
+
+        <div className="report-stat-card">
+          <h4>PDF</h4>
+
+          <strong>28</strong>
+        </div>
+
+        <div className="report-stat-card">
+          <h4>Excel</h4>
+
+          <strong>14</strong>
+        </div>
+
+        <div className="report-stat-card">
+          <h4>Proyectos</h4>
+
+          <strong>12</strong>
+        </div>
+      </div>
+
+      <div className="report-main-grid">
+        <div className="report-card">
+          <h3>Exportaciones recientes</h3>
+
+          {exportsList.map((item, index) => (
+            <div key={index} className="report-file-item">
+              <div>
+                <strong>{item.name}</strong>
+
+                <small>{item.date}</small>
+              </div>
+
+              <span>{item.size}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="report-card">
+          <h3>Generar reporte</h3>
+
+          <button className="report-btn">Proyecto completo</button>
+
+          <button className="report-btn">Historial mensual</button>
+
+          <button className="report-btn">Dosificaciones</button>
+
+          <button className="report-btn">Cómputos métricos</button>
+
+          <button className="report-btn">Biblioteca</button>
+        </div>
+      </div>
+
+      <button className="report-export-general">
+        Exportar reporte general
+      </button>
+    </div>
   );
 }
 
@@ -2822,7 +3423,9 @@ function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
             <div className="mobile-field">
               <label>Proyecto</label>
               <select defaultValue="edificio">
-                <option value="edificio">Edificio Residencial - Santa Marta</option>
+                <option value="edificio">
+                  Edificio Residencial - Santa Marta
+                </option>
                 <option value="otro">Otro proyecto</option>
               </select>
             </div>
@@ -2837,7 +3440,9 @@ function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
           <div className="mobile-result-box">
             <div className="mobile-result-cell">
               <label>Volumen unitario</label>
-              <div className="val val-secondary">{volUnitario.toFixed(2)} m³</div>
+              <div className="val val-secondary">
+                {volUnitario.toFixed(2)} m³
+              </div>
             </div>
             <div className="mobile-result-cell">
               <label>Volumen total</label>
@@ -2924,48 +3529,170 @@ function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
   );
 }
 
+function MobileReportes({ onBack }) {
+  const reportes = [
+    {
+      nombre: "Concreto Vivienda A",
+      fecha: "Hace 2 horas",
+      tipo: "PDF",
+    },
+    {
+      nombre: "Cómputos Torre Norte",
+      fecha: "Ayer",
+      tipo: "Excel",
+    },
+    {
+      nombre: "Estimación Materiales",
+      fecha: "Hace 3 días",
+      tipo: "PDF",
+    },
+  ];
+
+  return (
+    <>
+      <header className="mobile-module-topbar">
+        <button className="mobile-back-btn" onClick={onBack}>
+          <Icon name="back" size={22} />
+        </button>
+
+        <h2>Reportes</h2>
+      </header>
+
+      <div className="mobile-page">
+        <div className="mobile-reportes-banner">
+          <h3>Centro de Reportes</h3>
+
+          <p>Genera, consulta y exporta resultados de tus proyectos.</p>
+        </div>
+
+        <div className="mobile-reportes-stats">
+          <div className="report-stat-card">
+            <strong>24</strong>
+
+            <span>PDF</span>
+          </div>
+
+          <div className="report-stat-card">
+            <strong>13</strong>
+
+            <span>Excel</span>
+          </div>
+
+          <div className="report-stat-card">
+            <strong>37</strong>
+
+            <span>Total</span>
+          </div>
+        </div>
+
+        <div className="mobile-section-label">Acciones rápidas</div>
+
+        <div className="mobile-report-actions">
+          <button className="report-btn">
+            <Icon name="file" size={18} />
+            Generar PDF
+          </button>
+
+          <button className="report-btn">
+            <Icon name="table" size={18} />
+            Exportar Excel
+          </button>
+
+          <button className="report-btn">
+            <Icon name="share" size={18} />
+            Compartir
+          </button>
+        </div>
+
+        <div className="mobile-section-label">Reportes recientes</div>
+
+        <div className="mobile-report-list">
+          {reportes.map((r, i) => (
+            <div key={i} className="mobile-report-card">
+              <div>
+                <strong>{r.nombre}</strong>
+
+                <small>{r.fecha}</small>
+              </div>
+
+              <span>{r.tipo}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
 // ─── ROOT APP ─────────────────────────────────────────────────
 export default function App() {
   const [activeModule, setActiveModule] = useState("inicio");
+
   const [mobileView, setMobileView] = useState("home");
+
   const [darkMode, setDarkMode] = useState(
     () => localStorage.getItem("theme") === "dark",
   );
+
   const [user, setUser] = useState(() => {
     try {
       const storedUser = localStorage.getItem("user");
+
       return storedUser
         ? JSON.parse(storedUser)
-        : { isLoggedIn: false, name: null, role: "Invitado" };
+        : {
+            isLoggedIn: false,
+            name: null,
+            role: "Invitado",
+          };
     } catch {
-      return { isLoggedIn: false, name: null, role: "Invitado" };
+      return {
+        isLoggedIn: false,
+        name: null,
+        role: "Invitado",
+      };
     }
   });
+
   const [dashboardData, setDashboardData] = useState(EMPTY_DASHBOARD);
 
   useEffect(() => {
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
+    localStorage.setItem(
+      "theme",
+
+      darkMode ? "dark" : "light",
+    );
   }, [darkMode]);
 
   useEffect(() => {
     try {
-      localStorage.setItem("user", JSON.stringify(user));
-    } catch {
-      // No-op
-    }
+      localStorage.setItem(
+        "user",
+
+        JSON.stringify(user),
+      );
+    } catch {}
   }, [user]);
 
   const isMobile = window.innerWidth <= 768;
 
   const handleNavigate = (key) => {
     setActiveModule(key);
-    if (isMobile && key !== "inicio") setMobileView("modulo");
-    else if (isMobile) setMobileView("home");
+
+    if (isMobile) {
+      if (key === "inicio") {
+        setMobileView("home");
+      } else {
+        setMobileView("modulo");
+      }
+    }
   };
 
   const pageTitle = () => {
     if (activeModule === "inicio") return "Inicio";
+
     const m = MODULES.find((m) => m.key === activeModule);
+
     return m
       ? m.label
       : activeModule.charAt(0).toUpperCase() + activeModule.slice(1);
@@ -2980,17 +3707,25 @@ export default function App() {
           dashboardData={dashboardData}
         />
       );
+
     if (activeModule === "proyectos") return <ModuloProyectos />;
+
     if (activeModule === "historial") return <ModuloHistorial />;
-    if (activeModule === "reportes") return <ModuloHistorial />;
+
+    if (activeModule === "reportes") return <ModuloReportes />;
+
     if (activeModule === "computos") return <ModuloComputos />;
-    if (activeModule === "concreto")  return <ModuloConcreto />;
+
+    if (activeModule === "concreto") return <ModuloConcreto />;
+
     if (activeModule === "biblioteca") return <ModuloBiblioteca />;
+
     if (activeModule === "estimacion") return <ModuloEstimacion />;
 
-
     const m = MODULES.find((mod) => mod.key === activeModule);
+
     if (m) return <ModuloPendiente modulo={m} />;
+
     return (
       <DesktopHome
         onNavigate={handleNavigate}
@@ -3000,15 +3735,48 @@ export default function App() {
     );
   };
 
+  const renderMobilePage = () => {
+    if (mobileView === "home") {
+      return (
+        <MobileHome
+          onNavigate={handleNavigate}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+          user={user}
+          dashboardData={dashboardData}
+        />
+      );
+    }
+
+    if (activeModule === "reportes") {
+      return <MobileReportes onBack={() => setMobileView("home")} />;
+    }
+
+    if (activeModule === "historial") {
+      return <MobileHistorial onBack={() => setMobileView("home")} />;
+    }
+
+    return (
+      <MobileModulo
+        onBack={() => setMobileView("home")}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        moduloKey={activeModule}
+      />
+    );
+  };
+
   return (
     <div className={darkMode ? "dark-theme" : ""}>
       {/* DESKTOP */}
+
       <div className="app-layout desktop-only">
         <Sidebar
           activeModule={activeModule}
           onNavigate={handleNavigate}
           user={user}
         />
+
         <div className="main-content">
           <Topbar
             title={pageTitle()}
@@ -3017,31 +3785,22 @@ export default function App() {
             showOnline={activeModule === "inicio"}
             activeModule={activeModule}
           />
+
           {renderDesktopPage()}
         </div>
       </div>
 
       {/* MOBILE */}
+
       <div
         className="mobile-only"
-        style={{ minHeight: "100vh", background: "var(--bg)" }}
+        style={{
+          minHeight: "100vh",
+
+          background: "var(--bg)",
+        }}
       >
-        {mobileView === "home" ? (
-          <MobileHome
-            onNavigate={handleNavigate}
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
-            user={user}
-            dashboardData={dashboardData}
-          />
-        ) : (
-          <MobileModulo
-            onBack={() => setMobileView("home")}
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
-            moduloKey={activeModule}
-          />
-        )}
+        {renderMobilePage()}
       </div>
     </div>
   );
