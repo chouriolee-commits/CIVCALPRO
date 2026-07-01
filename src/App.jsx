@@ -2830,7 +2830,7 @@ function ModuloPendiente({ modulo }) {
 }
 
 // ─── MOBILE HISTORIAL ─────────────────────────────────────────
-function MobileHistorial() {
+function MobileHistorial({ onBack }) {
   const [filtroModulo, setFiltroModulo] = useState("Todos");
   const [filtroTexto, setFiltroTexto] = useState("");
 
@@ -2920,7 +2920,17 @@ function MobileHistorial() {
   });
 
   return (
-    <div className="mobile-historial">
+    <>
+      <header className="mobile-module-topbar">
+        <button className="mobile-back-btn" onClick={onBack}>
+          <Icon name="back" size={22} />
+        </button>
+
+        <h2>Historial</h2>
+      </header>
+
+      <div className="mobile-page">
+        <div className="mobile-historial">
       <div style={{ marginBottom: "1rem" }}>
         <h3 style={{ fontSize: "0.9rem", marginBottom: "0.5rem" }}>Buscar</h3>
         <div className="search-box" style={{ marginBottom: "0.75rem" }}>
@@ -2991,7 +3001,9 @@ function MobileHistorial() {
           </div>
         )}
       </div>
-    </div>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -3313,12 +3325,19 @@ function ModuloReportes() {
 function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
   const modulo = MODULES.find((m) => m.key === moduloKey) || MODULES[0];
 
+  const TITULOS_EXTRA = {
+    proyectos: "Proyectos",
+    historial: "Historial",
+    reportes: "Reportes",
+  };
+  const tituloHeader = TITULOS_EXTRA[moduloKey] || modulo.label;
+
   const headerJsx = (
     <header className="mobile-module-topbar">
       <button className="mobile-back-btn" onClick={onBack}>
         <Icon name="back" size={22} />
       </button>
-      <h2>{modulo.label}</h2>
+      <h2>{tituloHeader}</h2>
       <div className="mobile-topbar-actions">
         <ThemeToggleButton
           darkMode={darkMode}
@@ -3497,14 +3516,7 @@ function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
   }
 
   if (moduloKey === "historial" || moduloKey === "reportes") {
-    return (
-      <>
-        {headerJsx}
-        <div className="mobile-page" style={{ padding: "0.75rem" }}>
-          <MobileHistorial />
-        </div>
-      </>
-    );
+    return <MobileHistorial onBack={onBack} />;
   }
 
   if (moduloKey === "estimacion") {
