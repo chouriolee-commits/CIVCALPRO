@@ -89,6 +89,170 @@ const Icon = ({ name, size = 18 }) => {
         />
       </>
     ),
+    palette: (
+      <>
+        <path
+          d="M12 3a9 9 0 100 18h1.5a1.5 1.5 0 010 3H12a12 12 0 110-24c6.63 0 12 5.37 12 12 0 2.76-1.24 5.22-3.18 6.89A3.5 3.5 0 0121 18.5a3.5 3.5 0 01-3.5-3.5V13a10 10 0 00-5.5-10z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <circle cx="7.5" cy="9" r="1" fill="currentColor" />
+        <circle cx="6" cy="14" r="1" fill="currentColor" />
+        <circle cx="10" cy="17" r="1" fill="currentColor" />
+        <circle cx="15" cy="17" r="1" fill="currentColor" />
+      </>
+    ),
+    text: (
+      <>
+        <path
+          d="M4 5h16M9 19h6M12 5v14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    globe: (
+      <>
+        <circle
+          cx="12"
+          cy="12"
+          r="9"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <ellipse
+          cx="12"
+          cy="12"
+          rx="4"
+          ry="9"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    database: (
+      <>
+        <ellipse
+          cx="12"
+          cy="5"
+          rx="8"
+          ry="3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </>
+    ),
+    monitor: (
+      <>
+        <rect
+          x="3"
+          y="4"
+          width="18"
+          height="13"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M8 21h8M12 17v4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    moon: (
+      <>
+        <path
+          d="M21 12.8A9 9 0 1111.2 3 7.5 7.5 0 0021 12.8z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </>
+    ),
+    sun: (
+      <>
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path
+          d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    trash2: (
+      <>
+        <path
+          d="M3 6h18M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2m-8 0l1 14a2 2 0 002 2h2a2 2 0 002-2l1-14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M10 11v6M14 11v6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    info: (
+      <>
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path
+          d="M12 10v6"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <circle cx="12" cy="7.5" r="1" fill="currentColor" />
+      </>
+    ),
+    check_circle: (
+      <>
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path
+          d="M8 12.5l2.8 2.8L16.5 9"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
     help: (
       <>
         <circle
@@ -343,6 +507,95 @@ const Icon = ({ name, size = 18 }) => {
           y1="3"
           x2="12"
           y2="15"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    file: (
+      <>
+        <path
+          d="M6 2h8l6 6v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <polyline
+          points="14 2 14 8 20 8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </>
+    ),
+    table: (
+      <>
+        <rect
+          x="3"
+          y="4"
+          width="18"
+          height="16"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M3 10h18M3 16h18M9 4v16M15 4v16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    share: (
+      <>
+        <circle cx="18" cy="5" r="2" fill="none" stroke="currentColor" strokeWidth="2" />
+        <circle cx="6" cy="12" r="2" fill="none" stroke="currentColor" strokeWidth="2" />
+        <circle cx="18" cy="19" r="2" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path
+          d="M8 11l8-4M8 13l8 4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    check: (
+      <path
+        d="M5 13l4 4L19 7"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    ),
+    filter: (
+      <path
+        d="M4 5h16l-6 7v5l-4 2v-7L4 5z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+    ),
+    "sort-ascending": (
+      <>
+        <path
+          d="M7 17V5M7 5l-3 3M7 5l3 3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M13 6h6M13 12h4M13 18h2"
+          fill="none"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
@@ -799,6 +1052,45 @@ const getInitials = (name) => {
     .join("");
 };
 
+const APP_VERSION = "v1.0.0";
+const SETTINGS_KEY = "civcalpro.settings";
+const THEME_KEY = "theme";
+const USER_KEY = "user";
+const SYSTEM_THEME_QUERY = "(prefers-color-scheme: dark)";
+
+const DEFAULT_SETTINGS = {
+  themeMode: "system",
+  fontSize: "normal",
+  language: "es",
+  autosave: true,
+};
+
+const FONT_SCALES = {
+  small: 0.92,
+  normal: 1,
+  large: 1.08,
+};
+
+const readJSON = (key, fallback) => {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch {
+    return fallback;
+  }
+};
+
+const readStoredSettings = () => ({
+  ...DEFAULT_SETTINGS,
+  ...readJSON(SETTINGS_KEY, DEFAULT_SETTINGS),
+});
+
+const getSystemTheme = () =>
+  window.matchMedia?.(SYSTEM_THEME_QUERY)?.matches ?? false;
+
+const resolveDarkMode = (themeMode, prefersDark) =>
+  themeMode === "dark" || (themeMode === "system" && prefersDark);
+
 // ─── THEME TOGGLE ─────────────────────────────────────────────
 function ThemeToggleButton({ darkMode, setDarkMode, className = "" }) {
   return (
@@ -885,7 +1177,10 @@ function Sidebar({ activeModule, onNavigate, user }) {
           Reportes
         </button>
         <div className="sidebar-section-label">Ajustes</div>
-        <button className="sidebar-item">
+        <button
+          className={`sidebar-item ${activeModule === "configuracion" ? "active" : ""}`}
+          onClick={() => onNavigate("configuracion")}
+        >
           <span className="item-icon">
             <Icon name="settings" size={15} />
           </span>
@@ -903,23 +1198,423 @@ function Sidebar({ activeModule, onNavigate, user }) {
           <Icon name="device" size={16} />
         </div>
         <div className="user-info">
-          <strong>CivCalPro</strong>
-          <small>Modo offline</small>
+          <strong>{displayName}</strong>
+          <small>{displayRole} · Modo offline</small>
         </div>
       </div>
     </aside>
   );
 }
 
+const SETTINGS_SECTIONS = [
+  {
+    key: "apariencia",
+    label: "Apariencia",
+    icon: "palette",
+    desc: "Tema, tamaño y lenguaje",
+  },
+  {
+    key: "dispositivo",
+    label: "Dispositivo",
+    icon: "monitor",
+    desc: "Modo de operación y pantalla",
+  },
+  {
+    key: "datos",
+    label: "Datos",
+    icon: "database",
+    desc: "Autoguardar y limpieza",
+  },
+  {
+    key: "exportacion",
+    label: "Exportación",
+    icon: "export",
+    desc: "PDF, Excel y compartir",
+  },
+  {
+    key: "acerca",
+    label: "Acerca de",
+    icon: "info",
+    desc: "Versión y normas incluidas",
+  },
+];
+
+const THEME_OPTIONS = [
+  { value: "light", label: "Claro" },
+  { value: "dark", label: "Oscuro" },
+  { value: "system", label: "Sistema" },
+];
+
+const FONT_OPTIONS = [
+  { value: "small", label: "Pequeño" },
+  { value: "normal", label: "Normal" },
+  { value: "large", label: "Grande" },
+];
+
+const LANGUAGE_OPTIONS = [
+  { value: "es", label: "Español" },
+  { value: "en", label: "English" },
+];
+
+const SETTINGS_COPY = {
+  apariencia: {
+    title: "Apariencia",
+    subtitle: "Personaliza la interfaz visual de CivCalPro.",
+  },
+  dispositivo: {
+    title: "Dispositivo",
+    subtitle: "Ajustes pensados para escritorio y móvil.",
+  },
+  datos: {
+    title: "Datos y almacenamiento",
+    subtitle: "Controla lo que se guarda en este dispositivo.",
+  },
+  exportacion: {
+    title: "Exportación",
+    subtitle: "Prepara tus entregables para compartir o archivar.",
+  },
+  acerca: {
+    title: "Acerca de CivCalPro",
+    subtitle: "Estado general de la aplicación.",
+  },
+};
+
+const formatStorageSize = (bytes) => {
+  if (!bytes) return "0.0 MB";
+  const mb = bytes / (1024 * 1024);
+  return `${mb < 0.1 ? mb.toFixed(2) : mb.toFixed(1)} MB`;
+};
+
+const getLocalStorageUsage = () => {
+  try {
+    let total = 0;
+    for (let i = 0; i < localStorage.length; i += 1) {
+      const key = localStorage.key(i);
+      const value = localStorage.getItem(key);
+      if (!key || value === null) continue;
+      total += key.length + value.length;
+    }
+    return total * 2;
+  } catch {
+    return 0;
+  }
+};
+
+function SegmentedControl({ options, value, onChange }) {
+  return (
+    <div className="settings-segmented">
+      {options.map((option) => (
+        <button
+          key={option.value}
+          type="button"
+          className={`settings-segment ${value === option.value ? "active" : ""}`}
+          onClick={() => onChange(option.value)}
+        >
+          {option.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function SettingsRow({ title, subtitle, action, icon, destructive = false }) {
+  return (
+    <div className={`settings-row ${destructive ? "destructive" : ""}`}>
+      <div className="settings-row-copy">
+        <span className="settings-row-title">
+          {icon && (
+            <span className="settings-row-icon">
+              <Icon name={icon} size={15} />
+            </span>
+          )}
+          {title}
+        </span>
+        <span className="settings-row-subtitle">{subtitle}</span>
+      </div>
+      {action}
+    </div>
+  );
+}
+
+function SettingsCard({ title, subtitle, icon, children, accent = "neutral" }) {
+  return (
+    <section className={`settings-card accent-${accent}`}>
+      <div className="settings-card-header">
+        <div className="settings-card-title">
+          <span className="settings-card-icon">
+            <Icon name={icon} size={18} />
+          </span>
+          <div>
+            <h3>{title}</h3>
+            <p>{subtitle}</p>
+          </div>
+        </div>
+      </div>
+      {children}
+    </section>
+  );
+}
+
+function SettingsToggle({ checked, onChange }) {
+  return (
+    <button
+      type="button"
+      className={`settings-toggle ${checked ? "checked" : ""}`}
+      onClick={() => onChange(!checked)}
+      aria-pressed={checked}
+    >
+      <span className="settings-toggle-knob" />
+    </button>
+  );
+}
+
+function ModuloConfiguracion({
+  settings,
+  onSettingsChange,
+  onResetAllData,
+  storageUsage,
+  darkMode,
+}) {
+  const [activeSection, setActiveSection] = useState("apariencia");
+
+  const updateSetting = (key, value) => {
+    onSettingsChange((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const themeLabel =
+    THEME_OPTIONS.find((option) => option.value === settings.themeMode)?.label ||
+    "Sistema";
+
+  const fontLabel =
+    FONT_OPTIONS.find((option) => option.value === settings.fontSize)?.label ||
+    "Normal";
+
+  const languageLabel =
+    LANGUAGE_OPTIONS.find((option) => option.value === settings.language)?.label ||
+    "Español";
+
+  const deviceMode = darkMode ? "Modo oscuro activo" : "Modo claro activo";
+
+  return (
+    <div className="page settings-page">
+      <div className="settings-shell">
+        <aside className="settings-nav">
+          <div className="settings-nav-title">
+            <Icon name="settings" size={18} />
+            <span>Configuración</span>
+          </div>
+          {SETTINGS_SECTIONS.map((section) => (
+            <button
+              key={section.key}
+              type="button"
+              className={`settings-nav-item ${activeSection === section.key ? "active" : ""}`}
+              onClick={() => setActiveSection(section.key)}
+            >
+              <span className="settings-nav-item-icon">
+                <Icon name={section.icon} size={16} />
+              </span>
+              <span className="settings-nav-item-copy">
+                <strong>{section.label}</strong>
+                <small>{section.desc}</small>
+              </span>
+              <Icon name="chevron" size={14} />
+            </button>
+          ))}
+        </aside>
+
+        <div className="settings-content">
+          <SettingsCard
+            title={SETTINGS_COPY[activeSection].title}
+            subtitle={SETTINGS_COPY[activeSection].subtitle}
+            icon={SETTINGS_SECTIONS.find((section) => section.key === activeSection)?.icon || "settings"}
+            accent="blue"
+          >
+            {activeSection === "apariencia" && (
+              <>
+                <SettingsRow
+                  title="Tema"
+                  subtitle="Apariencia visual de la app"
+                  icon="palette"
+                  action={
+                    <SegmentedControl
+                      options={THEME_OPTIONS}
+                      value={settings.themeMode}
+                      onChange={(value) => updateSetting("themeMode", value)}
+                    />
+                  }
+                />
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Tamaño de fuente"
+                  subtitle="Tamaño del texto en la interfaz"
+                  icon="text"
+                  action={
+                    <SegmentedControl
+                      options={FONT_OPTIONS}
+                      value={settings.fontSize}
+                      onChange={(value) => updateSetting("fontSize", value)}
+                    />
+                  }
+                />
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Idioma"
+                  subtitle="Idioma de la interfaz"
+                  icon="globe"
+                  action={
+                    <SegmentedControl
+                      options={LANGUAGE_OPTIONS}
+                      value={settings.language}
+                      onChange={(value) => updateSetting("language", value)}
+                    />
+                  }
+                />
+                <div className="settings-summary">
+                  <div className="settings-summary-item">
+                    <strong>Tema actual</strong>
+                    <span>{themeLabel}</span>
+                  </div>
+                  <div className="settings-summary-item">
+                    <strong>Fuente</strong>
+                    <span>{fontLabel}</span>
+                  </div>
+                  <div className="settings-summary-item">
+                    <strong>Idioma</strong>
+                    <span>{languageLabel}</span>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {activeSection === "dispositivo" && (
+              <>
+                <SettingsRow
+                  title="Modo de operación"
+                  subtitle="La app funciona sin internet"
+                  icon="monitor"
+                  action={<span className="settings-pill success">Offline</span>}
+                />
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Sesión local"
+                  subtitle="No hay perfil de usuario en la nube"
+                  icon="user"
+                  action={<span className="settings-pill">Local</span>}
+                />
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Tema activo"
+                  subtitle="Se aplica según la preferencia elegida"
+                  icon="sun"
+                  action={<span className="settings-pill">{deviceMode}</span>}
+                />
+              </>
+            )}
+
+            {activeSection === "datos" && (
+              <>
+                <SettingsRow
+                  title="Autoguardar cálculos"
+                  subtitle="Guarda cada cálculo en el historial"
+                  icon="save"
+                  action={
+                    <SettingsToggle
+                      checked={settings.autosave}
+                      onChange={(value) => updateSetting("autosave", value)}
+                    />
+                  }
+                />
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Almacenamiento local usado"
+                  subtitle="Proyectos y cálculos guardados"
+                  icon="database"
+                  action={<span className="settings-pill">{formatStorageSize(storageUsage)}</span>}
+                />
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Borrar todos los datos"
+                  subtitle="Elimina proyectos e historial local"
+                  icon="trash2"
+                  destructive
+                  action={
+                    <button type="button" className="danger-btn" onClick={onResetAllData}>
+                      Borrar datos
+                    </button>
+                  }
+                />
+              </>
+            )}
+
+            {activeSection === "exportacion" && (
+              <>
+                <div className="settings-feature-grid">
+                  <div className="settings-feature">
+                    <Icon name="file" size={18} />
+                    <strong>PDF</strong>
+                    <small>Listo para entregar</small>
+                  </div>
+                  <div className="settings-feature">
+                    <Icon name="table" size={18} />
+                    <strong>Excel</strong>
+                    <small>Exportaciones tabulares</small>
+                  </div>
+                  <div className="settings-feature">
+                    <Icon name="share" size={18} />
+                    <strong>Compartir</strong>
+                    <small>Archivos locales o enlace</small>
+                  </div>
+                </div>
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Exportar último cálculo"
+                  subtitle="Acceso rápido desde la pantalla principal"
+                  icon="export"
+                  action={<span className="settings-pill">Disponible</span>}
+                />
+              </>
+            )}
+
+            {activeSection === "acerca" && (
+              <>
+                <SettingsRow
+                  title="Versión"
+                  subtitle="Versión actual de la app"
+                  icon="check_circle"
+                  action={<span className="settings-pill success">{APP_VERSION}</span>}
+                />
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Normas COVENIN"
+                  subtitle="Versión de las normas incluidas"
+                  icon="book"
+                  action={<span className="settings-pill">2024</span>}
+                />
+                <div className="settings-divider" />
+                <SettingsRow
+                  title="Modo de operación"
+                  subtitle="La app funciona sin internet"
+                  icon="info"
+                  action={<span className="settings-pill success">Offline</span>}
+                />
+              </>
+            )}
+          </SettingsCard>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── TOPBAR ───────────────────────────────────────────────────
 // ─── TOPBAR ───────────────────────────────────────────────────
-function Topbar({ title, darkMode, setDarkMode, activeModule }) {
+function Topbar({ title, darkMode, setDarkMode, activeModule, onOpenMenu = () => {} }) {
   const modulo = MODULES.find((m) => m.key === activeModule);
 
   return (
     <header className="topbar desktop-only">
       <div className="topbar-left">
-        <button className="menu-btn" onClick={() => setShowMenuDrawer(true)}>
+        <button className="menu-btn" onClick={onOpenMenu}>
           <Icon name="menu" size={22} />
         </button>
 
@@ -968,7 +1663,7 @@ function Topbar({ title, darkMode, setDarkMode, activeModule }) {
 }
 
 // ─── DESKTOP HOME (NUEVO DASHBOARD) ───────────────────────────
-function DesktopHome({ onNavigate, user, dashboardData }) {
+function DesktopHome({ onNavigate, dashboardData }) {
   const today = new Date().toLocaleDateString("es-CO", {
     weekday: "long",
     year: "numeric",
@@ -3204,7 +3899,13 @@ function MobileHome({
               <strong>CIVCALPRO</strong>
             </div>
 
-            <button className="drawer-module-item">
+            <button
+              className="drawer-module-item"
+              onClick={() => {
+                setShowMenuDrawer(false);
+                onNavigate("configuracion");
+              }}
+            >
               <Icon name="settings" size={18} />
               Configuración
             </button>
@@ -3636,57 +4337,260 @@ function MobileReportes({ onBack }) {
   );
 }
 
+function MobileConfiguracion({
+  onBack,
+  settings,
+  onSettingsChange,
+  onResetAllData,
+  storageUsage,
+  darkMode,
+}) {
+  const updateSetting = (key, value) => {
+    onSettingsChange((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const themeLabel =
+    THEME_OPTIONS.find((option) => option.value === settings.themeMode)?.label ||
+    "Sistema";
+
+  const fontLabel =
+    FONT_OPTIONS.find((option) => option.value === settings.fontSize)?.label ||
+    "Normal";
+
+  const languageLabel =
+    LANGUAGE_OPTIONS.find((option) => option.value === settings.language)?.label ||
+    "Español";
+
+  return (
+    <>
+      <header className="mobile-module-topbar">
+        <button className="mobile-back-btn" onClick={onBack}>
+          <Icon name="back" size={22} />
+        </button>
+        <h2>Configuración</h2>
+        <div className="mobile-topbar-actions">
+          <span className="settings-pill success">
+            {darkMode ? "Oscuro" : "Claro"}
+          </span>
+        </div>
+      </header>
+
+      <div className="mobile-page mobile-settings-page">
+        <div className="mobile-settings-banner">
+          <strong>Sin login ni cuenta</strong>
+          <p>La app funciona offline y el dispositivo conserva tus preferencias.</p>
+        </div>
+
+        <div className="mobile-settings-group">
+          <div className="mobile-section-label">Apariencia</div>
+          <div className="mobile-settings-card">
+            <SettingsRow
+              title="Tema"
+              subtitle={themeLabel}
+              icon="palette"
+              action={
+                <SegmentedControl
+                  options={THEME_OPTIONS}
+                  value={settings.themeMode}
+                  onChange={(value) => updateSetting("themeMode", value)}
+                />
+              }
+            />
+            <div className="settings-divider" />
+            <SettingsRow
+              title="Fuente"
+              subtitle={fontLabel}
+              icon="text"
+              action={
+                <SegmentedControl
+                  options={FONT_OPTIONS}
+                  value={settings.fontSize}
+                  onChange={(value) => updateSetting("fontSize", value)}
+                />
+              }
+            />
+            <div className="settings-divider" />
+            <SettingsRow
+              title="Idioma"
+              subtitle={languageLabel}
+              icon="globe"
+              action={
+                <SegmentedControl
+                  options={LANGUAGE_OPTIONS}
+                  value={settings.language}
+                  onChange={(value) => updateSetting("language", value)}
+                />
+              }
+            />
+          </div>
+        </div>
+
+        <div className="mobile-settings-group">
+          <div className="mobile-section-label">Datos</div>
+          <div className="mobile-settings-card">
+            <SettingsRow
+              title="Autoguardar"
+              subtitle="Cálculos al historial"
+              icon="save"
+              action={
+                <SettingsToggle
+                  checked={settings.autosave}
+                  onChange={(value) => updateSetting("autosave", value)}
+                />
+              }
+            />
+            <div className="settings-divider" />
+            <SettingsRow
+              title="Almacenamiento"
+              subtitle={formatStorageSize(storageUsage)}
+              icon="database"
+              action={<span className="settings-pill">Usado</span>}
+            />
+            <div className="settings-divider" />
+            <SettingsRow
+              title="Borrar datos"
+              subtitle="Elimina el contenido local"
+              icon="trash2"
+              destructive
+              action={
+                <button
+                  type="button"
+                  className="danger-btn"
+                  onClick={onResetAllData}
+                >
+                  Borrar
+                </button>
+              }
+            />
+          </div>
+        </div>
+
+        <div className="mobile-settings-group">
+          <div className="mobile-section-label">Acerca de</div>
+          <div className="mobile-settings-card">
+            <SettingsRow
+              title="Versión"
+              subtitle="App actual"
+              icon="check_circle"
+              action={<span className="settings-pill success">{APP_VERSION}</span>}
+            />
+            <div className="settings-divider" />
+            <SettingsRow
+              title="Normas COVENIN"
+              subtitle="Incluidas"
+              icon="book"
+              action={<span className="settings-pill">2024</span>}
+            />
+            <div className="settings-divider" />
+            <SettingsRow
+              title="Modo de operación"
+              subtitle="La app funciona sin internet"
+              icon="info"
+              action={<span className="settings-pill success">Offline</span>}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 // ─── ROOT APP ─────────────────────────────────────────────────
 export default function App() {
   const [activeModule, setActiveModule] = useState("inicio");
 
   const [mobileView, setMobileView] = useState("home");
 
-  const [darkMode, setDarkMode] = useState(
-    () => localStorage.getItem("theme") === "dark",
-  );
+  const [settings, setSettings] = useState(() => readStoredSettings());
+
+  const [prefersDark, setPrefersDark] = useState(() => getSystemTheme());
+
+  const darkMode = resolveDarkMode(settings.themeMode, prefersDark);
+
+  const setDarkMode = (nextDark) => {
+    setSettings((prev) => ({
+      ...prev,
+      themeMode: nextDark ? "dark" : "light",
+    }));
+  };
 
   const [user, setUser] = useState(() => {
-    try {
-      const storedUser = localStorage.getItem("user");
+    const storedUser = readJSON(USER_KEY, null);
 
-      return storedUser
-        ? JSON.parse(storedUser)
-        : {
-            isLoggedIn: false,
-            name: null,
-            role: "Invitado",
-          };
-    } catch {
-      return {
-        isLoggedIn: false,
-        name: null,
-        role: "Invitado",
-      };
-    }
+    return storedUser || {
+      isLoggedIn: false,
+      name: null,
+      role: "Invitado",
+    };
   });
 
   const [dashboardData, setDashboardData] = useState(EMPTY_DASHBOARD);
 
   useEffect(() => {
-    localStorage.setItem(
-      "theme",
+    const mediaQuery = window.matchMedia?.(SYSTEM_THEME_QUERY);
+    if (!mediaQuery) return undefined;
 
-      darkMode ? "dark" : "light",
-    );
-  }, [darkMode]);
+    const handleChange = (event) => {
+      setPrefersDark(event.matches);
+    };
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
 
   useEffect(() => {
     try {
-      localStorage.setItem(
-        "user",
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    } catch {}
+  }, [settings]);
 
-        JSON.stringify(user),
-      );
+  useEffect(() => {
+    try {
+      localStorage.setItem(USER_KEY, JSON.stringify(user));
     } catch {}
   }, [user]);
 
+  useEffect(() => {
+    try {
+      localStorage.setItem(THEME_KEY, darkMode ? "dark" : "light");
+      document.documentElement.style.setProperty(
+        "--app-scale",
+        String(FONT_SCALES[settings.fontSize] || 1),
+      );
+      document.documentElement.lang = settings.language || "es";
+    } catch {}
+  }, [darkMode, settings.fontSize, settings.language]);
+
   const isMobile = window.innerWidth <= 768;
+
+  const handleSettingsChange = (updater) => {
+    setSettings((prev) =>
+      typeof updater === "function" ? updater(prev) : { ...prev, ...updater },
+    );
+  };
+
+  const handleResetAllData = () => {
+    try {
+      localStorage.removeItem(SETTINGS_KEY);
+      localStorage.removeItem(USER_KEY);
+      localStorage.removeItem(THEME_KEY);
+    } catch {}
+
+    setSettings(DEFAULT_SETTINGS);
+    setUser({
+      isLoggedIn: false,
+      name: null,
+      role: "Invitado",
+    });
+    setDashboardData(EMPTY_DASHBOARD);
+    setActiveModule("inicio");
+    setMobileView("home");
+  };
 
   const handleNavigate = (key) => {
     setActiveModule(key);
@@ -3702,6 +4606,7 @@ export default function App() {
 
   const pageTitle = () => {
     if (activeModule === "inicio") return "Inicio";
+    if (activeModule === "configuracion") return "Configuración";
 
     const m = MODULES.find((m) => m.key === activeModule);
 
@@ -3715,7 +4620,6 @@ export default function App() {
       return (
         <DesktopHome
           onNavigate={handleNavigate}
-          user={user}
           dashboardData={dashboardData}
         />
       );
@@ -3725,6 +4629,17 @@ export default function App() {
     if (activeModule === "historial") return <ModuloHistorial />;
 
     if (activeModule === "reportes") return <ModuloReportes />;
+
+    if (activeModule === "configuracion")
+      return (
+        <ModuloConfiguracion
+          settings={settings}
+          onSettingsChange={handleSettingsChange}
+          onResetAllData={handleResetAllData}
+          storageUsage={getLocalStorageUsage()}
+          darkMode={darkMode}
+        />
+      );
 
     if (activeModule === "computos") return <ModuloComputos />;
 
@@ -3741,7 +4656,6 @@ export default function App() {
     return (
       <DesktopHome
         onNavigate={handleNavigate}
-        user={user}
         dashboardData={dashboardData}
       />
     );
@@ -3766,6 +4680,19 @@ export default function App() {
 
     if (activeModule === "historial") {
       return <MobileHistorial onBack={() => setMobileView("home")} />;
+    }
+
+    if (activeModule === "configuracion") {
+      return (
+        <MobileConfiguracion
+          onBack={() => setMobileView("home")}
+          settings={settings}
+          onSettingsChange={handleSettingsChange}
+          onResetAllData={handleResetAllData}
+          storageUsage={getLocalStorageUsage()}
+          darkMode={darkMode}
+        />
+      );
     }
 
     return (
@@ -3796,6 +4723,7 @@ export default function App() {
             darkMode={darkMode}
             showOnline={activeModule === "inicio"}
             activeModule={activeModule}
+            onOpenMenu={() => {}}
           />
 
           {renderDesktopPage()}
