@@ -272,6 +272,73 @@ const Icon = ({ name, size = 18 }) => {
         <circle cx="12" cy="17" r="1" fill="currentColor" />
       </>
     ),
+    chat: (
+      <>
+        <path
+          d="M20 14a4 4 0 01-4 4H9l-5 3v-3a4 4 0 01-2-3.46V7a4 4 0 014-4h10a4 4 0 014 4v7z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+        <circle cx="9" cy="10" r="1" fill="currentColor" />
+        <circle cx="12" cy="10" r="1" fill="currentColor" />
+        <circle cx="15" cy="10" r="1" fill="currentColor" />
+      </>
+    ),
+    mail: (
+      <>
+        <rect
+          x="3"
+          y="5"
+          width="18"
+          height="14"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M3 7l9 6 9-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+    phone: (
+      <>
+        <path
+          d="M7.5 3.5h3a1.5 1.5 0 011.5 1.5v2.2a1.5 1.5 0 01-.88 1.36l-1.2.55a14.5 14.5 0 006.3 6.3l.55-1.2A1.5 1.5 0 0118.14 13H20a1.5 1.5 0 011.5 1.5v3a2 2 0 01-2 2C11.94 19.5 4.5 12.06 4.5 2.5a2 2 0 012-2h1z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+    lock: (
+      <>
+        <rect
+          x="5"
+          y="11"
+          width="14"
+          height="10"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M8 11V8a4 4 0 018 0v3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </>
+    ),
     bell: (
       <path
         d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"
@@ -877,6 +944,200 @@ const MODULES = [
   },
 ];
 
+const NORMAS_MODULE_PREVIEW = {
+  label: "Normas COVENIN incluidas",
+  icon: <Icon name="book" size={48} />,
+};
+
+const NORMAS_DOCUMENTS = [
+  {
+    id: "covenin-1753-2006",
+    code: "COVENIN 1753-2006",
+    title: "Proyecto y construcción de obras de concreto estructural",
+    type: "Concreto estructural",
+    source: "Covenin 1753-2006 Proyecto Construccion Obras Concreto Estructural.pdf",
+    summary: "Documento base para proyectos y construcción en concreto estructural.",
+    tags: ["Diseño", "Concreto", "Estructuras"],
+    tone: "blue",
+  },
+  {
+    id: "covenin-1756-2018",
+    code: "COVENIN 1756-2018",
+    title: "Norma incluida en la biblioteca",
+    type: "Complementaria",
+    source: "COVENIN 1756-2018.pdf",
+    summary: "Referencia técnica incorporada a la biblioteca del proyecto.",
+    tags: ["Norma", "Referencia", "Incluida"],
+    tone: "green",
+  },
+  {
+    id: "covenin-2002-88",
+    code: "COVENIN 2002-88",
+    title: "Acciones mínimas",
+    type: "Acciones y cargas",
+    source: "COVENIN 2002-88 acciones minimas.pdf",
+    summary: "Base normativa para acciones mínimas aplicables al análisis.",
+    tags: ["Cargas", "Acciones", "Análisis"],
+    tone: "orange",
+  },
+  {
+    id: "diseno-estructural-concreto-armado",
+    code: "Manual de apoyo",
+    title: "Diseño estructural en concreto armado",
+    type: "Guía técnica",
+    source: "DISEÑO_ESTRUCTURAL_EN_CONCRETO_ARMADO.pdf",
+    summary: "Material de consulta para reforzar criterios de diseño y cálculo.",
+    tags: ["Guía", "Diseño", "Apoyo"],
+    tone: "purple",
+  },
+  {
+    id: "covenin-1618-1998",
+    code: "COVENIN 1618-1998",
+    title: "Estructuras de acero",
+    type: "Acero estructural",
+    source: "Norma COVENIN 1618-1998 ESTRUCTURAS DE ACERO.pdf.crdownload.pdf",
+    summary: "Norma de referencia para estructuras de acero incorporada en la biblioteca.",
+    tags: ["Acero", "Estructuras", "Referencia"],
+    tone: "blue",
+  },
+];
+
+const NORMAS_CATEGORIES = [
+  { key: "todas", label: "Todas" },
+  { key: "concreto estructural", label: "Concreto" },
+  { key: "acciones y cargas", label: "Acciones" },
+  { key: "acero estructural", label: "Acero" },
+  { key: "guía técnica", label: "Guías" },
+  { key: "complementaria", label: "Complementarias" },
+];
+
+const HELP_QUICK_ACTIONS = [
+  {
+    title: "Guía rápida",
+    subtitle: "Primeros pasos",
+    icon: "book",
+    query: "cómputos",
+  },
+  {
+    title: "Preguntas frecuentes",
+    subtitle: "Dudas comunes",
+    icon: "help",
+    query: "pdf",
+  },
+  {
+    title: "Contactar soporte",
+    subtitle: "Estamos para ayudarte",
+    icon: "chat",
+    query: "soporte",
+  },
+  {
+    title: "Novedades",
+    subtitle: "Últimas actualizaciones",
+    icon: "refresh",
+    query: "novedades",
+    badge: "Nuevo",
+  },
+];
+
+const HELP_CATEGORIES = [
+  {
+    title: "Cómputos",
+    description: "Aprende a crear y gestionar tus cómputos",
+    icon: "calc",
+    query: "cómputos",
+  },
+  {
+    title: "Reportes",
+    description: "Genera y exporta reportes personalizados",
+    icon: "export",
+    query: "reporte",
+  },
+  {
+    title: "Base de datos",
+    description: "Materiales, referencias y respaldos",
+    icon: "database",
+    query: "datos",
+  },
+  {
+    title: "Configuración",
+    description: "Ajustes visuales y preferencias",
+    icon: "settings",
+    query: "configuración",
+  },
+  {
+    title: "Privacidad y respaldo",
+    description: "Protege y conserva tu información local",
+    icon: "lock",
+    query: "respaldo",
+  },
+  {
+    title: "Solución de problemas",
+    description: "Diagnóstico de errores y ajustes comunes",
+    icon: "help",
+    query: "problemas",
+  },
+];
+
+const HELP_FAQS = [
+  {
+    id: "nuevo-computo",
+    question: "¿Cómo creo un nuevo cómputo?",
+    answer:
+      "Entra a Cómputos Métricos, elige el elemento, completa las dimensiones y guarda el resultado en un proyecto.",
+  },
+  {
+    id: "exportar-pdf",
+    question: "¿Cómo exporto un reporte a PDF?",
+    answer:
+      "Ve a Reportes y usa las opciones de exportación para generar un archivo PDF o Excel según lo necesites.",
+  },
+  {
+    id: "datos-locales",
+    question: "¿Dónde se almacenan mis datos?",
+    answer:
+      "La información se guarda localmente en este dispositivo para que puedas trabajar incluso sin internet.",
+  },
+  {
+    id: "copia-seguridad",
+    question: "¿Cómo hago una copia de seguridad?",
+    answer:
+      "Desde Datos y almacenamiento puedes respaldar la información antes de limpiar o cambiar de equipo.",
+  },
+  {
+    id: "novedades",
+    question: "¿Qué novedades incluye la aplicación?",
+    answer:
+      "La sección de novedades agrupa mejoras de interfaz, ajustes visuales y nuevas opciones disponibles dentro del proyecto.",
+  },
+];
+
+const HELP_SUPPORT_CHANNELS = [
+  {
+    title: "Chat",
+    subtitle: "Respuesta rápida",
+    icon: "chat",
+    tone: "blue",
+  },
+  {
+    title: "Correo",
+    subtitle: "Soporte escrito",
+    icon: "mail",
+    tone: "purple",
+  },
+  {
+    title: "WhatsApp",
+    subtitle: "Atención directa",
+    icon: "phone",
+    tone: "green",
+  },
+];
+
+const HELP_TIPS = [
+  "Usa la búsqueda para encontrar ayudas específicas.",
+  "Las categorías te llevan al tema correcto más rápido.",
+  "Mantén el modo oscuro para trabajar cómodo de noche.",
+];
+
 const ELEMENTOS = [
   {
     id: "columna",
@@ -935,8 +1196,8 @@ const STATS = [
   },
   {
     label: "Normas",
-    value: "OK",
-    sub: "COVENIN actualizadas",
+    value: "Listas",
+    sub: "Normas COVENIN ",
     icon: "wifi",
     color: "var(--green)",
   },
@@ -1018,8 +1279,8 @@ const ACCESOS = [
     iconColor: "#1D4ED8",
   },
   {
-    label: "Normas COVENIN",
-    sub: "Última actualización: hace 2 días",
+    label: "Normas COVENIN ",
+    sub: "Biblioteca normativa integrada",
     icon: "refresh",
     bg: "#FEF3E8",
     iconColor: "#9A3412",
@@ -1106,10 +1367,7 @@ function ThemeToggleButton({ darkMode, setDarkMode, className = "" }) {
 }
 
 // ─── SIDEBAR ──────────────────────────────────────────────────
-function Sidebar({ activeModule, onNavigate, user }) {
-  const displayName = user?.name || "Invitado";
-  const displayRole = user?.isLoggedIn ? user.role || "Usuario" : "Invitado";
-
+function Sidebar({ activeModule, onNavigate }) {
   return (
     <aside className="sidebar desktop-only">
       <div className="sidebar-logo">
@@ -1186,22 +1444,26 @@ function Sidebar({ activeModule, onNavigate, user }) {
           </span>
           Configuración
         </button>
-        <button className="sidebar-item">
+        <button
+          className={`sidebar-item ${activeModule === "ayuda" ? "active" : ""}`}
+          onClick={() => onNavigate("ayuda")}
+        >
           <span className="item-icon">
             <Icon name="help" size={15} />
           </span>
           Ayuda
         </button>
+        <button
+          type="button"
+          className={`sidebar-item sidebar-normas-item ${activeModule === "normas" ? "active" : ""}`}
+          onClick={() => onNavigate("normas")}
+        >
+          <span className="item-icon sidebar-normas-icon">
+            <Icon name="book" size={15} />
+          </span>
+          Normas COVENIN 
+        </button>
       </nav>
-      <div className="sidebar-user">
-        <div className="device-icon">
-          <Icon name="device" size={16} />
-        </div>
-        <div className="user-info">
-          <strong>{displayName}</strong>
-          <small>{displayRole} · Modo offline</small>
-        </div>
-      </div>
     </aside>
   );
 }
@@ -1496,10 +1758,10 @@ function ModuloConfiguracion({
                 />
                 <div className="settings-divider" />
                 <SettingsRow
-                  title="Sesión local"
-                  subtitle="No hay perfil de usuario en la nube"
-                  icon="user"
-                  action={<span className="settings-pill">Local</span>}
+                  title="Equipo actual"
+                  subtitle="La configuración se guarda en este dispositivo"
+                  icon="device"
+                  action={<span className="settings-pill">Este equipo</span>}
                 />
                 <div className="settings-divider" />
                 <SettingsRow
@@ -1585,10 +1847,10 @@ function ModuloConfiguracion({
                 />
                 <div className="settings-divider" />
                 <SettingsRow
-                  title="Normas COVENIN"
-                  subtitle="Versión de las normas incluidas"
+                  title="VENIN incluidas"
+                  subtitle="Biblioteca normativa integrada"
                   icon="book"
-                  action={<span className="settings-pill">2024</span>}
+                  action={<span className="settings-pill">Lista</span>}
                 />
                 <div className="settings-divider" />
                 <SettingsRow
@@ -1653,10 +1915,6 @@ function Topbar({ title, darkMode, setDarkMode, activeModule, onOpenMenu = () =>
 
       <div className="topbar-right">
         <ThemeToggleButton darkMode={darkMode} setDarkMode={setDarkMode} />
-        <button className="notif-btn">
-          <Icon name="bell" size={22} />
-          <span className="notif-badge">3</span>
-        </button>
       </div>
     </header>
   );
@@ -1701,7 +1959,7 @@ function DesktopHome({ onNavigate, dashboardData }) {
     {
       label: "Normas",
       value: "Listas",
-      sub: "COVENIN incluidas",
+      sub: "Normas COVENIN ",
       icon: "book",
       color: "var(--green)",
     },
@@ -3524,6 +3782,449 @@ function ModuloPendiente({ modulo }) {
   );
 }
 
+function ModuloAyuda({ mobile = false, onBack = () => {} }) {
+  const [searchText, setSearchText] = useState("");
+  const [openFaq, setOpenFaq] = useState(HELP_FAQS[0]?.id || null);
+
+  const search = searchText.trim().toLowerCase();
+
+  const visibleCategories = HELP_CATEGORIES.filter((item) => {
+    if (!search) return true;
+    return (
+      item.title.toLowerCase().includes(search) ||
+      item.description.toLowerCase().includes(search)
+    );
+  });
+
+  const visibleFaqs = HELP_FAQS.filter((item) => {
+    if (!search) return true;
+    return (
+      item.question.toLowerCase().includes(search) ||
+      item.answer.toLowerCase().includes(search)
+    );
+  });
+
+  const activeFaqId =
+    openFaq === null
+      ? null
+      : visibleFaqs.find((item) => item.id === openFaq)?.id || visibleFaqs[0]?.id || null;
+
+  const handleQuickAction = (query) => {
+    setSearchText(query);
+    setOpenFaq(HELP_FAQS[0]?.id || null);
+  };
+
+  const wrapperClass = mobile
+    ? "mobile-page help-page help-mobile"
+    : "page help-page help-desktop";
+
+  return (
+    <>
+      {mobile && (
+        <header className="mobile-module-topbar">
+          <button className="mobile-back-btn" onClick={onBack}>
+            <Icon name="back" size={22} />
+          </button>
+          <h2>Ayuda</h2>
+          <button className="mobile-save-btn" type="button" aria-label="Ayuda">
+            <Icon name="help" size={22} />
+          </button>
+        </header>
+      )}
+      <div className={wrapperClass}>
+      <section className="help-hero">
+        <div className="help-hero-main">
+          <div className="help-hero-icon">
+            <Icon name="help" size={18} />
+          </div>
+          <div>
+            <h1>Ayuda</h1>
+            <p>Encuentra respuestas, guías y soporte para usar CivCalPro.</p>
+          </div>
+        </div>
+        <span className="help-hero-pill">Centro de ayuda</span>
+      </section>
+
+      <div className="help-search">
+        <Icon name="search" size={16} />
+        <input
+          type="search"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Buscar en la ayuda..."
+        />
+      </div>
+
+      <div className="help-quick-grid">
+        {HELP_QUICK_ACTIONS.map((item) => (
+          <button
+            key={item.title}
+            type="button"
+            className="help-quick-card"
+            onClick={() => handleQuickAction(item.query)}
+          >
+            {item.badge && <span className="help-quick-badge">{item.badge}</span>}
+            <span className="help-quick-icon">
+              <Icon name={item.icon} size={16} />
+            </span>
+            <strong>{item.title}</strong>
+            <small>{item.subtitle}</small>
+          </button>
+        ))}
+      </div>
+
+      <div className="help-layout">
+        <div className="help-column">
+          <section className="help-panel">
+            <div className="help-panel-head">
+              <div>
+                <h3>Categorías de ayuda</h3>
+                <p>Explora los temas más consultados</p>
+              </div>
+              <span>{visibleCategories.length} temas</span>
+            </div>
+
+            <div className="help-category-list">
+              {visibleCategories.length > 0 ? (
+                visibleCategories.map((item) => (
+                  <button
+                    key={item.title}
+                    type="button"
+                    className="help-category-item"
+                    onClick={() => handleQuickAction(item.query)}
+                  >
+                    <span className="help-category-icon">
+                      <Icon name={item.icon} size={16} />
+                    </span>
+                    <span className="help-category-copy">
+                      <strong>{item.title}</strong>
+                      <small>{item.description}</small>
+                    </span>
+                    <Icon name="chevron" size={14} />
+                  </button>
+                ))
+              ) : (
+                <div className="help-empty-state">
+                  No encontramos categorías para esa búsqueda.
+                </div>
+              )}
+            </div>
+          </section>
+
+          <section className="help-panel">
+            <div className="help-panel-head">
+              <div>
+                <h3>Preguntas frecuentes</h3>
+                <p>Respuestas cortas a dudas comunes</p>
+              </div>
+              <button
+                type="button"
+                className="help-link"
+                onClick={() => {
+                  setSearchText("");
+                  setOpenFaq(HELP_FAQS[0]?.id || null);
+                }}
+              >
+                Ver todo
+              </button>
+            </div>
+
+            <div className="help-faq-list">
+              {visibleFaqs.length > 0 ? (
+                visibleFaqs.map((item) => {
+                  const isOpen = activeFaqId === item.id;
+
+                  return (
+                    <div
+                      key={item.id}
+                      className={`help-faq-item ${isOpen ? "open" : ""}`}
+                    >
+                      <button
+                        type="button"
+                        className="help-faq-question"
+                        onClick={() => setOpenFaq(isOpen ? null : item.id)}
+                      >
+                        <span>{item.question}</span>
+                        <Icon name="chevron" size={14} />
+                      </button>
+                      {isOpen && <div className="help-faq-answer">{item.answer}</div>}
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="help-empty-state">
+                  No encontramos preguntas que coincidan con tu búsqueda.
+                </div>
+              )}
+            </div>
+          </section>
+        </div>
+
+        <aside className="help-sidebar">
+          <section className="help-panel help-support-panel">
+            <div className="help-panel-head">
+              <div>
+                <h3>¿Necesitas más ayuda?</h3>
+                <p>Escoge el canal que prefieras</p>
+              </div>
+            </div>
+
+            <div className="help-support-grid">
+              {HELP_SUPPORT_CHANNELS.map((item) => (
+                <div key={item.title} className={`help-support-card tone-${item.tone}`}>
+                  <span className="help-support-icon">
+                    <Icon name={item.icon} size={16} />
+                  </span>
+                  <strong>{item.title}</strong>
+                  <small>{item.subtitle}</small>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="help-panel help-tips-panel">
+            <div className="help-panel-head">
+              <div>
+                <h3>Consejos rápidos</h3>
+                <p>Pequeñas ayudas para trabajar más cómodo</p>
+              </div>
+            </div>
+
+            <ul className="help-tips-list">
+              {HELP_TIPS.map((tip, index) => (
+                <li key={tip}>
+                  <span>{index + 1}</span>
+                  <p>{tip}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </aside>
+      </div>
+      </div>
+    </>
+  );
+}
+
+function ModuloNormas({ mobile = false, onBack = () => {} }) {
+  const [searchText, setSearchText] = useState("");
+  const [activeCategory, setActiveCategory] = useState("todas");
+  const [selectedId, setSelectedId] = useState(NORMAS_DOCUMENTS[0]?.id || null);
+
+  const search = searchText.trim().toLowerCase();
+
+  const filteredDocs = NORMAS_DOCUMENTS.filter((doc) => {
+    const matchesCategory =
+      activeCategory === "todas" || doc.type.toLowerCase() === activeCategory;
+    const matchesSearch =
+      !search ||
+      doc.code.toLowerCase().includes(search) ||
+      doc.title.toLowerCase().includes(search) ||
+      doc.summary.toLowerCase().includes(search) ||
+      doc.source.toLowerCase().includes(search) ||
+      doc.tags.some((tag) => tag.toLowerCase().includes(search));
+
+    return matchesCategory && matchesSearch;
+  });
+
+  const selectedDoc =
+    filteredDocs.find((doc) => doc.id === selectedId) || filteredDocs[0] || NORMAS_DOCUMENTS[0];
+
+  const visibleDocs = filteredDocs.length > 0 ? filteredDocs : NORMAS_DOCUMENTS;
+  const totalDocs = NORMAS_DOCUMENTS.length;
+  const totalCats = new Set(NORMAS_DOCUMENTS.map((doc) => doc.type)).size;
+
+  const wrapperClass = mobile
+    ? "mobile-page normas-page normas-mobile"
+    : "page normas-page normas-desktop";
+
+  const renderDocCard = (doc) => (
+    <button
+      key={doc.id}
+      type="button"
+      className={`normas-doc-card tone-${doc.tone} ${selectedDoc?.id === doc.id ? "active" : ""}`}
+      onClick={() => setSelectedId(doc.id)}
+    >
+      <div className="normas-doc-card-top">
+        <span className="normas-doc-badge">
+          <Icon name="book" size={14} />
+        </span>
+        <span className="normas-doc-type">{doc.type}</span>
+      </div>
+
+      <strong>{doc.code}</strong>
+      <p>{doc.title}</p>
+      <small>{doc.summary}</small>
+
+      <div className="normas-doc-tags">
+        {doc.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+    </button>
+  );
+
+  return (
+    <>
+      {mobile && (
+        <header className="mobile-module-topbar">
+          <button className="mobile-back-btn" onClick={onBack}>
+            <Icon name="back" size={22} />
+          </button>
+          <h2>Normas</h2>
+          <button className="mobile-save-btn" type="button" aria-label="Normas">
+            <Icon name="book" size={22} />
+          </button>
+        </header>
+      )}
+
+      <div className={wrapperClass}>
+        <section className="normas-hero">
+          <div className="normas-hero-main">
+            <div className="normas-hero-icon">
+              <Icon name="book" size={18} />
+            </div>
+            <div>
+              <h1>Normas COVENIN incluidas</h1>
+              <p>Biblioteca normativa integrada para consulta y soporte técnico.</p>
+            </div>
+          </div>
+          <div className="normas-hero-stats">
+            <div>
+              <strong>{totalDocs}</strong>
+              <span>Documentos</span>
+            </div>
+            <div>
+              <strong>{totalCats}</strong>
+              <span>Categorías</span>
+            </div>
+          </div>
+        </section>
+
+        <div className="normas-searchbar">
+          <Icon name="search" size={16} />
+          <input
+            type="search"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            placeholder="Buscar norma, código o tema..."
+          />
+        </div>
+
+        <div className="normas-filters">
+          {NORMAS_CATEGORIES.map((cat) => (
+            <button
+              key={cat.key}
+              type="button"
+              className={`normas-filter ${activeCategory === cat.key ? "active" : ""}`}
+              onClick={() => setActiveCategory(cat.key)}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="normas-layout">
+          <div className="normas-column">
+            <section className="normas-panel">
+              <div className="help-panel-head">
+                <div>
+                  <h3>Biblioteca normativa</h3>
+                  <p>Selecciona un documento para ver sus datos clave</p>
+                </div>
+                <span>{visibleDocs.length} documentos</span>
+              </div>
+
+              <div className="normas-doc-grid">
+                {visibleDocs.length > 0 ? (
+                  visibleDocs.map(renderDocCard)
+                ) : (
+                  <div className="help-empty-state">
+                    No encontramos normas para esa búsqueda.
+                  </div>
+                )}
+              </div>
+            </section>
+          </div>
+
+          <aside className="normas-sidebar">
+            <section className="normas-panel normas-detail-panel">
+              <div className="help-panel-head">
+                <div>
+                  <h3>Documento seleccionado</h3>
+                  <p>Vista rápida para orientar la consulta</p>
+                </div>
+              </div>
+
+              {selectedDoc ? (
+                <div className="normas-detail">
+                  <div className={`normas-detail-hero tone-${selectedDoc.tone}`}>
+                    <span className="normas-detail-icon">
+                      <Icon name="book" size={18} />
+                    </span>
+                    <div>
+                      <strong>{selectedDoc.code}</strong>
+                      <p>{selectedDoc.type}</p>
+                    </div>
+                  </div>
+
+                  <h4>{selectedDoc.title}</h4>
+                  <p className="normas-detail-copy">{selectedDoc.summary}</p>
+
+                  <div className="normas-detail-meta">
+                    <span className="normas-pill">Incluida</span>
+                    <span className="normas-pill">{selectedDoc.type}</span>
+                  </div>
+
+                  <div className="normas-source-box">
+                    <strong>Archivo fuente</strong>
+                    <p>{selectedDoc.source}</p>
+                  </div>
+
+                  <div className="normas-action-row">
+                    <button type="button" className="btn btn-blue">
+                      Ver documento
+                    </button>
+                    <button type="button" className="btn btn-ghost">
+                      Referencia
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="help-empty-state">Selecciona una norma para ver sus detalles.</div>
+              )}
+            </section>
+
+            <section className="normas-panel">
+              <div className="help-panel-head">
+                <div>
+                  <h3>Uso rápido</h3>
+                  <p>Ideas para navegar la biblioteca</p>
+                </div>
+              </div>
+
+              <ul className="help-tips-list">
+                <li>
+                  <span>1</span>
+                  <p>Usa los filtros para separar concreto, acero y guías técnicas.</p>
+                </li>
+                <li>
+                  <span>2</span>
+                  <p>Selecciona un documento y revisa su archivo fuente.</p>
+                </li>
+                <li>
+                  <span>3</span>
+                  <p>Más adelante podremos enlazar cada tarjeta al PDF correspondiente.</p>
+                </li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </>
+  );
+}
+
 // ─── MOBILE HISTORIAL ─────────────────────────────────────────
 function MobileHistorial({ onBack }) {
   const [filtroModulo, setFiltroModulo] = useState("Todos");
@@ -3752,10 +4453,6 @@ function MobileHome({
         </div>
         <div className="mobile-topbar-actions">
           <ThemeToggleButton darkMode={darkMode} setDarkMode={setDarkMode} />
-          <button className="notif-btn mobile-notif-btn">
-            <Icon name="bell" size={22} />
-            <span className="notif-badge">3</span>
-          </button>
         </div>
       </header>
 
@@ -3899,25 +4596,37 @@ function MobileHome({
               <strong>CIVCALPRO</strong>
             </div>
 
+          <button
+            className="drawer-module-item"
+            onClick={() => {
+              setShowMenuDrawer(false);
+              onNavigate("configuracion");
+            }}
+          >
+            <Icon name="settings" size={18} />
+            Configuración
+          </button>
+
             <button
               className="drawer-module-item"
               onClick={() => {
                 setShowMenuDrawer(false);
-                onNavigate("configuracion");
+                onNavigate("ayuda");
               }}
             >
-              <Icon name="settings" size={18} />
-              Configuración
-            </button>
-
-            <button className="drawer-module-item">
               <Icon name="help" size={18} />
               Ayuda
             </button>
 
-            <button className="drawer-module-item">
+            <button
+              className="drawer-module-item"
+              onClick={() => {
+                setShowMenuDrawer(false);
+                onNavigate("normas");
+              }}
+            >
               <Icon name="book" size={18} />
-              Normas
+              Normas COVENIN
             </button>
           </div>
         </div>
@@ -4024,12 +4733,15 @@ function ModuloReportes() {
 
 // ─── MOBILE MÓDULO ────────────────────────────────────────────
 function MobileModulo({ onBack, darkMode, setDarkMode, moduloKey }) {
-  const modulo = MODULES.find((m) => m.key === moduloKey) || MODULES[0];
+  const modulo =
+    MODULES.find((m) => m.key === moduloKey) ||
+    (moduloKey === "normas" ? NORMAS_MODULE_PREVIEW : MODULES[0]);
 
   const TITULOS_EXTRA = {
     proyectos: "Proyectos",
     historial: "Historial",
     reportes: "Reportes",
+    normas: "Normas COVENIN ",
   };
   const tituloHeader = TITULOS_EXTRA[moduloKey] || modulo.label;
 
@@ -4476,10 +5188,10 @@ function MobileConfiguracion({
             />
             <div className="settings-divider" />
             <SettingsRow
-              title="Normas COVENIN"
-              subtitle="Incluidas"
+              title="Normas COVENIN "
+              subtitle="Biblioteca normativa integrada"
               icon="book"
-              action={<span className="settings-pill">2024</span>}
+              action={<span className="settings-pill">Lista</span>}
             />
             <div className="settings-divider" />
             <SettingsRow
@@ -4607,6 +5319,8 @@ export default function App() {
   const pageTitle = () => {
     if (activeModule === "inicio") return "Inicio";
     if (activeModule === "configuracion") return "Configuración";
+    if (activeModule === "ayuda") return "Ayuda";
+    if (activeModule === "normas") return "Normas COVENIN ";
 
     const m = MODULES.find((m) => m.key === activeModule);
 
@@ -4641,6 +5355,8 @@ export default function App() {
         />
       );
 
+    if (activeModule === "ayuda") return <ModuloAyuda />;
+
     if (activeModule === "computos") return <ModuloComputos />;
 
     if (activeModule === "concreto") return <ModuloConcreto />;
@@ -4648,6 +5364,9 @@ export default function App() {
     if (activeModule === "biblioteca") return <ModuloBiblioteca />;
 
     if (activeModule === "estimacion") return <ModuloEstimacion />;
+
+    if (activeModule === "normas")
+      return <ModuloPendiente modulo={NORMAS_MODULE_PREVIEW} />;
 
     const m = MODULES.find((mod) => mod.key === activeModule);
 
@@ -4672,6 +5391,10 @@ export default function App() {
           dashboardData={dashboardData}
         />
       );
+    }
+
+    if (activeModule === "ayuda") {
+      return <ModuloAyuda mobile onBack={() => setMobileView("home")} />;
     }
 
     if (activeModule === "reportes") {
@@ -4713,7 +5436,6 @@ export default function App() {
         <Sidebar
           activeModule={activeModule}
           onNavigate={handleNavigate}
-          user={user}
         />
 
         <div className="main-content">
