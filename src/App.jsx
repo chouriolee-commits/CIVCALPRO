@@ -887,10 +887,12 @@ const Icon = ({ name, size = 18 }) => {
       </>
     ),
   };
-  return (
+ return (
     <svg
-      width={size}
-      height={size}
+      style={{
+        width: `calc(${size}px * var(--app-scale, 1))`,
+        height: `calc(${size}px * var(--app-scale, 1))`,
+      }}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1327,9 +1329,9 @@ const DEFAULT_SETTINGS = {
 };
 
 const FONT_SCALES = {
-  small: 0.92,
-  normal: 1,
-  large: 1.08,
+  small: 1.05,
+  normal: 1.25,
+  large: 1.45,
 };
 
 const readJSON = (key, fallback) => {
