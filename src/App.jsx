@@ -5367,8 +5367,7 @@ export default function App() {
 
     if (activeModule === "estimacion") return <ModuloEstimacion />;
 
-    if (activeModule === "normas")
-      return <ModuloPendiente modulo={NORMAS_MODULE_PREVIEW} />;
+    if (activeModule === "normas") return <ModuloNormas />;
 
     const m = MODULES.find((mod) => mod.key === activeModule);
 
@@ -5418,6 +5417,10 @@ export default function App() {
           darkMode={darkMode}
         />
       );
+    }
+
+    if (activeModule === "normas") {
+      return <ModuloNormas mobile onBack={() => setMobileView("home")} />;
     }
 
     return (
