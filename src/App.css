@@ -577,7 +577,8 @@ body {
 }
 
 /* ─── MOBILE PAGE ───────────────────────────────────────────── */
-.mobile-page { padding: 20px 16px 90px; }
+.mobile-page { padding: 20px 16px 90px; overflow-x: hidden; }
+.mobile-page .page { padding: 0; }
 
 .mobile-greeting h2 { font-size: 1.375rem; font-weight: 700; color: var(--text-main); transition: color 0.3s ease; }
 .mobile-greeting p { font-size: 0.8438rem; color: var(--text-muted); margin-top: 2px;   transition: color 0.3s ease; }
@@ -1916,6 +1917,10 @@ body {
 
 @media (max-width: 768px) {
   .est-act-grid { grid-template-columns: repeat(2, 1fr); }
+  .est-tabla-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .est-tabla { min-width: 480px; }
+  .est-resumen { flex-wrap: wrap; }
+  .est-resumen-cell { flex: 1 1 calc(50% - 5px); min-width: 0; }
 }
 
 /* ─── TOPBAR BREADCRUMB ──────────────────────────────────────── */

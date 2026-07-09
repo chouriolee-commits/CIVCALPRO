@@ -3404,6 +3404,7 @@ function ModuloEstimacion() {
           </div>
         ) : (
           <>
+            <div className="est-tabla-wrap">
             <table className="est-tabla">
               <thead>
                 <tr>
@@ -3430,8 +3431,7 @@ function ModuloEstimacion() {
                 ))}
               </tbody>
             </table>
-
-            {/* Resumen */}
+            </div>
             <div className="est-resumen">
               {resultado.resumen.map((r, i) => (
                 <div
