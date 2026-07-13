@@ -1,15 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #333;
-}
-
+/* Entry point styles — base reset and root handled by variables.css + globals.css */
 #root {
   min-height: 100vh;
 }
