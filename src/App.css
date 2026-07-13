@@ -29,8 +29,6 @@
   --app-scale:   1.25;
 }
 
-
-
 html { font-size: calc(16px * var(--app-scale)); }
 .dark-theme {
   --bg:          #0F172A;
@@ -64,11 +62,7 @@ html { font-size: calc(16px * var(--app-scale)); }
   border-color: #334155;
 }
 
-
-
 .dark-theme body { background: var(--bg); }
-
-
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -562,13 +556,9 @@ body {
 .mobile-greeting h2 { font-size: 1.375rem; font-weight: 700; color: var(--text-main); transition: color 0.3s ease; }
 .mobile-greeting p { font-size: 0.8438rem; color: var(--text-muted); margin-top: 2px;   transition: color 0.3s ease; }
 
-
-
 .dark-theme .mobile-section-label .mobile-module-list { color: var(--text-muted); }
 
 .dark-theme .mobile-module-card-info h4 { color: var(--text-main); }
-
-
 
 .mobile-greeting h2 span { color: var(--green); }
 
@@ -865,7 +855,6 @@ body {
   .settings-summary,
   .settings-feature-grid { grid-template-columns: 1fr; }
   .settings-toggle { align-self: flex-start; }
-
 
   /* historial */
   .historial-stats {
@@ -1486,7 +1475,6 @@ body {
   color: #94A3B8;
   flex-shrink: 0;
 }
-
 
 /* ─── MÓDULO GENÉRICO — card contenedor ─────────────────────── */
 .modulo-card {
@@ -2278,7 +2266,6 @@ body {
 }
 
 /* ─── HISTORIAL MOBILE VERSION ─────────────────────────────────── */
-
 
 /* ─── MOBILE HISTORIAL COMPONENT ───────────────────────────────── */
 .mobile-historial { padding: 0.5rem 0; }
@@ -3480,12 +3467,7 @@ body {
 .dark-theme .help-quick-card:hover,
 .dark-theme .help-category-item:hover { background: rgba(37, 99, 235, .10); }
 
-
-
-
-
 /* MOBILE */
-
 
 /* ═══════════════════════════════════════════════════════════════
    MÓDULO NORMAS COVENIN — DESKTOP & MOBILE
