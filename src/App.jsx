@@ -1872,16 +1872,12 @@ function ModuloConfiguracion({
 
 // ─── TOPBAR ───────────────────────────────────────────────────
 // ─── TOPBAR ───────────────────────────────────────────────────
-function Topbar({ title, darkMode, setDarkMode, activeModule, onOpenMenu = () => {} }) {
+function Topbar({ title, darkMode, setDarkMode, activeModule }) {
   const modulo = MODULES.find((m) => m.key === activeModule);
 
   return (
     <header className="topbar desktop-only">
       <div className="topbar-left">
-        <button className="menu-btn" onClick={onOpenMenu}>
-          <Icon name="menu" size={22} />
-        </button>
-
         {/* Breadcrumb */}
         <div className="topbar-breadcrumb">
           {modulo ? (
@@ -5450,7 +5446,6 @@ export default function App() {
             darkMode={darkMode}
             showOnline={activeModule === "inicio"}
             activeModule={activeModule}
-            onOpenMenu={() => {}}
           />
 
           {renderDesktopPage()}
