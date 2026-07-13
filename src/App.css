@@ -1117,6 +1117,18 @@ font-size: 0.9375rem;
   .result-bar-right { text-align: right; }
   .action-row { justify-content: flex-end; flex-wrap: wrap; gap: 8px; }
   .preview-content { padding: 18px 16px; }
+
+  .help-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .help-sidebar {
+    position: static;
+  }
+
+  .help-quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 480px) {
@@ -3764,20 +3776,6 @@ font-size: 0.9375rem;
 .dark-theme .help-quick-card:hover,
 .dark-theme .help-category-item:hover {
   background: rgba(37, 99, 235, .10);
-}
-
-@media (max-width: 1024px) {
-  .help-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .help-sidebar {
-    position: static;
-  }
-
-  .help-quick-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 
