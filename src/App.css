@@ -1121,6 +1121,16 @@ font-size: 0.9375rem;
 
 @media (max-width: 480px) {
   .module-grid { grid-template-columns: 1fr; }
+
+
+  .help-quick-grid,
+  .help-support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .help-category-item {
+    gap: 10px;
+  }
 }
 
 /* ─── UTILITIES ─────────────────────────────────────────────── */
@@ -3772,16 +3782,7 @@ font-size: 0.9375rem;
 
 
 
-@media (max-width: 480px) {
-  .help-quick-grid,
-  .help-support-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .help-category-item {
-    gap: 10px;
-  }
-}
 
 /* MOBILE */
 
