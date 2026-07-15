@@ -13,6 +13,7 @@ import './modulos/styles/components/navigation.css'
 import './modulos/styles/components/animations.css'
 import './modulos/styles/modules/dashboards.css'
 import './modulos/styles/modules/computos.css'
+import './modulos/styles/modules/concreto.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
