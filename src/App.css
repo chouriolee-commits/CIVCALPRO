@@ -132,26 +132,19 @@
 
 
 
-.mobile-greeting h2 { font-size: 1.375rem; font-weight: 700; color: var(--text-main); transition: color 0.3s ease; }
-.mobile-greeting p { font-size: 0.8438rem; color: var(--text-muted); margin-top: 2px;   transition: color 0.3s ease; }
 
-.dark-theme .mobile-section-label .mobile-module-list { color: var(--text-muted); }
+
 
 .dark-theme .mobile-module-card-info h4 { color: var(--text-main); }
 
-.mobile-greeting h2 span { color: var(--green); }
+
 
 /* Mantener color negro para labels de módulos en el dashboard y vista móvil en modo oscuro
    (no afectar la barra lateral) */
 .dark-theme .home-module-item .module-label,
 .dark-theme .mobile-module-card .module-label { color: #000000 !important; }
 
-.mobile-section-label {
-  font-size: 0.625rem; font-weight: 700;
-  letter-spacing: 1px; text-transform: uppercase;
-  color: var(--text-muted);
-  margin: 20px 0 10px;
-}
+
 
 /* mobile module cards (vertical list) */
 .mobile-module-list { display: flex; flex-direction: column; gap: 10px; }
@@ -182,13 +175,6 @@
 .mobile-module-card-info p { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
 
 
-
-.mobile-chevron { color: var(--text-light); font-size: 1rem; }
-
-/* recent projects */
-.recent-section { margin-top: 24px; }
-.recent-header { display: flex; justify-content: space-between; align-items: center; }
-.recent-header span { font-size: 0.8125rem; color: var(--green); font-weight: 600; cursor: pointer; }
 
 .recent-card {
   background: var(--white);
@@ -475,19 +461,6 @@
 
 
 
-/* ─── HOME DASHBOARD ────────────────────────────────────────── */
-.home-greeting { margin-bottom: 20px; }
-.home-greeting h1 { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
-.home-greeting h1 span { color: var(--green); }
-.home-greeting p { color: var(--text-muted); margin-top: 4px; font-size: 0.8438rem; }
-
-.home-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
 .home-stat-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -507,22 +480,7 @@
 
 .home-stat-value { font-size: 1.625rem; font-weight: 700; line-height: 1.1; }
 .home-stat-sub   { font-size: 0.6875rem; color: var(--text-muted); margin-top: 3px; }
-.home-empty-state {
-  padding: 18px;
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  background: var(--white);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius-md);
-}
 
-.home-row2,
-.home-row3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
 
 .home-card {
   background: var(--white);
@@ -541,8 +499,7 @@
 .home-card-title { font-size: 0.8438rem; font-weight: 700; color: var(--text-main); }
 .home-card-link  { font-size: 0.75rem; color: var(--green); font-weight: 600; cursor: pointer; }
 
-/* módulos en home */
-.home-module-list { display: flex; flex-direction: column; gap: 8px; }
+
 
 .home-module-item {
   display: flex;
@@ -569,8 +526,7 @@
 .home-module-info small  { font-size: 0.7188rem; color: var(--text-muted); }
 .home-module-arrow { color: var(--text-light); }
 
-/* proyectos en home */
-.home-proj-list { display: flex; flex-direction: column; gap: 10px; }
+
 
 .home-proj-item {
   display: flex;
@@ -596,8 +552,7 @@
 .home-pbar-wrap { height: 4px; background: var(--border); border-radius: 2px; margin-top: 5px; }
 .home-pbar      { height: 100%; border-radius: 2px; transition: width .3s; }
 
-/* historial en home */
-.home-hist-list { display: flex; flex-direction: column; gap: 8px; }
+
 
 .home-hist-item {
   display: flex;
@@ -812,8 +767,7 @@
   cursor: pointer;
 }
 
-/* acceso rápido */
-.home-acceso-list { display: flex; flex-direction: column; gap: 8px; }
+
 
 .home-acceso-item {
   display: flex;
@@ -860,24 +814,6 @@
 .modulo-pendiente-box h3 { font-size: 1.125rem; font-weight: 700; color: var(--text-main); }
 .modulo-pendiente-box p  { font-size: 0.875rem; color: var(--text-muted); max-width: 400px; }
 
-/* ─── MOBILE STATS ROW ──────────────────────────────────────── */
-.mobile-stats-row {
-  display: flex;
-  align-items: center;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 12px 8px;
-  margin: 14px 0 4px;
-}
-
-.mobile-stat {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
 
 .mobile-stat-val  { font-size: 1.125rem; font-weight: 700; }
 .mobile-stat-lbl  { font-size: 0.625rem; color: var(--text-muted); font-weight: 500; }
