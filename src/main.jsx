@@ -9,7 +9,8 @@ import './modulos/styles/components/forms.css'
 import './App.css'
 import './modulos/styles/components/badges.css'
 import './modulos/styles/components/tables.css'
-import './modulos/styles/modules/navigation.css'
+import './modulos/styles/components/navigation.css'
+import './modulos/styles/components/animations.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(

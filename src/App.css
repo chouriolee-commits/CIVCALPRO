@@ -1616,13 +1616,7 @@
 
 .drawer-module-item:hover { background:rgba(0,0,0,.05); }
 
-@keyframes drawerLeft{
 
- from { transform:translateX(-100%); }
-
- to { transform:translateX(0); }
-
-}
 
 .mobile-drawer-overlay{
 
@@ -1670,13 +1664,6 @@
 
 }
 
-@keyframes drawerUp{
-
- from { transform:translateY(100%); }
-
- to { transform:translateY(0); }
-
-}
 
 /* ===========================
    REPORTES
