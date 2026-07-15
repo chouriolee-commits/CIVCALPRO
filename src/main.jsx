@@ -8,6 +8,7 @@ import './modulos/styles/components/buttons.css'
 import './modulos/styles/components/forms.css'
 import './App.css'
 import './modulos/styles/components/badges.css'
+import './modulos/styles/components/tables.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
