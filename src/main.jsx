@@ -14,6 +14,7 @@ import './modulos/styles/components/animations.css'
 import './modulos/styles/modules/dashboards.css'
 import './modulos/styles/modules/computos.css'
 import './modulos/styles/modules/concreto.css'
+import './modulos/styles/modules/biblioteca.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
