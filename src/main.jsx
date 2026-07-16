@@ -17,6 +17,8 @@ import './modulos/styles/modules/concreto.css'
 import './modulos/styles/modules/biblioteca.css'
 import './modulos/styles/modules/estimacion.css'
 import './modulos/styles/modules/historial.css'
+import './modulos/styles/modules/reportes.css'
+import './modulos/styles/modules/configuracion.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(

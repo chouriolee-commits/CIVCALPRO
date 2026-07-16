@@ -263,12 +263,11 @@
   .stat-card { padding: 0.5rem; }
   .stat-value { font-size: 1.25rem; }
 
-  
+
   
   .action-buttons { gap: 0.25rem; }
 
  
-
   .historial-pagination {
     flex-direction: column;
     gap: 0.5rem;
@@ -276,7 +275,6 @@
     padding: 0.5rem;
   }
 
-  
 
   .help-page { padding: 16px; }
   .help-page.help-mobile { padding: 16px 16px 90px; }
@@ -1186,36 +1184,9 @@
 }
 
 
-/* ===========================
-   REPORTES
-=========================== */
 
-.reports-page {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding: 28px;
-}
 
-.reports-title h1 {
-  margin: 0;
-  font-size: 2.625rem;
-  font-weight: 800;
-}
 
-.reports-title h1 span { color: var(--green); }
-
-.reports-title p {
-  margin-top: 8px;
-  color: var(--text-muted);
-  font-size: 0.9375rem;
-}
-
-.reports-stats {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 18px;
-}
 
 .report-stat-card {
   background: var(--white);
@@ -1238,11 +1209,7 @@
   font-weight: 800;
 }
 
-.report-main-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-}
+
 
 .report-card {
   background: var(--white);
@@ -1281,38 +1248,6 @@
 
 
 
-.report-export-general {
-  border: none;
-  border-radius: 14px;
-  padding: 16px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  background: var(--green);
-  color: white;
-  transition: .25s;
-}
-
-.report-export-general:hover { opacity: .9; }
-
-/* ===========================
-   CONFIGURACIÓN
-=========================== */
-
-.settings-page {
-  padding: 28px;
-  min-height: calc(100vh - 64px);
-  background: var(--bg);
-}
-
-.settings-shell {
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 20px;
-  align-items: stretch;
-  min-height: calc(100vh - 64px - 56px);
-}
-
 .settings-nav,
 .settings-card,
 .mobile-settings-card,
@@ -1322,10 +1257,6 @@
   border-radius: 20px;
   box-shadow: var(--shadow-sm);
 }
-
-.mobile-settings-banner { padding: 16px; }
-
-
 
 
 
@@ -1356,16 +1287,6 @@
   line-height: 1.35;
 }
 
-.settings-content {
-  min-width: 0;
-  display: flex;
-}
-
-.settings-card {
-  padding: 20px;
-  width: 100%;
-  min-height: 100%;
-}
 
 .settings-card-header { margin-bottom: 12px; }
 
@@ -1387,18 +1308,7 @@
   flex-shrink: 0;
 }
 
-.settings-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 16px 0;
-}
 
-.settings-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
 
 .settings-row-copy {
   min-width: 0;
@@ -1437,9 +1347,6 @@
 }
 
 
-
-
-
 .settings-toggle.checked {
   background: var(--green);
   justify-content: flex-end;
@@ -1447,77 +1354,12 @@
 
 
 
-.settings-summary {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.settings-summary-item {
-  border: 1px solid var(--border);
-  background: var(--bg);
-  border-radius: 16px;
-  padding: 14px;
-}
-
-.settings-summary-item strong {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-}
-
-.settings-summary-item span {
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-
-.settings-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.settings-feature {
-  border: 1px solid var(--border);
-  background: var(--bg);
-  border-radius: 16px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.settings-feature strong { font-size: 0.875rem; }
-
-.settings-feature small {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
 .danger-btn:hover { background: rgba(220, 38, 38, .08); }
 
 .settings-row.destructive .settings-row-title,
 .settings-row.destructive .settings-row-subtitle { color: #dc2626; }
 
-.mobile-settings-page {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
 
-.mobile-settings-banner strong {
-  display: block;
-  font-size: 0.9375rem;
-  margin-bottom: 6px;
-}
-
-.mobile-settings-banner p {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
 
 .mobile-settings-group {
   display: flex;
@@ -1525,7 +1367,7 @@
   gap: 10px;
 }
 
-.mobile-settings-card { padding: 16px; }
+
 
 .mobile-settings-card .settings-row { align-items: flex-start; }
 
