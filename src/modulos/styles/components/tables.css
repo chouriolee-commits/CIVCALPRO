@@ -93,8 +93,15 @@
 }
 
 /* Tabla de resultados */
+.est-tabla-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .est-tabla {
   width: 100%;
+  min-width: 560px;
   border-collapse: collapse;
   font-size: 0.8125rem;
   margin-bottom: 14px;
