@@ -765,3 +765,14 @@
 .dark-theme .normas-doc-card  { background: #1E293B; border-color: #334155; }
 .dark-theme .normas-doc-card.active { background: rgba(37,99,235,.12); }
 .dark-theme .normas-source-box { background: #1E293B; border-color: #334155; }
+
+/* ─── RESPONSIVE (grilla de módulos y stat cards) ────────────── */
+@media (max-width: 768px) {
+  .module-grid { grid-template-columns: 1fr 1fr; }
+  .stat-card { padding: 0.5rem; }
+  .stat-value { font-size: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .module-grid { grid-template-columns: 1fr; }
+}

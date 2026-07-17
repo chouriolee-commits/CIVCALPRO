@@ -12,7 +12,6 @@ import otroImg from "./assets/img/otro.png";
 import pisoImg from "./assets/img/piso.png";
 import vigaImg from "./assets/img/viga.png";
 import zapataImg from "./assets/img/zapata.png";
-import "./App.css";
 
 // ─── ICONS ───────────────────────────────────────────────────
 const Icon = ({ name, size = 18 }) => {
