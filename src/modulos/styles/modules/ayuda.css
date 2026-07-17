@@ -1,0 +1,333 @@
+/* ════════════════════════════════════════════════════════════════
+   AYUDA.CSS — Módulo de Ayuda / Centro de soporte
+   ────────────────────────────────────────────────────────────────
+   Vista de ayuda en escritorio y móvil. Contiene el hero, la barra
+   de búsqueda, la grilla de accesos rápidos, el layout de dos
+   columnas (categorías + FAQ + sidebar de soporte y tips) y sus
+   variantes responsive.
+
+   NOTA: la barra de búsqueda base (.help-search) vive en
+   components/forms.css junto al resto de inputs; aquí solo se ajusta
+   su alto en el breakpoint móvil.
+
+   ÍNDICE
+   1. Layout de página (.help-page)
+   2. Hero
+   3. Accesos rápidos (.help-quick-grid)
+   4. Layout de contenido (categorías + FAQ + sidebar)
+   5. Categorías
+   6. FAQ
+   7. Sidebar de soporte y tips
+   8. Tema oscuro
+   9. Responsive
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── 1. LAYOUT DE PÁGINA ────────────────────────────────────── */
+.help-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+}
+
+.help-page.help-mobile { padding: 16px 16px 90px; }
+
+/* ─── 2. HERO ────────────────────────────────────────────────── */
+.help-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(37, 99, 235, .10), rgba(29, 185, 84, .06));
+  box-shadow: var(--shadow-sm);
+}
+
+.help-hero-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.help-hero-icon {
+  width: 2.875rem;
+  height: 2.875rem;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue);
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, .20);
+}
+
+.help-hero h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-main);
+}
+
+.help-hero p {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.help-hero-pill {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, .18);
+  background: rgba(37, 99, 235, .10);
+  color: var(--blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ─── 3. ACCESOS RÁPIDOS ─────────────────────────────────────── */
+.help-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* NOTA: la tarjeta .help-quick-card vive en components/cards.css */
+
+/* ─── 4. LAYOUT DE CONTENIDO ─────────────────────────────────── */
+.help-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, .95fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.help-column,
+.help-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.help-link {
+  border: none;
+  background: none;
+  color: var(--blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ─── 5. CATEGORÍAS ──────────────────────────────────────────── */
+.help-category-list,
+.help-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* NOTA: .help-category-item / -icon / -copy viven en components/cards.css */
+
+/* ─── 6. FAQ ─────────────────────────────────────────────────── */
+/* NOTA: .help-faq-item / -question / -answer viven en components/cards.css */
+
+.help-empty-state {
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  background: rgba(148, 163, 184, .06);
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+/* ─── 7. SIDEBAR DE SOPORTE Y TIPS ───────────────────────────── */
+.help-sidebar {
+  position: sticky;
+  top: 84px;
+}
+
+.help-support-grid {
+  display: grid;
+  gap: 10px;
+}
+
+/* NOTA: .help-support-card / -icon y las variantes .tone-* viven
+   en components/cards.css */
+
+.help-tips-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.help-tips-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.help-tips-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.help-tips-list span {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 99, 235, .12);
+  color: var(--blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.help-tips-list p {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+/* ─── 8. TEMA OSCURO ─────────────────────────────────────────── */
+.dark-theme .help-hero {
+  background: linear-gradient(135deg, rgba(37, 99, 235, .22), rgba(15, 23, 42, .98));
+  border-color: rgba(148, 163, 184, .16);
+}
+
+.dark-theme .help-hero-pill {
+  background: rgba(37, 99, 235, .16);
+  border-color: rgba(96, 165, 250, .28);
+  color: #bfdbfe;
+}
+
+/* ─── 9. RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .help-layout { grid-template-columns: 1fr; }
+  .help-sidebar { position: static; }
+  .help-quick-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .help-page { padding: 16px; }
+  .help-page.help-mobile { padding: 16px 16px 90px; }
+
+  .help-hero {
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .help-hero h1 { font-size: 1.5rem; }
+
+  .help-quick-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .help-quick-card {
+    min-height: 116px;
+    padding: 14px;
+  }
+
+  .help-panel { padding: 16px; }
+  .help-panel-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .help-category-item { padding: 12px 13px; }
+  .help-support-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .help-support-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+    min-height: 100px;
+  }
+
+  .help-support-card strong { font-size: 0.8125rem; }
+  .help-support-card small { font-size: 0.6875rem; }
+}
+
+@media (max-width: 480px) {
+  .help-quick-grid,
+  .help-support-grid { grid-template-columns: 1fr; }
+
+  .help-category-item { gap: 10px; }
+
+  /* Evitar overflow de texto en móvil */
+  .help-panel,
+  .help-quick-card,
+  .help-category-item,
+  .help-support-card,
+  .help-faq-answer,
+  .help-category-copy,
+  .help-panel-head p,
+  .help-hero p {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .help-panel-head span {
+    white-space: normal;
+  }
+
+  .help-hero {
+    flex-wrap: wrap;
+  }
+}
+
+/* Overrides fuertes en móvil: evitan solapamiento con sidebar y
+   desbordes de texto en la vista .help-mobile */
+@media (max-width: 600px) {
+  .help-page.help-mobile .help-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .help-page.help-mobile .help-sidebar {
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    top: auto !important;
+  }
+
+  .help-page.help-mobile .help-column {
+    width: 100% !important;
+  }
+
+  .help-page.help-mobile .help-category-list,
+  .help-page.help-mobile .help-quick-grid,
+  .help-page.help-mobile .help-support-grid {
+    width: 100% !important;
+  }
+
+  .help-page.help-mobile .help-category-item {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+  }
+
+  .help-page.help-mobile .help-category-copy {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+}

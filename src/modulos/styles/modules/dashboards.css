@@ -1,0 +1,146 @@
+/* ─── HOME DASHBOARD ────────────────────────────────────────── */
+.home-greeting { margin-bottom: 20px; }
+.home-greeting h1 { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
+.home-greeting h1 span { color: var(--green); }
+.home-greeting p { color: var(--text-muted); margin-top: 4px; font-size: 0.8438rem; }
+
+
+.home-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.home-empty-state {
+  padding: 18px;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  background: var(--white);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+}
+
+.home-row2,
+.home-row3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* módulos en home */
+.home-module-list { display: flex; flex-direction: column; gap: 8px; }
+
+/* proyectos en home */
+.home-proj-list { display: flex; flex-direction: column; gap: 10px; }
+
+/* historial en home */
+.home-hist-list { display: flex; flex-direction: column; gap: 8px; }
+
+/* acceso rápido */
+.home-acceso-list { display: flex; flex-direction: column; gap: 8px; }
+
+.mobile-greeting h2 { font-size: 1.375rem; font-weight: 700; color: var(--text-main); transition: color 0.3s ease; }
+.mobile-greeting p { font-size: 0.8438rem; color: var(--text-muted); margin-top: 2px;   transition: color 0.3s ease; }
+
+.mobile-greeting h2 span { color: var(--green); }
+
+.dark-theme .mobile-section-label .mobile-module-list { color: var(--text-muted); }
+
+.mobile-section-label {
+  font-size: 0.625rem; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 20px 0 10px;
+}
+
+.mobile-chevron { color: var(--text-light); font-size: 1rem; }
+
+/* ─── MOBILE STATS ROW ──────────────────────────────────────── */
+.mobile-stats-row {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 8px;
+  margin: 14px 0 4px;
+}
+
+.mobile-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* recent projects */
+.recent-section { margin-top: 24px; }
+.recent-header { display: flex; justify-content: space-between; align-items: center; }
+.recent-header span { font-size: 0.8125rem; color: var(--green); font-weight: 600; cursor: pointer; }
+
+/* ─── SALUDO DE PÁGINA (dashboard escritorio) ────────────────── */
+.page-greeting h1 { font-size: 1.625rem; font-weight: 700; color: var(--text-main); }
+.page-greeting h1 span { color: var(--green); }
+.page-greeting p { color: var(--text-muted); margin-top: 4px; font-size: 0.875rem; }
+
+/* ─── TÍTULO DE SECCIÓN DENTRO DE UN MÓDULO ──────────────────── */
+.modulo-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 12px;
+}
+
+/* ─── ETIQUETA DE MÓDULO (mantener negro en modo oscuro) ─────── */
+.dark-theme .home-module-item .module-label,
+.dark-theme .mobile-module-card .module-label { color: #000000 !important; }
+
+/* ─── LISTA DE MÓDULOS MÓVIL ─────────────────────────────────── */
+.mobile-module-list { display: flex; flex-direction: column; gap: 10px; }
+
+.mobile-module-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: box-shadow .15s;
+}
+.mobile-module-card:hover { box-shadow: var(--shadow-sm); }
+
+.mobile-module-card-icon {
+  width: 3rem; height: 3rem;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.mobile-module-card-icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+  display: block;
+}
+
+.mobile-module-card-info { flex: 1; }
+.mobile-module-card-info h4 { font-size: 0.9062rem; font-weight: 700; }
+.mobile-module-card-info p { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+.dark-theme .mobile-module-card-info h4 { color: var(--text-main); }
+
+/* ─── ENCABEZADOS DE SECCIÓN EN FORMULARIO MÓVIL ─────────────── */
+.mobile-section-h { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
+.mobile-section-sub { font-size: 0.7812rem; color: var(--text-muted); margin-bottom: 16px; }
+
+/* ─── VALORES DE LA FILA DE STATS MÓVIL ──────────────────────── */
+.mobile-stat-val { font-size: 1.125rem; font-weight: 700; }
+.mobile-stat-lbl { font-size: 0.625rem; color: var(--text-muted); font-weight: 500; }
+.mobile-stat-div { width: 0.0625rem; height: 1.75rem; background: var(--border); }

@@ -1,0 +1,113 @@
+/* ════════════════════════════════════════════════════════════════
+   NORMAS.CSS — Módulo Normas COVENIN
+   ────────────────────────────────────────────────────────────────
+   Vista de consulta de normas en escritorio y móvil: hero con
+   estadísticas, layout de dos columnas (grilla de documentos +
+   panel de detalle) y la ficha de detalle de cada norma.
+
+   REPARTO DE RESPONSABILIDADES (para no duplicar):
+   - Las tarjetas de documento (.normas-doc-card y variantes .tone-*),
+     el panel (.normas-panel), la ficha hero de detalle
+     (.normas-detail-hero / -icon) y la caja de fuente
+     (.normas-source-box) viven en components/cards.css.
+   - Los filtros (.normas-filters / .normas-filter) viven en
+     components/navigation.css.
+   - La barra de búsqueda (.normas-searchbar) vive en
+     components/forms.css.
+   - Aquí quedan: hero de página, layout, grilla de documentos,
+     tipografía del detalle y las variantes responsive/móvil.
+
+   ÍNDICE
+   1. Hero de página
+   2. Layout de dos columnas
+   3. Grilla de documentos
+   4. Detalle de la norma (tipografía)
+   5. Responsive / móvil
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── 1. HERO DE PÁGINA ──────────────────────────────────────── */
+.normas-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 26px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(37,99,235,.10), rgba(29,185,84,.06));
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+}
+.normas-hero-main { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.normas-hero-icon {
+  width: 48px; height: 48px; border-radius: 16px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--blue); color: #fff; flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(37,99,235,.25);
+}
+.normas-hero h1 { font-size: 26px; font-weight: 800; line-height: 1.1; color: var(--text-main); }
+.normas-hero p  { margin-top: 4px; color: var(--text-muted); font-size: 13.5px; line-height: 1.45; }
+.normas-hero-stats { display: flex; gap: 20px; flex-shrink: 0; }
+.normas-hero-stats > div {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 10px 18px; border-radius: 14px;
+  background: rgba(37,99,235,.08); border: 1px solid rgba(37,99,235,.15);
+}
+.normas-hero-stats strong { font-size: 26px; font-weight: 800; color: var(--blue); line-height: 1; }
+.normas-hero-stats span   { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+
+.dark-theme .normas-hero {
+  background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(15,23,42,.98));
+  border-color: rgba(148,163,184,.16);
+}
+
+/* ─── 2. LAYOUT DE DOS COLUMNAS ──────────────────────────────── */
+.normas-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(300px, .9fr);
+  gap: 18px; align-items: start;
+}
+.normas-column, .normas-sidebar { display: flex; flex-direction: column; gap: 18px; }
+.normas-sidebar { position: sticky; top: 84px; }
+
+/* ─── 3. GRILLA DE DOCUMENTOS ────────────────────────────────── */
+.normas-doc-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 14px; }
+
+/* ─── 4. DETALLE DE LA NORMA (tipografía) ────────────────────── */
+.normas-detail { display: flex; flex-direction: column; gap: 14px; }
+.normas-detail-hero strong { font-size: 14px; font-weight: 800; color: var(--text-main); display: block; }
+.normas-detail-hero p      { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+.normas-detail h4 { font-size: 15px; font-weight: 700; color: var(--text-main); line-height: 1.35; }
+.normas-detail-copy { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+.normas-detail-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+.normas-action-row { display: flex; gap: 10px; padding-top: 4px; }
+
+/* ─── 5. RESPONSIVE / MÓVIL ──────────────────────────────────── */
+@media (max-width: 1100px) {
+  .normas-layout { grid-template-columns: 1fr; }
+  .normas-sidebar { position: static; }
+}
+
+@media (max-width: 768px) {
+  .normas-hero { flex-direction: column; align-items: flex-start; padding: 16px; }
+  .normas-hero h1 { font-size: 22px; }
+  .normas-hero-stats { width: 100%; }
+  .normas-doc-grid { grid-template-columns: 1fr; }
+}
+
+/* Ajustes específicos de la vista móvil (.normas-mobile) */
+.normas-mobile .normas-hero { margin-bottom: 14px; }
+.normas-mobile .normas-filters {
+  overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(29,185,84,.45) transparent;
+}
+.normas-mobile .normas-filters::-webkit-scrollbar { height: 4px; }
+.normas-mobile .normas-filters::-webkit-scrollbar-track { background: transparent; }
+.normas-mobile .normas-filters::-webkit-scrollbar-thumb { background: rgba(29,185,84,.45); border-radius: 999px; }
+.normas-mobile .normas-filters::-webkit-scrollbar-thumb:hover { background: var(--green); }
+.normas-mobile .normas-filter { flex-shrink: 0; }
+.normas-mobile .normas-layout { grid-template-columns: 1fr; gap: 14px; }
+.normas-mobile .normas-doc-grid { grid-template-columns: 1fr; gap: 10px; }
+.normas-mobile .normas-panel { padding: 16px; border-radius: 16px; }
+.normas-mobile .normas-sidebar { position: static; }

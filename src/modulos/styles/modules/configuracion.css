@@ -1,0 +1,242 @@
+/* ===========================
+   CONFIGURACIÓN
+=========================== */
+
+.settings-page {
+  padding: 28px;
+  min-height: calc(100vh - 64px);
+  background: var(--bg);
+}
+
+.settings-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  min-height: calc(100vh - 64px - 56px);
+}
+
+
+.settings-content {
+  min-width: 0;
+  display: flex;
+}
+
+.settings-card {
+  padding: 20px;
+  width: 100%;
+  min-height: 100%;
+}
+
+.settings-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.settings-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.settings-summary-item {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.settings-summary-item strong {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.settings-summary-item span {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+
+.settings-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.settings-feature {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settings-feature strong { font-size: 0.875rem; }
+
+.settings-feature small {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.mobile-settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mobile-settings-banner { padding: 16px; }
+
+
+.mobile-settings-banner strong {
+  display: block;
+  font-size: 0.9375rem;
+  margin-bottom: 6px;
+}
+
+.mobile-settings-banner p {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.mobile-settings-card { padding: 16px; }
+
+/* ─── NAVEGACIÓN LATERAL (estados) ───────────────────────────── */
+/* Base .settings-nav / .settings-nav-item viven en components/navigation.css */
+.settings-nav-item:hover { background: rgba(37, 99, 235, .06); }
+
+.settings-nav-item.active {
+  background: rgba(37, 99, 235, .10);
+  border-color: rgba(37, 99, 235, .20);
+}
+
+.settings-nav-item-copy strong,
+.settings-row-title,
+.settings-card-title h3 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.settings-nav-item-copy small,
+.settings-row-subtitle,
+.settings-card-title p {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  line-height: 1.35;
+}
+
+/* ─── FILA DE AJUSTE (.settings-row) ─────────────────────────── */
+.settings-row-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.settings-row-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.settings-row-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+/* ─── SEGMENTOS Y TOGGLES (estados) ──────────────────────────── */
+/* Base .settings-segment / .settings-toggle viven en
+   components/navigation.css y components/forms.css */
+.settings-segment:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.settings-segment.active {
+  background: rgba(37, 99, 235, .16);
+  border-color: rgba(37, 99, 235, .35);
+  color: var(--blue);
+}
+
+.settings-toggle.checked {
+  background: var(--green);
+  justify-content: flex-end;
+}
+
+/* ─── ACCIONES DESTRUCTIVAS ──────────────────────────────────── */
+.danger-btn:hover { background: rgba(220, 38, 38, .08); }
+
+.settings-row.destructive .settings-row-title,
+.settings-row.destructive .settings-row-subtitle { color: #dc2626; }
+
+/* ─── AJUSTES MÓVIL ──────────────────────────────────────────── */
+.mobile-settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-settings-card .settings-row { align-items: flex-start; }
+.mobile-settings-card .settings-segmented { justify-content: flex-start; }
+.mobile-settings-card .settings-row + .settings-divider { margin: 14px 0; }
+
+/* ─── TEMA OSCURO ────────────────────────────────────────────── */
+.dark-theme .settings-page { background: var(--navy); }
+
+.dark-theme .settings-nav,
+.dark-theme .settings-card,
+.dark-theme .mobile-settings-card,
+.dark-theme .mobile-settings-banner,
+.dark-theme .settings-summary-item,
+.dark-theme .settings-feature { background: #111827; }
+
+.dark-theme .settings-nav-item.active,
+.dark-theme .settings-segment.active {
+  background: rgba(96, 165, 250, .16);
+  border-color: rgba(96, 165, 250, .30);
+}
+
+.dark-theme .settings-card-icon,
+.dark-theme .settings-row-icon {
+  background: rgba(96, 165, 250, .10);
+  color: #93c5fd;
+}
+
+.dark-theme .settings-pill.success {
+  color: #86efac;
+  background: rgba(34, 197, 94, .12);
+  border-color: rgba(34, 197, 94, .30);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .settings-page { padding: 16px; }
+  .settings-nav { display: none; }
+  .settings-shell { grid-template-columns: 1fr; }
+  .settings-card { padding: 16px; }
+  .settings-row { flex-direction: column; align-items: stretch; }
+  .settings-summary,
+  .settings-feature-grid { grid-template-columns: 1fr; }
+}
+

@@ -1,0 +1,71 @@
+/* Cards de resistencia */
+.conc-mix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+/* Fila de mezcla seleccionada */
+.conc-ratio-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: var(--orange-light);
+  border: 1px solid #FED7AA;
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  margin-top: 12px;
+}
+
+.conc-ratio-lbl  { font-size: 0.75rem; color: #92400E; font-weight: 500; }
+.conc-ratio-val  { font-size: 0.9375rem; font-weight: 700; color: #C2410C; }
+.conc-ratio-sep  { font-size: 1.125rem; color: var(--orange); font-weight: 700; }
+.conc-ratio-fc   { margin-left: auto; font-size: 0.6875rem; color: #92400E; font-weight: 500; }
+
+/* Grid de resultados */
+.conc-res-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.conc-res-cell {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  transition: all .2s;
+}
+
+.conc-res-cell.calculado {
+  background: var(--orange-light);
+  border-color: #FED7AA;
+}
+
+.conc-res-label {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.conc-res-cell.calculado .conc-res-label { color: #92400E; }
+
+.conc-res-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1.1;
+}
+
+.conc-res-cell.calculado .conc-res-val { color: #C2410C; }
+
+.conc-res-unit {
+  font-size: 0.6562rem;
+  color: var(--text-light);
+  margin-top: 3px;
+}
+
+.conc-res-cell.calculado .conc-res-unit { color: #92400E; }
