@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CivCalPro — Base de Conocimiento</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="kb-mobile-topbar">
+  <button id="mobileMenuBtn" aria-label="Abrir menú">☰</button>
+  <strong id="mobileTitle">CivCalPro Docs</strong>
+</div>
+<div class="kb-overlay" id="kbOverlay"></div>
+
+<div class="kb-app">
+
+  <aside class="kb-sidebar" id="kbSidebar">
+    <div class="kb-brand">
+      <div class="kb-brand-icon">CP</div>
+      <div class="kb-brand-text">
+        <strong>CivCalPro</strong>
+        <span>Base de conocimiento</span>
+      </div>
+      <button class="kb-collapse-btn" id="collapseBtn" title="Colapsar/expandir">⟨⟩</button>
+    </div>
+
+    <div class="kb-search-box">
+      <input type="text" id="globalSearch" placeholder="Buscar (Ctrl+K)" autocomplete="off">
+      <div class="kb-search-results" id="searchResults"></div>
+    </div>
+
+    <nav class="kb-nav" id="kbNav">
+      <!-- generado por app.js -->
+    </nav>
+
+    <div class="kb-sidebar-footer">
+      <button class="kb-theme-toggle" id="themeToggle">
+        <span id="themeIcon">🌙</span> <span id="themeLabel">Modo oscuro</span>
+      </button>
+      <div style="padding: 0 4px;">v1.0.0 · generado 2026-07-19</div>
+    </div>
+  </aside>
+
+  <main class="kb-main" id="kbMain">
+    <!-- generado por app.js según la ruta activa -->
+  </main>
+
+</div>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

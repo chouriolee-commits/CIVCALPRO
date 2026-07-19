@@ -37,6 +37,50 @@
   transition: background .15s, transform .15s, color .15s, border-color .15s;
 }
 
+/*boton de documentación / aprender civcalpro*/
+.learn-btn-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.learn-btn-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 100;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  padding: 6px;
+  min-width: 200px;
+  animation: learn-btn-pop .15s ease;
+}
+
+.learn-btn-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.learn-btn-option:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+@keyframes learn-btn-pop {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /*boton de paginación*/
 .page-btn {
     width: 28px;
@@ -141,6 +185,11 @@
   background: #1F2937;
   border-color: #475569;
   color: var(--text-main);
+}
+
+.dark-theme .learn-btn-popover {
+  background: #1F2937;
+  border-color: #475569;
 }
 
 .dark-theme .danger-btn { border-color: rgba(248, 113, 113, .45); }

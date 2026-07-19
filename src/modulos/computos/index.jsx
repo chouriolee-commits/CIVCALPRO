@@ -1,5 +1,6 @@
 import { Icon } from "../../components/common/Icon.jsx";
 import { ThemeToggleButton } from "../../components/ThemeToggleButton.jsx";
+import { LearnButton } from "../../components/LearnButton.jsx";
 import { useComputos } from "./useComputos.js";
 import { StepperComputos } from "./pasos/StepperComputos.jsx";
 import { Paso1Elemento } from "./pasos/Paso1Elemento.jsx";
@@ -79,6 +80,7 @@ export default function ModuloComputos({
           </button>
           <h2>Cómputos Métricos</h2>
           <div className="mobile-topbar-actions">
+            <LearnButton />
             <ThemeToggleButton
               darkMode={darkMode}
               setDarkMode={setDarkMode}

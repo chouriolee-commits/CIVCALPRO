@@ -1,4 +1,5 @@
 import { ThemeToggleButton } from "./ThemeToggleButton.jsx";
+import { LearnButton } from "./LearnButton.jsx";
 import { MODULES } from "../data/constants.js";
 
 export function Topbar({ title, darkMode, setDarkMode, activeModule }) {
@@ -41,6 +42,7 @@ export function Topbar({ title, darkMode, setDarkMode, activeModule }) {
       </div>
 
       <div className="topbar-right">
+        <LearnButton />
         <ThemeToggleButton darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
     </header>

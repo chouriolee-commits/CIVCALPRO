@@ -1,5 +1,6 @@
 import { Icon } from "./common/Icon.jsx";
 import { ThemeToggleButton } from "./ThemeToggleButton.jsx";
+import { LearnButton } from "./LearnButton.jsx";
 import { ModuloPendiente } from "./common/ModuloPendiente.jsx";
 import { MODULES } from "../data/constants.js";
 import ModuloComputos from "../modulos/computos/index.jsx";
@@ -37,6 +38,7 @@ export function MobileModuloRouter({ onBack, darkMode, setDarkMode, moduloKey })
       </button>
       <h2>{tituloHeader}</h2>
       <div className="mobile-topbar-actions">
+        <LearnButton />
         <ThemeToggleButton
           darkMode={darkMode}
           setDarkMode={setDarkMode}

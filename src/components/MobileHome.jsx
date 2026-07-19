@@ -2,6 +2,7 @@ import { Fragment, useState } from "react";
 import logoImg from "../assets/img/civcalprologo.png";
 import { Icon } from "./common/Icon.jsx";
 import { ThemeToggleButton } from "./ThemeToggleButton.jsx";
+import { LearnButton } from "./LearnButton.jsx";
 import { getDisplayValue } from "../utils/format.js";
 import { MODULES } from "../data/constants.js";
 
@@ -47,6 +48,7 @@ export function MobileHome({ onNavigate, darkMode, setDarkMode, dashboardData })
           </strong>
         </div>
         <div className="mobile-topbar-actions">
+          <LearnButton />
           <ThemeToggleButton darkMode={darkMode} setDarkMode={setDarkMode} />
         </div>
       </header>

@@ -217,4 +217,8 @@ export const ICON_PATHS = {
     ["rect", { x: "15", y: "13", width: "3", height: "3", fill: "none", stroke: "currentColor", strokeWidth: "1.5" }],
     ["line", { x1: "4", y1: "20", x2: "20", y2: "20", stroke: "currentColor", strokeWidth: "2" }],
   ],
+  code: [
+    ["polyline", { points: "9 8 4 12 9 16", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }],
+    ["polyline", { points: "15 8 20 12 15 16", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }],
+  ],
 };
