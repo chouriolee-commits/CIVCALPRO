@@ -248,6 +248,7 @@
   border-radius: 18px;
   padding: 18px;
   box-shadow: var(--shadow-sm);
+  min-width: 0;
 }
 
 .proy-stat-label {
@@ -289,7 +290,14 @@
   gap: 10px;
 }
 
-.proy-card-title { font-size: 0.875rem; font-weight: 700; color: var(--text-main); }
+.proy-card-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .proy-card-meta  { font-size: 0.75rem; color: var(--text-muted); }
 
 .proy-progress-bar {

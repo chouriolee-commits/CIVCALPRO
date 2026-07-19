@@ -81,3 +81,15 @@
 }
 
 .est-empty p { font-size: 0.8125rem; max-width: 320px; }
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .est-act-grid { grid-template-columns: repeat(2, 1fr); }
+  .est-resumen { flex-wrap: wrap; }
+  .est-resumen-cell { flex: 1 1 calc(50% - 5px); }
+}
+
+@media (max-width: 420px) {
+  .est-act-grid { grid-template-columns: 1fr 1fr; }
+  .est-act-btn { padding: 10px 4px; font-size: 0.8125rem; }
+}

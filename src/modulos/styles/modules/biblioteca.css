@@ -151,3 +151,10 @@
   border-top: 1px solid var(--border);
   margin-top: 2px;
 }
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .bib-layout { grid-template-columns: 1fr; }
+  .bib-props-grid { grid-template-columns: 1fr; }
+  .bib-action-row { flex-direction: column; }
+}

@@ -69,3 +69,14 @@
 }
 
 .conc-res-cell.calculado .conc-res-unit { color: #92400E; }
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .conc-mix-grid { grid-template-columns: 1fr; }
+  .conc-res-grid { grid-template-columns: repeat(2, 1fr); }
+  .conc-ratio-fc { margin-left: 0; }
+}
+
+@media (max-width: 420px) {
+  .conc-res-grid { grid-template-columns: 1fr; }
+}

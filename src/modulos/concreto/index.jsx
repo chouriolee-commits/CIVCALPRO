@@ -58,10 +58,7 @@ export default function ModuloConcreto() {
         <div className="modulo-section-title" style={{ marginTop: 18 }}>
           2. Volumen y datos del proyecto
         </div>
-        <div
-          className="form-grid"
-          style={{ gridTemplateColumns: "repeat(3, 1fr)" }}
-        >
+        <div className="form-grid form-grid-3">
           <div className="form-field">
             <label>Volumen de concreto (m³)</label>
             <input

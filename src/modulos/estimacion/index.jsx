@@ -46,10 +46,7 @@ export default function ModuloEstimacion() {
         <div className="modulo-section-title" style={{ marginTop: 18 }}>
           2. Datos de la actividad
         </div>
-        <div
-          className="form-grid"
-          style={{ gridTemplateColumns: "repeat(4, 1fr)" }}
-        >
+        <div className="form-grid form-grid-4">
           {actividad?.campos.map((c) => (
             <div key={c.id} className="form-field">
               <label>{c.label}</label>
