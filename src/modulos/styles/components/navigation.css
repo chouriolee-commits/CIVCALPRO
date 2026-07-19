@@ -55,7 +55,7 @@
 /* mobile stepper */
 .mobile-stepper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 14px 16px;
   background: var(--white);
   border-bottom: 1px solid var(--border);

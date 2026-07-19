@@ -8,7 +8,6 @@ export function Paso1Elemento({ state, dispatch, mobile }) {
   if (mobile) {
     return (
       <>
-        <div className="mobile-section-h">1. Seleccionar elemento</div>
         <div className="mobile-section-sub">
           Elige el tipo de elemento que deseas calcular
         </div>
