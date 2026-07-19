@@ -34,3 +34,18 @@ export const PASOS = [
   { num: 3, label: "Resultados", sub: "Visualiza los resultados del cálculo" },
   { num: 4, label: "Guardar", sub: "Guarda el cómputo en tu proyecto" },
 ];
+
+// Elementos con formulario de dimensiones implementado; el resto muestra
+// un aviso de "próximamente" en el paso 2 sin bloquear la navegación.
+export const ELEMENTOS_DISPONIBLES = ["columna"];
+
+export const RESISTENCIAS_CONCRETO = [
+  { id: "f180", label: "f'c = 180 kg/cm²" },
+  { id: "f210", label: "f'c = 210 kg/cm²" },
+  { id: "f240", label: "f'c = 240 kg/cm²" },
+];
+
+export const TIPOS_REFUERZO = [
+  { id: "longitudinal", label: "Barra longitudinal" },
+  { id: "estribo", label: "Estribo" },
+];

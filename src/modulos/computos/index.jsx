@@ -1,7 +1,18 @@
 import { Icon } from "../../components/common/Icon.jsx";
 import { ThemeToggleButton } from "../../components/ThemeToggleButton.jsx";
-import { ELEMENTOS, PASOS } from "./computos.data.js";
 import { useComputos } from "./useComputos.js";
+import { StepperComputos } from "./pasos/StepperComputos.jsx";
+import { Paso1Elemento } from "./pasos/Paso1Elemento.jsx";
+import { Paso2Dimensiones } from "./pasos/Paso2Dimensiones.jsx";
+import { Paso3Resultados } from "./pasos/Paso3Resultados.jsx";
+import { Paso4Guardar } from "./pasos/Paso4Guardar.jsx";
+
+const TITULOS_PASO = {
+  1: "Seleccionar elemento a calcular",
+  2: "Ingresar dimensiones y configuración",
+  3: "Resultados del cómputo",
+  4: "Guardar cómputo",
+};
 
 export default function ModuloComputos({
   mobile = false,
@@ -10,19 +21,54 @@ export default function ModuloComputos({
   setDarkMode,
 }) {
   const {
-    elemento,
-    setElemento,
-    largo,
-    setLargo,
-    ancho,
-    setAncho,
-    altura,
-    setAltura,
-    cantidad,
-    setCantidad,
-    volUnitario,
-    volTotal,
+    state,
+    dispatch,
+    validacionPaso1,
+    validacionPaso2,
+    irSiguiente,
+    irAtras,
+    irAPaso,
+    guardarComputo,
+    nuevoCalculo,
   } = useComputos();
+
+  function renderPaso() {
+    if (state.paso === 1) return <Paso1Elemento state={state} dispatch={dispatch} mobile={mobile} />;
+    if (state.paso === 2) return <Paso2Dimensiones state={state} dispatch={dispatch} mobile={mobile} />;
+    if (state.paso === 3) return <Paso3Resultados resultados={state.resultados} mobile={mobile} />;
+    return (
+      <Paso4Guardar
+        state={state}
+        dispatch={dispatch}
+        onGuardar={guardarComputo}
+        nuevoCalculo={nuevoCalculo}
+        mobile={mobile}
+      />
+    );
+  }
+
+  const puedeAvanzar =
+    state.paso === 1 ? validacionPaso1.valido : state.paso === 2 ? validacionPaso2.valido : true;
+
+  const accionesRow = () => {
+    if (state.paso === 4 || state.guardadoOk) return null;
+
+    return (
+      <div className={mobile ? "mobile-action-row" : "action-row"} style={mobile ? {} : { marginTop: 18 }}>
+        {state.paso > 1 && (
+          <button className="btn btn-ghost" onClick={irAtras}>
+            <Icon name="back" size={15} /> Atrás
+          </button>
+        )}
+        {state.paso === 1 && <button className="btn btn-ghost" onClick={nuevoCalculo}>
+          <Icon name="trash" size={15} /> Limpiar
+        </button>}
+        <button className="btn btn-green" onClick={irSiguiente} disabled={!puedeAvanzar}>
+          {state.paso === 3 ? "Continuar" : "Siguiente"} <Icon name="arrow_r" size={15} />
+        </button>
+      </div>
+    );
+  };
 
   if (mobile) {
     return (
@@ -43,114 +89,12 @@ export default function ModuloComputos({
             </button>
           </div>
         </header>
-        <div className="mobile-stepper">
-          {PASOS.map((p, i) => (
-            <div key={p.num} className={`mobile-step ${i === 0 ? "active" : ""}`}>
-              <div className="mobile-step-num">{p.num}</div>
-              <div className="mobile-step-label">{p.label}</div>
-            </div>
-          ))}
-        </div>
+        <StepperComputos paso={state.paso} mobile />
         <div className="mobile-form-content">
-          <div className="mobile-section-h">1. Seleccionar elemento</div>
-          <div className="mobile-section-sub">
-            Elige el tipo de elemento que deseas calcular
-          </div>
-          <div className="mobile-element-grid">
-            {ELEMENTOS.map((el) => (
-              <button
-                key={el.id}
-                className={`mobile-element-btn ${elemento === el.id ? "active" : ""}`}
-                onClick={() => setElemento(el.id)}
-              >
-                <span className="mobile-element-btn-icon">
-                  <img src={el.iconSrc} alt={el.label} />
-                </span>
-                {el.label}
-              </button>
-            ))}
-          </div>
-          <div className="mobile-section-h">2. Ingresar dimensiones</div>
-          <div className="mobile-section-sub" style={{ marginBottom: 14 }}>
-            Ingresa las medidas requeridas
-          </div>
-          <div className="mobile-form-grid">
-            <div className="mobile-field">
-              <label>Largo (m)</label>
-              <input
-                type="number"
-                value={largo}
-                step="0.01"
-                onChange={(e) => setLargo(e.target.value)}
-              />
-            </div>
-            <div className="mobile-field">
-              <label>Ancho (m)</label>
-              <input
-                type="number"
-                value={ancho}
-                step="0.01"
-                onChange={(e) => setAncho(e.target.value)}
-              />
-            </div>
-            <div className="mobile-field">
-              <label>Altura (m)</label>
-              <input
-                type="number"
-                value={altura}
-                step="0.01"
-                onChange={(e) => setAltura(e.target.value)}
-              />
-            </div>
-            <div className="mobile-field">
-              <label>Cantidad</label>
-              <input
-                type="number"
-                value={cantidad}
-                min="1"
-                onChange={(e) => setCantidad(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="mobile-form-grid full">
-            <div className="mobile-field">
-              <label>Proyecto</label>
-              <select defaultValue="edificio">
-                <option value="edificio">
-                  Edificio Residencial - Santa Marta
-                </option>
-                <option value="otro">Otro proyecto</option>
-              </select>
-            </div>
-            <div className="mobile-field">
-              <label>Nivel / Piso</label>
-              <select defaultValue="nivel1">
-                <option value="nivel1">Nivel 1</option>
-                <option value="nivel2">Nivel 2</option>
-              </select>
-            </div>
-          </div>
-          <div className="mobile-result-box">
-            <div className="mobile-result-cell">
-              <label>Volumen unitario</label>
-              <div className="val val-secondary">
-                {volUnitario.toFixed(2)} m³
-              </div>
-            </div>
-            <div className="mobile-result-cell">
-              <label>Volumen total</label>
-              <div className="val">{volTotal.toFixed(2)} m³</div>
-            </div>
-          </div>
+          <div className="mobile-section-h">{TITULOS_PASO[state.paso]}</div>
+          {renderPaso()}
         </div>
-        <div className="mobile-action-row">
-          <button className="btn btn-ghost">
-            <Icon name="trash" size={15} /> Limpiar
-          </button>
-          <button className="btn btn-green">
-            Siguiente <Icon name="arrow_r" size={15} />
-          </button>
-        </div>
+        {accionesRow()}
       </>
     );
   }
@@ -166,116 +110,11 @@ export default function ModuloComputos({
         </p>
       </div>
       <div className="module-preview">
-        <div className="stepper-sidebar">
-          <div className="stepper-sidebar-title">1. Cómputos Métricos</div>
-          {PASOS.map((p) => (
-            <div
-              key={p.num}
-              className={`stepper-step ${p.num === 1 ? "active" : ""}`}
-            >
-              <div className="step-num">{p.num}</div>
-              <div className="step-info">
-                <strong>{p.label}</strong>
-                <small>{p.sub}</small>
-              </div>
-            </div>
-          ))}
-        </div>
+        <StepperComputos paso={state.paso} onIrAPaso={irAPaso} />
         <div className="preview-content">
-          <h2>Seleccionar elemento a calcular</h2>
-          <p>
-            Elige el tipo de elemento que deseas calcular para tu cómputo
-            métrico.
-          </p>
-          <div className="element-selector">
-            {ELEMENTOS.map((el) => (
-              <button
-                key={el.id}
-                className={`element-btn ${elemento === el.id ? "active" : ""}`}
-                onClick={() => setElemento(el.id)}
-              >
-                <span className="element-btn-icon">
-                  <img src={el.iconSrc} alt={el.label} />
-                </span>
-                {el.label}
-              </button>
-            ))}
-          </div>
-          <div className="form-section-title">Datos del elemento</div>
-          <div className="form-grid">
-            <div className="form-field">
-              <label>Proyecto</label>
-              <select defaultValue="edificio">
-                <option value="edificio">
-                  Edificio Residencial - Santa Marta
-                </option>
-                <option value="otro">Otro proyecto</option>
-              </select>
-            </div>
-            <div className="form-field">
-              <label>Nivel / Piso</label>
-              <select defaultValue="nivel1">
-                <option value="nivel1">Nivel 1</option>
-                <option value="nivel2">Nivel 2</option>
-                <option value="nivel3">Nivel 3</option>
-              </select>
-            </div>
-          </div>
-          <div className="form-grid form-grid-4">
-            <div className="form-field">
-              <label>Largo (m)</label>
-              <input
-                type="number"
-                value={largo}
-                step="0.01"
-                onChange={(e) => setLargo(e.target.value)}
-              />
-            </div>
-            <div className="form-field">
-              <label>Ancho (m)</label>
-              <input
-                type="number"
-                value={ancho}
-                step="0.01"
-                onChange={(e) => setAncho(e.target.value)}
-              />
-            </div>
-            <div className="form-field">
-              <label>Altura (m)</label>
-              <input
-                type="number"
-                value={altura}
-                step="0.01"
-                onChange={(e) => setAltura(e.target.value)}
-              />
-            </div>
-            <div className="form-field">
-              <label>Cantidad</label>
-              <input
-                type="number"
-                value={cantidad}
-                min="1"
-                onChange={(e) => setCantidad(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="result-bar">
-            <span className="result-bar-left">
-              Volumen unitario:&nbsp;&nbsp;
-              <strong>{volUnitario.toFixed(2)} m³</strong>
-            </span>
-            <span className="result-bar-right">
-              Volumen total: {volTotal.toFixed(2)} m³
-            </span>
-          </div>
-          <div className="action-row">
-            <button className="btn btn-ghost">
-              <Icon name="trash" size={15} /> Limpiar
-            </button>
-            <button className="btn btn-green">
-              <Icon name="calc" size={15} /> Calcular
-            </button>
-          </div>
+          <h2>{TITULOS_PASO[state.paso]}</h2>
+          {renderPaso()}
+          {accionesRow()}
         </div>
       </div>
     </div>
