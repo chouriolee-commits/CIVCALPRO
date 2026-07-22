@@ -25,9 +25,27 @@ import { useUser } from "./hooks/useUser.js";
 import { getLocalStorageUsage } from "./utils/storage.js";
 import { MODULES, EMPTY_DASHBOARD, FONT_SCALES, DEFAULT_SETTINGS, DEFAULT_USER, SETTINGS_KEY, USER_KEY, THEME_KEY } from "./data/constants.js";
 
+// Deep-link: /?modulo=<key> abre la app directamente en ese módulo.
+// Lo usan los botones "Explorar módulo" de la landing page.
+const getInitialModule = () => {
+  const key = new URLSearchParams(window.location.search).get("modulo");
+  const validKeys = [
+    ...MODULES.map((m) => m.key),
+    "proyectos",
+    "historial",
+    "reportes",
+    "normas",
+  ];
+  return key && validKeys.includes(key) ? key : "inicio";
+};
+
 export default function App() {
-  const [activeModule, setActiveModule] = useState("inicio");
-  const [mobileView, setMobileView] = useState("home");
+  const [activeModule, setActiveModule] = useState(getInitialModule);
+  const [mobileView, setMobileView] = useState(() =>
+    window.innerWidth <= 768 && getInitialModule() !== "inicio"
+      ? "modulo"
+      : "home",
+  );
 
   const [settings, setSettings] = useSettings();
   const { darkMode, setDarkMode } = useTheme(settings, setSettings);
